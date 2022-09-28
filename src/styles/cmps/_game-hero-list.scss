@@ -1,0 +1,42 @@
+.game-hero-list {
+    margin-block-end: 4em;
+    color: #aaaaaa;
+
+    h1 {
+        line-height: 46px;
+        font-size: 32px;
+    }
+    
+    h4 {
+        
+        font-size: 18px;
+    }
+    
+    span {
+        font-weight: 700;
+    }
+    
+    ul {
+        margin-block-start: 2em;
+        :hover {
+            transform: scale(1.01);
+            transition: 0.5s;
+        }
+
+        // display: grid;
+        // // grid-template-columns: 1fr 1fr 1fr 1fr;
+        // grid-template-columns: repeat(auto-fill, minmax(330px, 375px));
+        // grid-template-rows: 1fr;
+        // gap: 18px;
+        display: flex;
+        justify-content: space-between;
+
+
+        .btns-container {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+    }
+}

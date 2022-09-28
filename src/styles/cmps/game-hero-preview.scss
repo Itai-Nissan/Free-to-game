@@ -1,0 +1,26 @@
+.game-hero-preview {
+    position: relative;
+    // margin-block-start: 2em;
+
+    max-height: 200px;
+    width: 395px;
+    
+    .to-game-details {
+        position: relative;
+        
+        
+    }
+
+    .game-hero-free {
+        background-color: #4799eb;
+        color: $fontColor1;
+        padding: 0.5em;
+        font-family: 'Lucida Grande', Verdana, sans-serif;
+        font-size: 0.8em;
+        font-weight: 400;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 18px;
+        right: 20px;
+    }
+}

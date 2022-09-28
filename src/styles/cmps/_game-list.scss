@@ -1,0 +1,25 @@
+.game-list {
+    // padding-inline-end: 15px;
+
+    ul {
+        :hover {
+            transform: scale(1.01);
+            transition: 0.5s;
+        }
+
+        display: grid;
+        // grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(230px,290px));
+        grid-template-rows: auto;
+        gap: 22px;
+        justify-content: space-between;
+
+        .btns-container {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}

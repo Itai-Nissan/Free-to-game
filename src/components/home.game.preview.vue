@@ -1,0 +1,45 @@
+<template>
+  <RouterLink class="" :to="`/game-details/${game.id}`">
+    <section class="home-game-preview">
+      <img v-bind:src="game.thumbnail" alt="">
+      <div class="game-info">
+        <h3>{{game.title}}</h3>
+        <!-- <long-text-header :text="game.title"></long-text-header> -->
+        <h5>{{game.short_description}}</h5>
+        <!-- <long-text :text="game.short_description"></long-text> -->
+        <div class="game-footer">
+          <h5 class="genre">{{game.genre}}</h5>
+        </div>
+      </div>
+    </section>
+  </RouterLink>
+</template>
+
+<script>
+import longText from './long.text.vue'
+import longTextHeader from './long.text.header.vue'
+
+export default {
+  name: 'GamePreview',
+  props: {
+    game: {
+      type: Object,
+      required: true,
+      default: 12,
+    },
+  },
+  components: {
+    longText,
+    longTextHeader,
+  },
+  data() {
+    return {
+    };
+  },
+  created() {
+  },
+  methods: {},
+  computed: {},
+  unmounted() { },
+};
+</script>
