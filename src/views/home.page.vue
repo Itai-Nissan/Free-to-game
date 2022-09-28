@@ -31,7 +31,6 @@ export default {
 
   },
   mounted() {
-    console.log(this.$route.name)
     this.setFilter(this.filterBy)
 
   },
@@ -42,15 +41,12 @@ export default {
   },
   methods: {
     setFilter(filterBy) {
-      console.log(this.games);
       // this.filterBy = filterBy
       const copyFilter = JSON.parse(JSON.stringify(filterBy))
       this.$store.dispatch({
         type: "setFilterAct",
         filterBy: copyFilter,
       });
-      console.log(this.games);
-
     },
   },
   computed: {

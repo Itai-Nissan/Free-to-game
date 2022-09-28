@@ -1,5 +1,5 @@
 <template>
-  <section class="app-header container">
+  <section id="sticky" :class="{fixed: isFixed}" class="app-header container">
     <div class="logo">
       <RouterLink to="/">
         <img src="../assets/img/freetogame-logo.png" alt="">
@@ -17,9 +17,15 @@ export default {
   name: "AppHeader",
   components: {},
   data() {
-    return {};
+    return {
+      isFixed: true,
+    };
   },
-  created() { },
+  created() { 
+
+  },
+  mounted() {
+  },
   methods: {},
   computed: {},
   unmounted() { },

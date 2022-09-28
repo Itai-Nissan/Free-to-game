@@ -5,10 +5,15 @@ export default {
   state: {
     games: [],
     filterBy: null,
+    pageIdx: 0,
+    gamesLength: 0
   },
   getters: {
     games(state) {
       return JSON.parse(JSON.stringify(state.games));
+    },
+    gamesLength(state) {
+      return JSON.parse(JSON.stringify(state.gamesLength));
     },
     //   gamesToShow(state) {
     //     const gamesCopy = JSON.parse(JSON.stringify(state.games));
@@ -16,8 +21,11 @@ export default {
     //   },
   },
   mutations: {
-    setGames(state, { games }) {
-      state.games = games;
+    setGames(state, { gamesInfo }) {
+      state.games = gamesInfo.games
+    },
+    setGamesLength(state, { gamesInfo }) {
+      state.gamesLength = gamesInfo.gamesLength
     },
     //   removeGame(state, { id }) {
     //     const idx = state.games.findIndex((game) => game._id === id);
@@ -34,21 +42,42 @@ export default {
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy
     },
+    setPageToZero(state){
+      state.pageIdx = 0
+    },
+    setPage(state, pageDirection) {
+      let currDirection = pageDirection.pageWay
+      if (currDirection === 'next') state.pageIdx++
+      else if (currDirection === 'prev') {
+        if (state.pageIdx === 0) return
+        else state.pageIdx--
+      }
+    },
   },
   actions: {
     loadGames(context, state) {
-      // console.log(state.filterBy); // with proxy , state.filterBy is undifend
-      let filterBy = { ...context.state.filterBy }; // important use context.state.filterBy
+      let filterBy = { ...context.state.filterBy }
+      let pageIdx = { ...context.state }
+      let currPage = pageIdx.pageIdx
       //server side filter
       return gameService
-        .query(filterBy)
-        .then((games) => {
-          context.commit({ type: 'setGames', games });
+        .query(filterBy, currPage)
+        .then((gamesInfo) => {
+          context.commit({ type: 'setGames', gamesInfo })
+          context.commit({ type: 'setGamesLength', gamesInfo })
         })
         .catch((err) => {
           console.log('Error: cannot get games', err);
           throw err;
         });
+    },
+    nextPage({ commit, dispatch }, pageDirection) {
+      commit({ type: 'setPage', pageWay: pageDirection })
+      dispatch({ type: 'loadGames' })
+    },
+    prevPage({ commit, dispatch }, pageDirection) {
+      commit({ type: 'setPage', pageWay: pageDirection })
+      dispatch({ type: 'loadGames' })
     },
     // context.commit   payload.id
     // removeGame({ commit }, { id }) {
@@ -90,7 +119,8 @@ export default {
     },
     //set the filter and run the loadGames with the filter
     setFilterAct({ commit, dispatch }, { filterBy }) {
-      commit({ type: 'setFilter', filterBy });
+      commit({ type: 'setFilter', filterBy })
+      commit({ type: 'setPageToZero'})
       dispatch({ type: 'loadGames' });
     },
   },

@@ -1,7 +1,7 @@
 <template>
   <main class="main-app container">
-    <gameHero :games="games"/>
-    <gameFilter @set-filter="setFilter"/>
+    <gameHero :games="games" />
+    <gameFilter @set-filter="setFilter" />
     <gameList :games="games" />
     <!-- <gameList :games="games" @remove="removeGame" /> -->
   </main>
@@ -17,10 +17,11 @@ export default {
     gameList,
     gameFilter,
     gameHero
-},
-mounted(){
-},
-methods: {
+  },
+  mounted() {
+    window.scrollTo(0, 0)
+  },
+  methods: {
     setFilter(filterBy) {
       this.filterBy = filterBy;
       const copyFilter = JSON.parse(JSON.stringify(filterBy))

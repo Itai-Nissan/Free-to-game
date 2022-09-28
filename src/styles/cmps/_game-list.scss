@@ -1,5 +1,10 @@
 .game-list {
     // padding-inline-end: 15px;
+    .next-btn{
+        display: flex;
+        justify-content: space-between;
+        margin-block-end: 1em;
+    }
 
     ul {
         :hover {

@@ -48,7 +48,8 @@ export default {
     },
     computed: {
         gamesCount() {
-            return this.games.length
+            // return this.games.length
+            return this.$store.getters.gamesLength
         },
         sliceGames() {
             return this.games.reverse().slice(19, 22)

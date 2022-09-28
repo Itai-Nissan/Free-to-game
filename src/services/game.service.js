@@ -20,8 +20,9 @@ export default {
 
 
 
-function query(filterBy) {
-  return storageService.query(KEY, filterBy);
+function query(filterBy, pageIdx) {
+  // console.log(pageIdx)
+  return storageService.query(KEY, filterBy, pageIdx);
 }
 
 function getById(id) {

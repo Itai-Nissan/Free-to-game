@@ -1,9 +1,10 @@
 <template>
   <section v-if="game" class="game-details container">
     <h3>Game Details</h3>
+    <section class="details-info">
+      <h3>{{game.title}}</h3>
+    </section>
     <img v-bind:src="game.thumbnail" alt="">
-
-    <h3>{{game.title}}</h3>
     <h5>{{game.short_description}}</h5>
     <h5>Genre: {{game.genre}}</h5>
     <h5>By: {{game.publisher}}</h5>
@@ -22,7 +23,7 @@ export default {
       game: null,
     };
   },
-  async created() {
+  created() {
     const { id } = this.$route.params;
     this.$store
       .dispatch({
@@ -34,7 +35,12 @@ export default {
       })
     // .catch(() => showMsg(`Cannot get game`, 'danger'));
   },
-  methods: {},
+  mounted() {
+    window.scrollTo(0, 0)
+  },
+  methods: {
+
+  },
   // watch: {
   //   '$route.params.id'(id) {
   //     console.log('Changed to', id);

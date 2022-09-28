@@ -15,7 +15,7 @@ export default {
     data() {
         return {
             isMore: false,
-            longText: this.text.length > 18,
+            longText: this.text.length > 16,
         }
     },
     created() {
@@ -23,7 +23,7 @@ export default {
     methods: {},
     computed: {
         formatedText() {
-            return this.isMore ? this.text : this.text.slice(0, 18)
+            return this.isMore ? this.text : this.text.slice(0, 16)
         },
         readText() {
             return this.isMore ? ' Read Less' : ' Read more'

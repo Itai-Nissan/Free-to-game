@@ -6,7 +6,10 @@ export const storageService = {
   post,
   put,
   remove,
+  // nextPage,
 }
+
+const PAGE_SIZE = 24
 
 function filter(games, filterBy) {
   let filteredGames = games
@@ -26,6 +29,10 @@ function filter(games, filterBy) {
 
     if (filterBy.sortBy === 'release')
       filteredGames = filteredGames.sort((a, b) => {
+        //   if (a.release_date < b.release_date) {
+        //     return -1;
+        //   }
+        // })
         if (a.release_date < b.release_date) {
           return 1;
         }
@@ -59,29 +66,61 @@ function filter(games, filterBy) {
     }
   }
 
-  // const startIdx = gPageIdx * PAGE_SIZE
-  // filteredGames = filteredGames.slice(startIdx, startIdx + PAGE_SIZE)
   return filteredGames
 }
-async function query(entityType, filterBy) {
-  let games = JSON.parse(localStorage.getItem(entityType)) || []
 
+// function nextPage(pageIdx) {
+//   pageIdx++
+//   console.log('pageIdx');
+//   // if (pageIdx * PAGE_SIZE >= gCars.length) {
+//   //   pageIdx = 0
+//   // }
+// }
+// let pageIdx = 0
+
+async function query(entityType, filterBy, pageIdx) {
+  let games = JSON.parse(localStorage.getItem(entityType)) || []
+  let currPage = pageIdx
+  
+  
   if (!games.length) {
     games = getGames(entityType)
   }
-
+  
+  // FILTER
   if (!filterBy) filterBy = {}
   if (filterBy === {}) {
+    // currPage = 0
     return games
   }
   else {
     games = filter(games, filterBy)
   }
-  return Promise.resolve(games)
+  
+  // currPage = 0
+  console.log('pageIdx:',pageIdx)
+  console.log('currPage:',currPage)
+  let gamesLength = games.length
+
+  // PAGING
+  if (!currPage && currPage !== 0) return Promise.resolve(games)
+  else {
+    if (currPage * PAGE_SIZE >= games.length) {
+      currPage = 0
+    }
+    const startIdx = currPage * PAGE_SIZE
+    games = games.slice(startIdx, startIdx + PAGE_SIZE)
+  }
+
+  let gamesInfo = {
+    games,
+    gamesLength
+  }
+  return Promise.resolve(gamesInfo)
+  // return Promise.resolve(games, gamesLength)
 }
 
 async function getGames(entityType) {
-  console.log('yesen');
   let games = []
   const entities = {
     method: 'GET',
