@@ -52,7 +52,7 @@ export default {
             return this.$store.getters.gamesLength
         },
         sliceGames() {
-            return this.games.reverse().slice(19, 22)
+            return this.games.reverse().slice(0, 3)
         },
         currPage() {
             return this.$route.name

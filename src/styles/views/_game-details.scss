@@ -1,6 +1,11 @@
 .game-details {
   .game-info {
     // margin-top: 1rem;
+    img {
+      object-fit: contain;
+      width: 150px;
+      // margin-top: 1rem;
+    }
   }
 
   .details {
@@ -10,11 +15,6 @@
   }
 
 
-  img {
-    object-fit: contain;
-    width: rem(350px);
-    // margin-top: 1rem;
-  }
 
 
   font-size: 1.2rem;

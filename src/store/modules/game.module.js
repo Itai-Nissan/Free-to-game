@@ -15,6 +15,9 @@ export default {
     gamesLength(state) {
       return JSON.parse(JSON.stringify(state.gamesLength));
     },
+    currentPage(state) {
+      return JSON.parse(JSON.stringify(state.pageIdx));
+    },
     //   gamesToShow(state) {
     //     const gamesCopy = JSON.parse(JSON.stringify(state.games));
     //     return gamesCopy;
@@ -42,13 +45,21 @@ export default {
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy
     },
-    setPageToZero(state){
+    setPageToZero(state) {
       state.pageIdx = 0
     },
     setPage(state, pageDirection) {
+      let pageNumber = pageDirection.pageNumber - 1
       let currDirection = pageDirection.pageWay
-      if (currDirection === 'next') state.pageIdx++
-      else if (currDirection === 'prev') {
+
+      if (pageNumber || pageNumber === 0) {
+        state.pageIdx = pageNumber
+      }
+      if (currDirection === 'next') {
+        if ((state.pageIdx + 1) * 24 >= state.gamesLength) return
+        else state.pageIdx++
+      }
+      if (currDirection === 'prev') {
         if (state.pageIdx === 0) return
         else state.pageIdx--
       }
@@ -70,6 +81,10 @@ export default {
           console.log('Error: cannot get games', err);
           throw err;
         });
+    },
+    changePage({ commit, dispatch }, pageNumber) {
+      commit({ type: 'setPage', pageNumber })
+      dispatch({ type: 'loadGames' })
     },
     nextPage({ commit, dispatch }, pageDirection) {
       commit({ type: 'setPage', pageWay: pageDirection })
@@ -120,7 +135,7 @@ export default {
     //set the filter and run the loadGames with the filter
     setFilterAct({ commit, dispatch }, { filterBy }) {
       commit({ type: 'setFilter', filterBy })
-      commit({ type: 'setPageToZero'})
+      commit({ type: 'setPageToZero' })
       dispatch({ type: 'loadGames' });
     },
   },

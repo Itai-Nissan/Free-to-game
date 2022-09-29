@@ -1,6 +1,5 @@
 <template>
   <section v-if="game" class="game-details container">
-    <h3>Game Details</h3>
     <section class="details-info">
       <h3>{{game.title}}</h3>
     </section>

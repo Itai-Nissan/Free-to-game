@@ -1,20 +1,29 @@
 .game-list {
-    // padding-inline-end: 15px;
-    .next-btn{
+    .next-btn {
         display: flex;
-        justify-content: space-between;
         margin-block-end: 1em;
+        align-items: center;
+        justify-content: space-between;
+
+        .page-number{
+            display: flex;
+        }
+    }
+
+    h4 {
+        margin-inline-start: 1em;
+        margin-inline-end: 1em;
     }
 
     ul {
+        padding-inline-start: 0;
         :hover {
             transform: scale(1.01);
             transition: 0.5s;
         }
 
         display: grid;
-        // grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-columns: repeat(auto-fill, minmax(230px,290px));
+        grid-template-columns: repeat(auto-fill, minmax(230px, 290px));
         grid-template-rows: auto;
         gap: 22px;
         justify-content: space-between;

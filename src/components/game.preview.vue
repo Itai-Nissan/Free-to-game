@@ -8,7 +8,7 @@
       </div>
     </RouterLink>
     <div class="game-footer">
-      <h5>+</h5>
+      <button @click="onAddToCart">➕</button>
       <h5 class="genre">{{game.genre}}</h5>
     </div>
     <!-- <h5>{{game.release_date}}</h5> -->
@@ -39,7 +39,11 @@ export default {
   },
   created() {
   },
-  methods: {},
+  methods: {
+    onAddToCart(){
+      console.log('hi');
+    },
+  },
   computed: {},
   unmounted() { },
 };

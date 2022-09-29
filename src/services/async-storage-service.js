@@ -80,13 +80,12 @@ function filter(games, filterBy) {
 
 async function query(entityType, filterBy, pageIdx) {
   let games = JSON.parse(localStorage.getItem(entityType)) || []
-  let currPage = pageIdx
-  
-  
+
+
   if (!games.length) {
     games = getGames(entityType)
   }
-  
+
   // FILTER
   if (!filterBy) filterBy = {}
   if (filterBy === {}) {
@@ -96,18 +95,19 @@ async function query(entityType, filterBy, pageIdx) {
   else {
     games = filter(games, filterBy)
   }
-  
+
   // currPage = 0
-  console.log('pageIdx:',pageIdx)
-  console.log('currPage:',currPage)
+  // console.log('currPage:',currPage)
+  
+  // PAGING
+  let currPage = pageIdx
   let gamesLength = games.length
 
-  // PAGING
   if (!currPage && currPage !== 0) return Promise.resolve(games)
   else {
-    if (currPage * PAGE_SIZE >= games.length) {
-      currPage = 0
-    }
+    // if (currPage * PAGE_SIZE >= games.length) {
+    //   currPage = 0
+    // }
     const startIdx = currPage * PAGE_SIZE
     games = games.slice(startIdx, startIdx + PAGE_SIZE)
   }
@@ -117,7 +117,6 @@ async function query(entityType, filterBy, pageIdx) {
     gamesLength
   }
   return Promise.resolve(gamesInfo)
-  // return Promise.resolve(games, gamesLength)
 }
 
 async function getGames(entityType) {
