@@ -1,4 +1,6 @@
 .game-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   .game-info {
     // margin-top: 1rem;
     img {

@@ -20,6 +20,7 @@
 }
 
 .btn-basic-2 {
+  min-width: 60px;
   border: 1px solid #7a8288;
   font-weight: bold;
   color: #7a8288;
@@ -30,4 +31,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.btn-basic-2:hover {
+  transition: 0.2s;
+  background: $cta;
+  color: $backColor
+}
+
 

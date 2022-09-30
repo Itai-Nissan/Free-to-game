@@ -1,12 +1,45 @@
 .game-list {
-    .next-btn {
+    // .nav {
+    // >* {
+    //     cursor: pointer;
+    //     padding: 15px;
+
+    //     &.router-link-exact-active {
+    //         color: $cta;
+    //         box-shadow: 0 1px 0px 0 $cta;
+    //     }
+    // }
+    // }
+
+    .navigate-btn {
         display: flex;
         margin-block-end: 1em;
         align-items: center;
         justify-content: space-between;
 
-        .page-number{
-            display: flex;
+        .page-number {
+            button {
+                z-index: 0;
+                width: 20px;
+                text-align: center;
+                border-radius: 50px;
+                padding: 5px;
+
+            }
+            button:hover{
+                z-index: 200;
+                transition: 0.2s;
+                background: $cta;
+                color: $backColor
+              
+            }
+        }
+
+
+        .current-page {
+            transition: 0.2s;
+            background-color: $cta2;
+            color: $backColor
         }
     }
 
@@ -17,6 +50,7 @@
 
     ul {
         padding-inline-start: 0;
+
         :hover {
             transform: scale(1.01);
             transition: 0.5s;
@@ -28,12 +62,5 @@
         gap: 22px;
         justify-content: space-between;
 
-        .btns-container {
-            width: 100%;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
     }
 }

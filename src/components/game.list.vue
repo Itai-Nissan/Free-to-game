@@ -1,11 +1,11 @@
 <template>
   <section class="game-list container">
-    <div class="next-btn">
+    <div class="navigate-btn">
       <button class="btn-basic-2" v-on:click="onPrevPage">previous</button>
-      <!-- <h4>Current page: {{currentPage}}</h4> -->
-      <ul class="page-number" v-for="page in numberOfPages">
-        <paging-numbers @onChangePage="changePage" :text="page"></paging-numbers>
-      </ul>
+      <nav class="page-number" v-for="page in numberOfPages">
+        <paging-numbers @onChangePage="changePage" :page="{page, currentPage}">
+        </paging-numbers>
+      </nav>
       <!-- <h4>Number of pages: {{numberOfPages}}</h4> -->
       <button class="btn-basic-2" v-on:click="onNextPage">Next</button>
     </div>
@@ -31,11 +31,12 @@ export default {
     pagingNumbers,
   },
   data() {
-    return {};
+    return {
+    }
   },
   created() { },
   methods: {
-    changePage(e){
+    changePage(e) {
       this.$store.dispatch('changePage', e)
     },
     onNextPage() {

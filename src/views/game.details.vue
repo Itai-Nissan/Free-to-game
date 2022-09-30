@@ -1,22 +1,20 @@
 <template>
   <section v-if="game" class="game-details container">
-    <section class="details-info">
-      <h3>{{game.title}}</h3>
-    </section>
-    <img v-bind:src="game.thumbnail" alt="">
-    <h5>{{game.short_description}}</h5>
-    <h5>Genre: {{game.genre}}</h5>
-    <h5>By: {{game.publisher}}</h5>
-    <a :href="game.game_url">{{game.game_url}}</a>
+    <game-details-info :game="game" />
+    <game-details-play :game="game" />
   </section>
   <div v-else class="loading"></div>
 </template>
   
 <script>
-// import gameService from '../services/game-service.js';
+import gameDetailsInfo from '../components/game.details/game.details.info.vue';
+import gameDetailsPlay from '../components/game.details/game.details.play.vue';
 
 export default {
-  components: {},
+  components: {
+    gameDetailsInfo,
+    gameDetailsPlay,
+  },
   data() {
     return {
       game: null,
@@ -38,6 +36,17 @@ export default {
     window.scrollTo(0, 0)
   },
   methods: {
+    onGetGameById() {
+      this.$store
+        .dispatch({
+          type: 'getGameById',
+          gameId: +id,
+        })
+        .then((game) => {
+          this.game = game;
+        })
+
+    },
 
   },
   // watch: {

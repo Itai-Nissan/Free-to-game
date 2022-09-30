@@ -1,3 +1,10 @@
+option {
+    background-color: #3a3f44;
+    white-space: none;
+    border: none;
+    border-radius: 15px;
+}
+
 .game-filter {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -9,9 +16,9 @@
     justify-content: space-between;
 
     select {
+
         // margin: 50px;
         color: $fontColor1;
-        width: 150px;
         padding: 5px 35px 5px 5px;
         font-size: 16px;
         border: 0.5px solid $cta;
@@ -22,13 +29,33 @@
         // background: url(https://stackoverflow.com/favicon.ico) 96% / 15% no-repeat #EEE;
 
 
-        option {
-            background-color: #3a3f44;
-            white-space: none;
-            border: none;
-            border-radius: 15px;
-            
+    }
+
+    input {
+        color: $fontColor1;
+
+        background-color: $backColor;
+        border: 0.5px solid $cta;
+        box-shadow: none;
+        // border-bottom: 1px solid $clr4;
+        border-radius: 5px;
+        width: 100%;
+        padding: 5px 35px 5px 5px;
+        font-size: 16px;
+
+
+        &:hover {
+            box-shadow: none;
         }
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+    label {
+        color: #767e84;
     }
 
 
@@ -65,30 +92,5 @@
         box-shadow: none;
     }
 
-    input {
-        color: $fontColor1;
-
-        background-color: $backColor;
-        border: 0.5px solid $cta;
-        box-shadow: none;
-        // border-bottom: 1px solid $clr4;
-        border-radius: 5px;
-        width: 200px;
-        padding: 5px 35px 5px 5px;
-        font-size: 16px;
-
-
-        &:hover {
-            box-shadow: none;
-        }
-
-        &:focus {
-            outline: none;
-            box-shadow: none;
-        }
-    }
-    
-    label{
-        color: #767e84;
-    }
+   
 }
