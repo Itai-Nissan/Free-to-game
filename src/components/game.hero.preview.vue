@@ -14,7 +14,6 @@ export default {
         game: {
             type: Object,
             required: true,
-            //     default: 12,
         },
     },
     components: {},

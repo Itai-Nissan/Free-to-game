@@ -1,6 +1,5 @@
 <template>
     <p>{{formatedText}}<span v-if="!isMore && longText">...</span>
-        <!-- <span :style="readStyle" v-if="longText" @click="isMore=!isMore">{{readText}} </span> -->
     </p>
 
 </template>

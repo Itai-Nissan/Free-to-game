@@ -6,7 +6,6 @@
         <paging-numbers @onChangePage="changePage" :page="{page, currentPage}">
         </paging-numbers>
       </nav>
-      <!-- <h4>Number of pages: {{numberOfPages}}</h4> -->
       <button class="btn-basic-2" v-on:click="onNextPage">Next</button>
     </div>
     <ul v-if="sortedGames" class="clean-list">

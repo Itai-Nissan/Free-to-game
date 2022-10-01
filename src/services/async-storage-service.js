@@ -69,18 +69,8 @@ function filter(games, filterBy) {
   return filteredGames
 }
 
-// function nextPage(pageIdx) {
-//   pageIdx++
-//   console.log('pageIdx');
-//   // if (pageIdx * PAGE_SIZE >= gCars.length) {
-//   //   pageIdx = 0
-//   // }
-// }
-// let pageIdx = 0
-
 async function query(entityType, filterBy, pageIdx) {
   let games = JSON.parse(localStorage.getItem(entityType)) || []
-
 
   if (!games.length) {
     games = getGames(entityType)
@@ -89,25 +79,18 @@ async function query(entityType, filterBy, pageIdx) {
   // FILTER
   if (!filterBy) filterBy = {}
   if (filterBy === {}) {
-    // currPage = 0
     return games
   }
   else {
     games = filter(games, filterBy)
   }
 
-  // currPage = 0
-  // console.log('currPage:',currPage)
-  
   // PAGING
   let currPage = pageIdx
   let gamesLength = games.length
 
   if (!currPage && currPage !== 0) return Promise.resolve(games)
   else {
-    // if (currPage * PAGE_SIZE >= games.length) {
-    //   currPage = 0
-    // }
     const startIdx = currPage * PAGE_SIZE
     games = games.slice(startIdx, startIdx + PAGE_SIZE)
   }

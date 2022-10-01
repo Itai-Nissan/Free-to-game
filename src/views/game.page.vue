@@ -3,7 +3,6 @@
     <gameHero :games="games" />
     <gameFilter @set-filter="setFilter" />
     <gameList :games="games" />
-    <!-- <gameList :games="games" @remove="removeGame" /> -->
   </main>
 </template>
 

@@ -3,7 +3,6 @@
         <div v-if="currPage === 'home'" class="home-hero">
             <h1>🤖 Personalized Recommendations</h1>
             <a href="" style="color: lightblue">Log in to view your personalized recommendations!</a>
-            <!-- <a></a> -->
             <ul v-if="games" class="clean-list">
                 <li v-for="game in sliceGames" :key="game._id" class="game-hero-preview">
                     <game-hero-preview sign="$" :game="game" />
@@ -42,13 +41,9 @@ export default {
     mounted() {
     },
     methods: {
-        //   remove(id) {
-        //     this.$emit('remove', id);
-        //   },
     },
     computed: {
         gamesCount() {
-            // return this.games.length
             return this.$store.getters.gamesLength
         },
         sliceGames() {

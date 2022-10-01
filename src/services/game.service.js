@@ -18,10 +18,7 @@ export default {
 
 // const axios = require("axios");
 
-
-
 function query(filterBy, pageIdx) {
-  // console.log(pageIdx)
   return storageService.query(KEY, filterBy, pageIdx);
 }
 

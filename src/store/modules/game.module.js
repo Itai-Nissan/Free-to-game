@@ -1,4 +1,3 @@
-// import gameService from '@/services/game-service.js';
 import gameService from '../../services/game.service.js';
 
 export default {
@@ -18,10 +17,6 @@ export default {
     currentPage(state) {
       return JSON.parse(JSON.stringify(state.pageIdx));
     },
-    //   gamesToShow(state) {
-    //     const gamesCopy = JSON.parse(JSON.stringify(state.games));
-    //     return gamesCopy;
-    //   },
   },
   mutations: {
     setGames(state, { gamesInfo }) {
@@ -30,18 +25,6 @@ export default {
     setGamesLength(state, { gamesInfo }) {
       state.gamesLength = gamesInfo.gamesLength
     },
-    //   removeGame(state, { id }) {
-    //     const idx = state.games.findIndex((game) => game._id === id);
-    //     state.games.splice(idx, 1);
-    //   },
-    //   saveGame(state, { game }) {
-    //     const idx = state.games.findIndex((currGame) => currGame._id === game._id);
-    //     if (idx !== -1) {
-    //       state.games.splice(idx, 1, game);
-    //     } else {
-    //       state.games.push(game);
-    //     }
-    //   },
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy
     },
@@ -70,7 +53,6 @@ export default {
       let filterBy = { ...context.state.filterBy }
       let pageIdx = { ...context.state }
       let currPage = pageIdx.pageIdx
-      //server side filter
       return gameService
         .query(filterBy, currPage)
         .then((gamesInfo) => {
@@ -94,37 +76,10 @@ export default {
       commit({ type: 'setPage', pageWay: pageDirection })
       dispatch({ type: 'loadGames' })
     },
-    // context.commit   payload.id
-    // removeGame({ commit }, { id }) {
-    //   return gameService
-    //     .remove(id)
-    //     .then(() => {
-    //       commit({ type: 'removeGame', id });
-    //     })
-    //     .catch((err) => {
-    //       console.log('Error: cannot remove game', err);
-    //       throw err;
-    //     });
-    // },
-    // saveGame({ commit }, { game }) {
-    //   return gameService
-    //     .save(game)
-    //     .then((savedGame) => {
-    //       commit({ type: 'saveGame', game: savedGame });
-    //       console.log('savedGame', savedGame);
-    //       return savedGame; // can return if you we want showMsg
-    //     })
-    //     .catch((err) => {
-    //       console.log('Error: cannot save game', err);
-    //       throw err;
-    //     });
-    // },
     getGameById(context, { gameId }) {
       return gameService
         .getById(gameId)
         .then((game) => {
-          // console.log(game);
-          //can add commit if needed
           return game;
         })
         .catch((err) => {
@@ -132,7 +87,6 @@ export default {
           throw err;
         });
     },
-    //set the filter and run the loadGames with the filter
     setFilterAct({ commit, dispatch }, { filterBy }) {
       commit({ type: 'setFilter', filterBy })
       commit({ type: 'setPageToZero' })

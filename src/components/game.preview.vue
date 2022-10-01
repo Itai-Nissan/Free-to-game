@@ -11,8 +11,6 @@
       <button @click="onAddToCart">➕</button>
       <h5 class="genre">{{game.genre}}</h5>
     </div>
-    <!-- <h5>{{game.release_date}}</h5> -->
-    <!-- <pre>{{game}}</pre> -->
   </section>
 </template>
 

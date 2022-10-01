@@ -4,9 +4,7 @@
       <img v-bind:src="game.thumbnail" alt="">
       <div class="game-info">
         <h3>{{game.title}}</h3>
-        <!-- <long-text-header :text="game.title"></long-text-header> -->
         <h5>{{game.short_description}}</h5>
-        <!-- <long-text :text="game.short_description"></long-text> -->
         <div class="game-footer">
           <h5 class="genre">{{game.genre}}</h5>
         </div>
