@@ -29,10 +29,6 @@ export default {
         filterBy: copyFilter,
       });
     },
-    // setSort(sortBy) {
-    //   const copySort = JSON.parse(JSON.stringify(sortBy));
-    //   this.$store.commit({type: 'setSort', copySort});
-    // },
   },
   computed: {
     games() {

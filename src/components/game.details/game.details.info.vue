@@ -63,21 +63,25 @@
                 </a>
             </div>
         </section>
-        <section class="system-req">
-            <div v-for="(gameReq, idx) in game.minimum_system_requirements">
-                <div class="additional-table">
-                    <div class="table-text">
-                        <span>{{idx}}</span>
-                        <br>
-                        <span>{{gameReq}}</span>
+        <section class="system-req-container">
+            <h1>System requirements</h1>
+            <hr>
+            <div class="system-req">
+                <div v-for="(gameReq, idx) in game.minimum_system_requirements">
+                    <div class="additional-table">
+                        <div class="table-text">
+                            <span>{{idx}}</span>
+                            <br>
+                            <span>{{gameReq}}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="additional-table">
-                <div class="table-text">
-                    <span>Additional Notes</span>
-                    <br>
-                    <span>Specifications may change during development</span>
+                <div class="additional-table">
+                    <div class="table-text">
+                        <span>Additional Notes</span>
+                        <br>
+                        <span>Specifications may change during development</span>
+                    </div>
                 </div>
             </div>
         </section>

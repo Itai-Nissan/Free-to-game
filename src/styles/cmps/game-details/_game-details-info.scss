@@ -29,8 +29,7 @@
             font-weight: 700;
         }
 
-        .details-long-text {
-        }
+        .details-long-text {}
     }
 
     .game-additional {
@@ -56,22 +55,29 @@
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 1em;
-            box-shadow: $box-shadow;
-            -webkit-box-shadow: $box-shadow-web
+
+            img {
+                box-shadow: $box-shadow;
+                -webkit-box-shadow: $box-shadow-web
+            }
         }
     }
 
-    .system-req {
+    .system-req-container {
         margin-block-start: 1em;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
 
-        .additional-table {
-            margin-block-end: 1em;
+        .system-req {
+            margin-block-start: 1em;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
 
-            .table-text {
-                span:first-child {
-                    color: $fontColor2;
+            .additional-table {
+                margin-block-end: 1em;
+
+                .table-text {
+                    span:first-child {
+                        color: $fontColor2;
+                    }
                 }
             }
         }
