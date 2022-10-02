@@ -7,6 +7,7 @@ export const storageService = {
   put,
   remove,
   gameById,
+  gameByCategory,
 }
 
 const PAGE_SIZE = 24
@@ -29,10 +30,6 @@ function filter(games, filterBy) {
 
     if (filterBy.sortBy === 'release')
       filteredGames = filteredGames.sort((a, b) => {
-        //   if (a.release_date < b.release_date) {
-        //     return -1;
-        //   }
-        // })
         if (a.release_date < b.release_date) {
           return 1;
         }
@@ -56,25 +53,36 @@ function filter(games, filterBy) {
   }
 
   //BY LABLE
-  if (filterBy.lable) {
-    if (filterBy.lable === 'All') return filteredGames
-    else {
-      filteredGames = filteredGames.filter(
-        (game) =>
-          game.genre.includes(filterBy.lable)
-      )
-    }
-  }
+  // if (filterBy.lable) {
+  //   if (filterBy.lable === 'All') return filteredGames
+  //   else {
+  //     filteredGames = filteredGames.filter(
+  //       (game) =>
+  //         game.genre.includes(filterBy.lable)
+  //     )
+  //   }
+  // }
 
   return filteredGames
 }
 
 async function query(entityType, filterBy, pageIdx) {
-  console.log('loading');
-  let games = JSON.parse(localStorage.getItem(entityType)) || []
+  let games = []
+
+  if (filterBy.lable) {
+    if (filterBy.lable === 'All') games = await getGames(entityType)
+    else {
+      games = await gameByCategory(filterBy.lable)
+      console.log(games);
+    }
+  }
 
   if (!games.length || !games) {
-    games = await getGames(entityType)
+    games = JSON.parse(localStorage.getItem(entityType)) || []
+    if (!games.length || !games) {
+      games = await getGames(entityType)
+      console.log('fetching get games from server');
+    }
   }
 
   // FILTER
@@ -103,14 +111,13 @@ async function query(entityType, filterBy, pageIdx) {
   return Promise.resolve(gamesInfo)
 }
 
+//Api's
 async function getGames(entityType) {
-  console.log('fetching');
   let games = []
-  
+
   const entities = {
     method: 'GET',
     url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
-    // params: { category: 'shooter' },
     headers: {
       'X-RapidAPI-Key': 'a38ff25a46msh308ca696239e976p1f5e31jsnd96340e8e05f',
       'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
@@ -119,7 +126,6 @@ async function getGames(entityType) {
 
   await axios.request(entities)
     .then(function (response) {
-      // console.log(response.data);
       games = response.data
       _save(entityType, games)
     }).catch(function (error) {
@@ -129,15 +135,7 @@ async function getGames(entityType) {
   return games
 }
 
-function get(entityType, entityId) {
-  entityId = entityId
-  return gameById(entityType, entityId)
-  // return gameById(entityType, entityId).then((entities) =>
-  //   entities.find((entity) => entity.id === entityId)
-  // )
-}
-
-async function gameById(entityType, entityId){
+async function gameById(entityType, entityId) {
   let game = []
   const entities = {
     method: 'GET',
@@ -156,9 +154,39 @@ async function gameById(entityType, entityId){
     }).catch(function (error) {
       console.error(error);
     })
-    return game
+  return game
 }
 
+async function gameByCategory(category) {
+  console.log(category);
+  let games = []
+  const entities = {
+    method: 'GET',
+    url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
+    params: { category },
+    headers: {
+      'X-RapidAPI-Key': 'a38ff25a46msh308ca696239e976p1f5e31jsnd96340e8e05f',
+      'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+    }
+  }
+
+  await axios.request(entities)
+    .then(function (response) {
+      console.log(response.data);
+      games = response.data
+    }).catch(function (error) {
+      console.error(error);
+    })
+  return games
+}
+
+function get(entityType, entityId) {
+  entityId = entityId
+  return gameById(entityType, entityId)
+  // return gameById(entityType, entityId).then((entities) =>
+  //   entities.find((entity) => entity.id === entityId)
+  // )
+}
 
 function post(entityType, newEntity) {
   newEntity._id = _makeId()

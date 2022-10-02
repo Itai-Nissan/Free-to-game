@@ -5,7 +5,7 @@
       </label>
       <label>Genre/Tag:
          <select class="filter-select" v-model="filterBy.lable" @change="setFilter">
-            <option v-for="label in labels" :key="label" :label="label" :value="label"></option>
+            <option v-for="label in sortedLabels" :key="label" :label="label" :value="label"></option>
          </select>
       </label>
       <label>Sort By:
@@ -26,7 +26,7 @@ export default {
       return {
          filterBy: {
             name: '',
-            lable: 'All',
+            lable: '',
             sortBy: '',
          },
          labels: [
@@ -63,6 +63,11 @@ export default {
       },
       setSort() {
         this.$emit('sorted', this.sortBy);
+      },
+   },
+   computed:{
+      sortedLabels(){
+         return this.labels.sort()
       },
    },
 }
