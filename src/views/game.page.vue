@@ -36,7 +36,7 @@ export default {
   },
   computed: {
     games() {
-      return this.$store.getters.games;
+      return this.$store.getters.games
     },
   }
 }

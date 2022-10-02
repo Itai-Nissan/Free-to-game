@@ -1,5 +1,33 @@
 .game-details-play{
     display: flex;
     flex-direction: column;
+    // padding: 1em;
+
+    max-height: 350px;
+    // max-width: 350px;
+    
+    img{
+        max-height: 200px;
+        // max-width: 350px;
+        
+    }
+
+    .play-now-btn{
+        display: grid;
+        grid-template-columns: 30% 1fr;
+        margin-block-start: 1em;
+        button:first-child{
+            margin-inline-end: 0.2em;
+        }
+        // justify-content: space-between;
+    }
+    
+    .play-rate{
+        background-color: $backColor2;
+        width: 100%;
+        min-height: 100px;
+        margin-block-start: 1em;
+        border-radius: 7px;
+    }
 
 }

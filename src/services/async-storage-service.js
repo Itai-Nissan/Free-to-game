@@ -6,7 +6,7 @@ export const storageService = {
   post,
   put,
   remove,
-  // nextPage,
+  gameById,
 }
 
 const PAGE_SIZE = 24
@@ -70,10 +70,11 @@ function filter(games, filterBy) {
 }
 
 async function query(entityType, filterBy, pageIdx) {
+  console.log('loading');
   let games = JSON.parse(localStorage.getItem(entityType)) || []
 
-  if (!games.length) {
-    games = getGames(entityType)
+  if (!games.length || !games) {
+    games = await getGames(entityType)
   }
 
   // FILTER
@@ -103,7 +104,9 @@ async function query(entityType, filterBy, pageIdx) {
 }
 
 async function getGames(entityType) {
+  console.log('fetching');
   let games = []
+  
   const entities = {
     method: 'GET',
     url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
@@ -118,19 +121,42 @@ async function getGames(entityType) {
     .then(function (response) {
       // console.log(response.data);
       games = response.data
+      _save(entityType, games)
     }).catch(function (error) {
       console.error(error);
     });
-  _save(entityType, games)
 
   return games
 }
 
 function get(entityType, entityId) {
   entityId = entityId
-  return query(entityType).then((entities) =>
-    entities.find((entity) => entity.id === entityId)
-  )
+  return gameById(entityType, entityId)
+  // return gameById(entityType, entityId).then((entities) =>
+  //   entities.find((entity) => entity.id === entityId)
+  // )
+}
+
+async function gameById(entityType, entityId){
+  let game = []
+  const entities = {
+    method: 'GET',
+    url: 'https://free-to-play-games-database.p.rapidapi.com/api/game',
+    params: { id: entityId },
+    headers: {
+      'X-RapidAPI-Key': 'a38ff25a46msh308ca696239e976p1f5e31jsnd96340e8e05f',
+      'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+    }
+  };
+
+  await axios.request(entities)
+    .then(function (response) {
+      console.log(response.data);
+      game = response.data
+    }).catch(function (error) {
+      console.error(error);
+    })
+    return game
 }
 
 

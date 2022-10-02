@@ -1,4 +1,44 @@
-.game-details-info{
+.game-details-info {
     display: flex;
     flex-direction: column;
+    margin-inline-start: 1em;
+
+    h1{
+        font-size: 32px;
+    }
+
+    hr{
+        border: 0;
+        height: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.041);
+        margin-block-end: 1em;
+        }
+
+    img {
+        max-width: 300px;
+        max-height: 300px;
+    }
+
+    .game-additional {
+        display: flex;
+        flex-direction: column;
+        margin-block-start: 1em;
+
+        .additional-table {
+            margin-block-end: 1em;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    .screenshots {
+        .images {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1em;
+            box-shadow: $box-shadow;
+            -webkit-box-shadow: $box-shadow-web
+        }
+    }
 }

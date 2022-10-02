@@ -38,4 +38,23 @@
   color: $backColor
 }
 
+.btn-basic-3 {
+  min-width: 60px;
+  border: none;
+  background-color: $backColor2;
+  font-weight: bold;
+  color: #7a8288;
+  height: 32px;
+  padding: 8px 15px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-basic-3:hover {
+  transition: 0.2s;
+  background: $cta;
+  color: $backColor
+}
 
