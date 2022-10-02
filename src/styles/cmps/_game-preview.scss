@@ -10,14 +10,14 @@
     .game-info {
         padding-block-start: 1em;
         padding-inline-start: 1em;
-        padding-inline-end: 1em;
+        // padding-inline-end: 1em;
         display: flex;
         flex-direction: column;
 
         // padding-inline-start: 1em;
         // padding-inline-end: 1em;
         h2 {
-            margin-block-end: 0.5em;
+            // margin-block-end: 0.5em;
             white-space: nowrap
         }
     }
