@@ -36,6 +36,14 @@ export default {
             'Shooter',
             'Strategy',
             'Moba',
+            'Battle Royale',
+            'Fantasy',
+            'Sci-Fi',
+            'Card Games',
+            'Racing',
+            'Fighting',
+            'Social',
+            'Sports'
          ],
       }
    },
