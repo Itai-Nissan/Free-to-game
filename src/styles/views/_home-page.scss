@@ -1,4 +1,4 @@
-.home-page {
+.homepage-container {
     .home-list {
         h2 {
             font-size: 28px;
@@ -8,7 +8,78 @@
         }
 
     }
+}
 
+/* Responsive Styles */
+@media screen and (max-width: 1290px) {
+    .homepage-container {
+    }
+:host {
+  font-size: 1.3rem;
+}
 
+.title {
+  font-size: 5rem;
+}
+}
 
+@media screen and (max-width: 878px) {
+.homepage-container {
+  min-width: 747px;
+  display: flex;
+  flex-direction: column;
+}
+
+:host {
+  font-size: 1.25rem;
+}
+
+.title {
+  font-size: 4rem;
+}
+}
+
+@media screen and (max-width: 767px) {
+
+:host {
+  display: block;
+}
+
+.homepage-container {
+  min-width: 500px;
+  // width: 347px;
+
+  display: grid;
+  // display: flex;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  justify-content: space-evenly;
+
+}
+
+.title {
+  font-size: 3rem;
+}
+}
+
+@media screen and (max-width: 575px) {
+:host {
+  font-size: 1.15rem;
+}
+
+.homepage-container {
+  min-width: 375px;
+
+  display: grid;
+  // display: flex;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  justify-content: space-evenly;
+
+  padding: 0;
+}
+
+.title {
+  font-size: 1.25rem;
+}
 }

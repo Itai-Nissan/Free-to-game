@@ -26,12 +26,12 @@
                 padding: 5px;
 
             }
-            button:hover{
+
+            button:hover {
                 z-index: 200;
                 transition: 0.2s;
                 background: $cta;
                 color: $backColor
-              
             }
         }
 
@@ -50,17 +50,36 @@
 
     ul {
         padding-inline-start: 0;
-
-        :hover {
-            transform: scale(1.01);
-            transition: 0.5s;
-        }
-
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(230px, 290px));
         grid-template-rows: auto;
         gap: 22px;
         justify-content: space-between;
 
+        :hover {
+            transform: scale(1.01);
+            transition: 0.5s;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .game-list {
+
+        ul {
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .game-list {
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
     }
 }

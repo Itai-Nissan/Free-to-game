@@ -1,4 +1,4 @@
-.game-app{
+.game-app {
     display: grid;
     // grid-template-columns: 1fr;
     // grid-template-rows: 1fr;
@@ -7,7 +7,7 @@
     // flex-direction: column;
 }
 
-.main-app{
+.main-app {
     max-height: 100vh;
     min-height: 100vh;
     // display: flex;
@@ -29,5 +29,32 @@
     @include from-mobile-layout {
         // padding-inline-start: 40px;
         // padding-inline-end: 40px;
-   }
+    }
+}
+
+@media screen and (max-width: 1290px) {
+    .container {
+        width: 920px;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .container {
+        width: 727px;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        width: 545px;
+    }
+
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        width: 445px;
+    }
+
 }

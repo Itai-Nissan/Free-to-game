@@ -1,5 +1,5 @@
 <template>
-  <main class="home-page container">
+  <main class="homepage-container container">
     <game-hero :games="games" />
     <section class="home-list container">
       <h2>Recently added</h2>

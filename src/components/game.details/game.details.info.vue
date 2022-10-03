@@ -55,10 +55,10 @@
                 <a :href="game.screenshots[0].image">
                     <img v-bind:src="game.screenshots[0].image" alt="">
                 </a>
-                <a :href="game.screenshots[0].image">
+                <a :href="game.screenshots[1].image">
                     <img v-bind:src="game.screenshots[1].image" alt="">
                 </a>
-                <a :href="game.screenshots[0].image">
+                <a :href="game.screenshots[2].image">
                     <img v-bind:src="game.screenshots[2].image" alt="">
                 </a>
             </div>

@@ -2,23 +2,28 @@
     margin-block-end: 4em;
     // color: #aaaaaa;
 
+    img{
+        width: 100%;
+        height: 100%;
+    }
     h1 {
         line-height: 46px;
         font-size: 32px;
     }
-    
+
     h4 {
-        
+
         font-size: 18px;
-        
+
     }
-    
+
     span {
         font-weight: 700;
     }
-    
+
     ul {
         margin-block-start: 2em;
+
         :hover {
             transform: scale(1.01);
             transition: 0.5s;
@@ -37,6 +42,53 @@
             width: 100%;
             padding: 10px;
             display: flex;
+            align-items: center;
+        }
+    }
+}
+
+// @media screen and (max-width: 990px) {
+//     .game-hero-list {
+//         ul {
+//             margin-block-start: 1em;
+//             // display: flex;
+//             // flex-direction: column;
+//             // align-items: center;
+//         }
+    
+//         .game-hero-preview{
+//             margin-block-end: 0.5em;
+//         }
+//     }
+// }
+
+
+@media screen and (max-width: 767px) {
+    .game-hero-list {
+        ul {
+            margin-block-start: 1em;
+            // display: flex;
+            // flex-direction: column;
+            // align-items: center;
+        }
+
+        .game-hero-preview{
+            margin-block-end: 0.5em;
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .game-hero-list {
+        img{
+            // object-fit: contain;
+            width: 100%;
+            height: 200px;
+        }
+    
+        ul {
+            margin-block-start: 0.5em;
+            flex-direction: column;
             align-items: center;
         }
     }
