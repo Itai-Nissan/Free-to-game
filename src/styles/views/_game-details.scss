@@ -1,24 +1,6 @@
 .game-details {
   display: grid;
-  grid-template-columns: 30% 70%;
-  .game-info {
-    // margin-top: 1rem;
-    img {
-      object-fit: contain;
-      width: 150px;
-      // margin-top: 1rem;
-    }
-  }
-
-  .details {
-    p {
-      font-size: 1.4rem;
-    }
-  }
-
-
-
+  grid-template-columns: 33.3333333% 66.666666666667%;
 
   font-size: 1.2rem;
-
 }

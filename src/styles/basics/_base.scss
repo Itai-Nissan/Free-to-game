@@ -1,9 +1,11 @@
 * {
     box-sizing: border-box;
 }
+
 *:focus {
     outline: none;
 }
+
 html {
     color: $clr1;
     font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -34,6 +36,7 @@ img {
     // width: 100%;
     // height: 100%;
 }
+
 a {
     text-decoration: none;
     color: inherit;
@@ -41,9 +44,11 @@ a {
 
 button {
     all: unset;
+
     &:hover {
         cursor: pointer;
     }
+
     &:disabled {
         color: gray;
         opacity: 0.6;
@@ -52,13 +57,8 @@ button {
 }
 
 /* FOOTER */
-footer {
-    padding: 8px 0;
-    background-color: rgb(233, 233, 233);
-}
 
 /* ERROR */
-
 .error-msg {
     font-size: 0.9em;
     color: red;

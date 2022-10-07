@@ -78,10 +78,13 @@
 @media screen and (max-width: 575px) {
     .game-preview {
         min-width: 100%;
-        max-height: 285px;
+        min-height: 375px;
         // box-shadow: $light-shadow;
-        padding-block-end: 2em;
+        padding-block-end: 1em;
 
+            img{
+                height: 245px;
+            }
 
 
     }

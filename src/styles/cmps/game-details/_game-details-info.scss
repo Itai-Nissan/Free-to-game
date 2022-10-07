@@ -5,6 +5,7 @@
 
     h1 {
         font-size: 32px;
+        margin-block-end: 1em;
     }
 
     hr {
@@ -15,14 +16,9 @@
         margin-block-end: 1em;
     }
 
-    img {
-        max-width: 300px;
-        max-height: 300px;
-    }
-
-
     .game-about {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-block-end: 3em;
 
         span {
             font-size: 16px;
@@ -35,12 +31,12 @@
     .game-additional {
         display: flex;
         flex-direction: column;
-        margin-block-start: 1em;
+        margin-block-end: 3em;
 
         .additional-table {
-            margin-block-end: 1em;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
+            margin-block-end: 1em;
 
             .table-text {
                 span:first-child {
@@ -51,12 +47,18 @@
     }
 
     .screenshots {
+        margin-block-end: 3em;
+        // display: flex;
+        // flex-direction: column;
+
         .images {
+            // max-width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 1em;
+            gap: 0.5em;
 
             img {
+                max-width: 265px;
                 box-shadow: $box-shadow;
                 -webkit-box-shadow: $box-shadow-web
             }
@@ -64,10 +66,9 @@
     }
 
     .system-req-container {
-        margin-block-start: 1em;
+        margin-block-end: 3em;
 
         .system-req {
-            margin-block-start: 1em;
             display: grid;
             grid-template-columns: 1fr 1fr;
 

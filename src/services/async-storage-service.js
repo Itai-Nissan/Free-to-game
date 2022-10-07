@@ -73,7 +73,6 @@ async function query(entityType, filterBy, pageIdx) {
     if (filterBy.lable === 'All') games = await getGames(entityType)
     else {
       games = await gameByCategory(filterBy.lable)
-      console.log(games);
     }
   }
 
@@ -149,7 +148,6 @@ async function gameById(entityType, entityId) {
 
   await axios.request(entities)
     .then(function (response) {
-      console.log(response.data);
       game = response.data
     }).catch(function (error) {
       console.error(error);

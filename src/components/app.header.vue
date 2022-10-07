@@ -14,7 +14,7 @@
 </template>
 <script>
 export default {
-  name: "AppHeader",
+  name: "app-header",
   components: {},
   data() {
     return {

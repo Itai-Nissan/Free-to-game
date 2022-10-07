@@ -1,12 +1,14 @@
   
 <script>
-import { RouterLink, RouterView } from 'vue-router';
-import AppHeader from './components/app.header.vue';
+import { RouterLink, RouterView } from 'vue-router'
+import appHeader from './components/app.header.vue'
+import appFooter from './components/app.footer.vue'
 // import UserMsg from '@/components/UserMsg.vue';
 
 export default {
   components: {
-    AppHeader,
+    appHeader,
+    appFooter,
     // UserMsg,
   },
   created() {
@@ -19,6 +21,7 @@ export default {
   <div class="game-app">
     <app-header />
     <RouterView />
+    <app-footer />
     <!-- <user-msg /> -->
   </div>
 </template>
