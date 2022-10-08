@@ -26,7 +26,7 @@ export default {
       return {
          filterBy: {
             name: '',
-            lable: '',
+            lable: 'All',
             sortBy: '',
          },
          labels: [

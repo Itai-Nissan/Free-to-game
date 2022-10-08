@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import longText from './long.text.vue'
-import longTextHeader from './long.text.header.vue'
+import longText from '../long-text/long.text.vue'
+import longTextHeader from '../long-text/long.text.header.vue'
 
 export default {
   name: 'GamePreview',

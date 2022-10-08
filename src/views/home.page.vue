@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import gameHero from '../components/game.hero.vue'
-import homeGamePreview from '../components/home.game.preview.vue'
-import joinMore from '../components/join.more.vue'
+import gameHero from '../components/hero/game.hero.vue'
+import homeGamePreview from '../components/home-cmps/home.game.preview.vue'
+import joinMore from '../components/home-cmps/join.more.vue'
 
 export default {
   name: 'home-page',

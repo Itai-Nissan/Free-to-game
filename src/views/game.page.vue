@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import gameList from "../components/game.list.vue";
+import gameList from "../components/game-list/game.list.vue";
 import gameFilter from "../components/game.filter.vue";
-import gameHero from "../components/game.hero.vue";
+import gameHero from "../components/hero/game.hero.vue";
 export default {
   name: 'game-page',
   components: {
