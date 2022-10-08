@@ -1,29 +1,23 @@
-.game-details-play{
+.game-details-play {
     display: flex;
     flex-direction: column;
-    // padding: 1em;
-
     max-height: 350px;
-    // max-width: 350px;
-    
-    img{
+
+    img {
         border-radius: 7px;
-        // max-height: 200px;
-        // max-width: 350px;
-        
     }
 
-    .play-now-btn{
+    .play-now-btn {
         display: grid;
         grid-template-columns: 30% 1fr;
         margin-block-start: 1em;
-        button:first-child{
+
+        button:first-child {
             margin-inline-end: 0.2em;
         }
-        // justify-content: space-between;
     }
-    
-    .play-rate{
+
+    .play-rate {
         background-color: $backColor2;
         width: 100%;
         min-height: 100px;

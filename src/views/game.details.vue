@@ -1,10 +1,12 @@
 <template>
-  <section v-if="game" class="game-details container">
-    <!-- <div class="back-img">
-      <img v-bind:src="game.thumbnail" alt="">
-    </div> -->
-    <game-details-play :game="game" />
-    <game-details-info :game="game" />
+  <section v-if="game" class="game-details">
+    <div class="details-background">
+      <img :src="game.screenshots[0].image" alt="">
+    </div>
+    <div class="details-content container">
+      <game-details-play :game="game" />
+      <game-details-info :game="game" />
+    </div>
   </section>
   <div v-else class="loading"></div>
 </template>
