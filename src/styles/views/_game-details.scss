@@ -1,6 +1,6 @@
 .game-details {
 
-  font-size: 1.2rem;
+  // font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,12 +13,13 @@
   .details-background {
     display: flex;
     align-items: center;
+    justify-content: center;
     
     img {
       // height: 38rem;
-      max-width: 100%;
+      width: 100%;
       position: absolute;
-      left: 0;
+      // left: 0;
       z-index: -1;
       opacity: .1;
     }

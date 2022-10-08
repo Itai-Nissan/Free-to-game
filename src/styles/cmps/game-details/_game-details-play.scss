@@ -3,6 +3,11 @@
     flex-direction: column;
     max-height: 350px;
 
+    position: sticky;
+    top: 10vh;
+    z-index: 1;
+
+
     img {
         border-radius: 7px;
     }
