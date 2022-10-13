@@ -3,6 +3,7 @@ import homePage from '../views/home.page.vue'
 import gamePage from '../views/game.page.vue'
 import gameDetails from '../views/game.details.vue'
 import loginSignup from '../views/login-signup.vue'
+import signup from '../views/signup.vue'
 import userPage from '../views/user.page.vue'
 
 
@@ -18,6 +19,11 @@ const router = createRouter({
       path: '/login',
       name: 'loginSignup',
       component: loginSignup
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: signup
     },
     {
       path: '/user/:_id',

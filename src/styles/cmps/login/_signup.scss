@@ -1,0 +1,48 @@
+.signup {
+    display: grid;
+    grid-template-columns: 40% 60%;
+
+    .signup-image {
+        img {
+            width: 100%;
+        }
+    }
+
+    .signup-form {
+        h2 {
+            text-align: center;
+            margin-block-end: 1em;
+        }
+
+        padding: 3em;
+
+        p {
+            font-size: 12px;
+        }
+
+        span {
+            font-size: 12px;
+
+        }
+        .to-login-link{
+            margin-inline-start: 0.4em;
+            font-size: 12px;
+            color: $cta;
+        }
+
+        .signup-form-display {
+            display: flex;
+            flex-direction: column;
+
+            input {
+                margin-block-end: 1em;
+            }
+
+            .form-password {
+                display: flex;
+                justify-content: space-between;
+            }
+
+        }
+    }
+}

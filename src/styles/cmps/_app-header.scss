@@ -43,15 +43,23 @@
                 padding: 15px;
 
                 &.router-link-exact-active {
-                    color: $cta;
-                    box-shadow: 0 1px 0px 0 $cta;
+                    // color: $cta;
+                    // box-shadow: 0 1px 0px 0 $cta;
                 }
             }
 
             .loggedin-user {
+                display: flex;
+                align-items: center;
+
+                .login-btn {
+                    margin-inline-start: 1em;
+
+                }
+
                 .loggedin {
-                    button{
-                        margin-inline-start: 0.5em;
+                    button {
+                        margin-inline-start: 1em;
                     }
                 }
 

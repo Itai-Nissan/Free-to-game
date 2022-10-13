@@ -61,9 +61,7 @@
 .login-btn {
   min-width: 60px;
   border: 1px solid $cta;
-  // font-weight: bold;
-  // color: #7a8288;
-  // height: 32px;
+  color: $cta;
   padding: 8px 15px;
   border-radius: 4px;
   display: flex;
@@ -73,6 +71,15 @@
 
 .login-btn:hover {
   transition: 0.2s;
-  background: $cta;
-  color: $backColor
+  border: 1px solid $clr4;
+  color: $clr4;
+}
+
+.create-btn {
+  text-align: center;
+  padding: 1em;
+  color: $clr4;
+  background-image: linear-gradient(#3a3f44, #17191b 40%, #282c2f);
+  border-color: #3a3f44;
+  background-color: #282c2f;
 }

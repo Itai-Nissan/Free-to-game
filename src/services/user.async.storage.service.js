@@ -48,10 +48,12 @@ function post(entityType, newEntity) {
 }
 
 function put(entityType, updatedEntity) {
+    console.log(updatedEntity);
     return query(entityType)
         .then(entities => {
             const idx = entities.findIndex(entity => entity._id === updatedEntity._id)
             entities.splice(idx, 1, updatedEntity)
+            console.log(entities);
             _save(entityType, entities)
             return updatedEntity
         })
@@ -67,9 +69,7 @@ function remove(entityType, entityId) {
         })
 }
 
-
 function _save(entityType, entities) {
-    console.log(entities);
     localStorage.setItem(entityType, JSON.stringify(entities))
 }
 

@@ -67,7 +67,6 @@ export const userModule = {
             }
         },
         async loadAndWatchUser({ commit }, { userId }) {
-            console.log('watch id');
             try {
                 const user = await userService.getById(userId)
                 console.log(user);

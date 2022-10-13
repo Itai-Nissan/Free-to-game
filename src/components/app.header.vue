@@ -10,16 +10,15 @@
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/game">Games</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-        <section class="loggedin-user">
-          <RouterLink class="login-btn" v-if="!loggedInUser" to="/login">Login</RouterLink>
-          <div v-else class="loggedin">
-            <router-link :to="`/user/${loggedInUser._id}`">
-              Hi {{ loggedInUser.username }}
-            </router-link>
-            <button @click="logout">Logout</button>
-            <!-- <span>{{ loggedInUser.score.toLocaleString() }}</span> -->
-          </div>
-        </section>
+        <RouterLink class="" v-if="!loggedInUser" to="/login">Login</RouterLink>
+        <RouterLink class="login-btn" v-if="!loggedInUser" to="/signup">Join Free</RouterLink>
+        <div v-else class="loggedin">
+          <router-link :to="`/user/${loggedInUser._id}`">
+            Hi {{ loggedInUser.username }}
+          </router-link>
+          <button @click="logout">Logout</button>
+          <!-- <span>{{ loggedInUser.score.toLocaleString() }}</span> -->
+        </div>
       </nav>
     </div>
   </section>

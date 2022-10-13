@@ -1,7 +1,7 @@
 <template>
     <div class="user-page container">
         <h1>User page</h1>
-        <h1>{{user.fullname}}</h1>
+        <h1>{{user}}</h1>
     </div>
 </template>
   
