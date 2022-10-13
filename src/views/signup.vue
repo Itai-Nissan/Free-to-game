@@ -11,7 +11,7 @@
     <div class="signup-image">
       <img src="../assets/img/ftg-signup2.png" alt="">
     </div>
-    <div class="signup-form">
+    <div class="signup-wrapper">
       <form @submit.prevent="doSignup">
         <h2>Create My Account!</h2>
         <div class="signup-form-display">
@@ -66,27 +66,29 @@ export default {
     this.loadUsers()
   },
   methods: {
-    // async doLogin() {
-    //   if (!this.loginCred.username) {
-    //     this.msg = 'Please enter username/password'
-    //     return
-    //   }
-    //   try {
-    //     await this.$store.dispatch({ type: "login", userCred: this.loginCred })
-    //     this.$router.push(`/user/${this.loggedinUser._id}`)
-    //   } catch (err) {
-    //     console.log(err)
-    //     this.msg = 'Failed to login'
-    //   }
-    // },
+    async doLogin() {
+      if (!this.loginCred.username) {
+        this.msg = 'Please enter username/password'
+        return
+      }
+      try {
+        await this.$store.dispatch({ type: "login", userCred: this.loginCred })
+        this.$router.push(`/user/${this.loggedinUser._id}`)
+      } catch (err) {
+        console.log(err)
+        this.msg = 'Failed to login'
+      }
+    },
     // doLogout() {
     //   this.$store.dispatch({ type: 'logout' })
     // },
     async doSignup() {
-      if (!this.signupCred.fullname || !this.signupCred.password || !this.signupCred.username) {
+      console.log(this.signupCred);
+      if (!this.signupCred.email || !this.signupCred.password || !this.signupCred.confirm || !this.signupCred.username || (this.signupCred.password !== this.signupCred.confirm) ) {
         this.msg = 'Please fill up the form'
         return
       }
+      console.log(this.signupCred);
       await this.$store.dispatch({ type: 'signup', userCred: this.signupCred })
       this.$router.push('/')
     },

@@ -1,45 +1,27 @@
 <template>
-  <div class="login">
-    <p>{{ msg }}</p>
-    <div v-if="loggedinUser">
-      <h3>
-        Loggedin User:
-        {{ loggedinUser.username }}
-        <button @click="doLogout">Logout</button>
-      </h3>
+  <section class="login container">
+    <!-- <p>{{ msg }}</p> -->
+    <div class="login-image">
+      <img src="../assets/img/ftg-login.png" alt="">
     </div>
-    <div v-else>
-      <h2>Login</h2>
-      <form @submit.prevent="doLogin">
+    <div class="login-wrapper">
+      <img src="../assets/img/logo-footer.png" alt="">
+      <h2>Log in to FreeToGame</h2>
+      <form class="login-form-display" @submit.prevent="doLogin">
         <!-- <select v-model="loginCred.username">
           <option value="">Select User</option>
           <option v-for="user in users" :key="user._id" :value="user.username">{{ user.fullname }}</option>
         </select> -->
         <input type="text" v-model="loginCred.username" placeholder="User name" />
         <input type="text" v-model="loginCred.password" placeholder="Password" />
-        <button>Login</button>
+        <button class="create-btn">Login</button>
       </form>
-      <!-- <p class="mute">user1 or admin, pass:123 </p> -->
-      <form @submit.prevent="doSignup">
-        <h2>Signup</h2>
-        <input type="text" v-model="signupCred.fullname" placeholder="Your full name" />
-        <input type="text" v-model="signupCred.password" placeholder="Password" />
-        <input type="text" v-model="signupCred.username" placeholder="Username" />
-        <button>Signup</button>
-      </form>
+      <div class="to-signup">
+        <span>Not a member yet?</span>
+        <RouterLink class="to-signup-link" to="/signup">Log In ></RouterLink>
+      </div>
     </div>
-    <details>
-      <summary>
-        Admin Section
-      </summary>
-      <ul>
-        <li v-for="user in users" :key="user._id">
-          <pre>{{ user }}</pre>
-          <button @click="removeUser(user._id)">x</button>
-        </li>
-      </ul>
-    </details>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -49,7 +31,7 @@ export default {
     return {
       msg: '',
       loginCred: { username: '', password: '' },
-      signupCred: { username: '', password: '', fullname: '' },
+      // signupCred: { username: '', email: '', password: '', confirm: '' },
     }
   },
   computed: {
