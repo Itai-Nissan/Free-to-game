@@ -9,7 +9,9 @@
     // align-items: center;
     // align-content: center;
     justify-content: center;
-    box-shadow: $border-bottom-shadow;
+    // box-shadow: $border-bottom-shadow;
+    border-bottom: 1px solid rgba(28, 28, 28, .6);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
     margin-block-end: 2em;
 
     .header-content {
@@ -51,6 +53,7 @@
             .loggedin {
                 display: flex;
                 align-items: center;
+
                 button {
                     margin-inline-start: 1em;
                 }
@@ -60,8 +63,7 @@
 
                 }
 
-                .loggedin {
-                }
+                .loggedin {}
 
             }
         }

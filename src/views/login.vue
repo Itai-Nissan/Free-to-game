@@ -45,6 +45,9 @@ export default {
   created() {
     this.loadUsers()
   },
+  mounted() {
+    window.scrollTo(0, 0)
+  },
   methods: {
     async doLogin() {
       if (!this.loginCred.username) {

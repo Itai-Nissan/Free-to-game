@@ -7,18 +7,14 @@
         </RouterLink>
       </div>
       <nav class="nav">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/game">Games</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink class="" v-if="!loggedInUser" to="/login">Login</RouterLink>
+        <!-- <RouterLink to="/">Home</RouterLink> -->
+        <RouterLink to="/game">Free Games</RouterLink>
+        <!-- <RouterLink to="/about">About</RouterLink> -->
+        <RouterLink class="" v-if="!loggedInUser" to="/login">Log In</RouterLink>
         <RouterLink class="login-btn" v-if="!loggedInUser" to="/signup">Join Free</RouterLink>
-        <div v-else class="loggedin">
-          <router-link :to="`/user/${loggedInUser._id}`">
-            Hi {{ loggedInUser.username }}
-          </router-link>
-          <button @click="logout">Logout</button>
-          <!-- <span>{{ loggedInUser.score.toLocaleString() }}</span> -->
-        </div>
+        <router-link v-if="loggedInUser" :to="`/user/${loggedInUser._id}`">{{ loggedInUser.username }}</router-link>
+        <button v-if="loggedInUser" @click="logout">Logout</button>
+        <!-- <span>{{ loggedInUser.score.toLocaleString() }}</span> -->
       </nav>
     </div>
   </section>

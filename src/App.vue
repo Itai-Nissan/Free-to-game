@@ -43,7 +43,7 @@ export default {
 <template>
   <div class="game-app">
     <app-header />
-    <RouterView />
+    <RouterView class="router-view"/>
     <app-footer />
     <!-- <user-msg /> -->
   </div>

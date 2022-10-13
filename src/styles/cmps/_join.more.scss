@@ -24,8 +24,14 @@
         .join-more-links {
             display: flex;
 
-            button {
+            .btn-basic {
+                height: 100%;
                 margin-inline-end: 1em;
+            }
+
+            .btn-basic-2 {
+                height: 100%;
+
             }
         }
     }

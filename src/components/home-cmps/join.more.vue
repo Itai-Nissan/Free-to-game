@@ -12,8 +12,8 @@
                     your own games library, track what you've played and search for what to play next!</p>
             </div>
             <div class="join-more-links">
-                <button class="btn-basic">JOIN NOW</button>
-                <button class="btn-basic-2">Learn More</button>
+                <RouterLink class="btn-basic" to="/signup">JOIN NOW</RouterLink>
+                <RouterLink class="btn-basic-2" to="/learn">Learn More</RouterLink>
             </div>
         </div>
     </div>

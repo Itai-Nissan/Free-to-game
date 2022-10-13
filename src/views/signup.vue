@@ -65,6 +65,9 @@ export default {
   created() {
     this.loadUsers()
   },
+  mounted() {
+    window.scrollTo(0, 0)
+  },
   methods: {
     async doLogin() {
       if (!this.loginCred.username) {
@@ -84,7 +87,7 @@ export default {
     // },
     async doSignup() {
       console.log(this.signupCred);
-      if (!this.signupCred.email || !this.signupCred.password || !this.signupCred.confirm || !this.signupCred.username || (this.signupCred.password !== this.signupCred.confirm) ) {
+      if (!this.signupCred.email || !this.signupCred.password || !this.signupCred.confirm || !this.signupCred.username || (this.signupCred.password !== this.signupCred.confirm)) {
         this.msg = 'Please fill up the form'
         return
       }
