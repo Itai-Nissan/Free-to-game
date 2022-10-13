@@ -92,5 +92,9 @@ export default {
       commit({ type: 'setPageToZero' })
       dispatch({ type: 'loadGames' });
     },
+    setStateFilter({ commit, dispatch }, { filterBy }) {
+      commit({ type: 'setFilter', filterBy })
+      dispatch({ type: 'loadGames' });
+    },
   },
 };

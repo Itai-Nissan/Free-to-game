@@ -32,7 +32,6 @@ export default {
   },
   mounted() {
     this.setFilter(this.filterBy)
-
   },
   components: {
     gameHero,
@@ -43,7 +42,7 @@ export default {
     setFilter(filterBy) {
       const copyFilter = JSON.parse(JSON.stringify(filterBy))
       this.$store.dispatch({
-        type: "setFilterAct",
+        type: "setStateFilter",
         filterBy: copyFilter,
       });
     },

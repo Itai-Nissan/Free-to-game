@@ -13,12 +13,7 @@ export const userService = {
     getById,
     remove,
     update,
-    changeScore
 }
-
-// Debug technique
-// window.userService = userService
-
 
 function getUsers() {
     return storageService.query('user')
@@ -67,20 +62,11 @@ async function logout() {
     // return await httpService.post('auth/logout')
 }
 
-async function changeScore(by) {
-    const user = getLoggedinUser()
-    if (!user) throw new Error('Not loggedin')
-    user.score = user.score + by || by
-    await update(user)
-    return user.score
-}
-
 function _saveLocalUser(user) {
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
 
 function getLoggedinUser() {
-    console.log('here');
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || 'null')
 }

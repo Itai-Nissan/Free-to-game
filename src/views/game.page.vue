@@ -28,7 +28,7 @@ export default {
       this.filterBy = filterBy;
       const copyFilter = JSON.parse(JSON.stringify(filterBy))
       this.$store.dispatch({
-        type: "setFilterAct",
+        type: "setStateFilter",
         filterBy: copyFilter,
       });
     },

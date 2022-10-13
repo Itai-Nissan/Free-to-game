@@ -30,10 +30,9 @@ export default {
 
   created() {
     this.user = userService.getLoggedinUser()
-
+    // this.$store.dispatch({ type: 'loadGames' })
   },
-  mounted(){
-    console.log(this.user);
+  mounted() {
   },
   methods: {
   },
@@ -43,7 +42,7 @@ export default {
 <template>
   <div class="game-app">
     <app-header />
-    <RouterView class="router-view"/>
+    <RouterView class="router-view" />
     <app-footer />
     <!-- <user-msg /> -->
   </div>

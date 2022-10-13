@@ -17,10 +17,32 @@ let gUsers = [
     },
     {
         _id: "gr2Y1",
-        fullname: "Uzi Nissan",
         username: "uzi",
+        email: "uzi@gmail.com",
         password: "nis",
-        isAdmin: true
+        isAdmin: false,
+        orders: [
+            {
+                _id: 1,
+                orderDate: new Date,
+                game: {
+                    id: 540,
+                    title: "Overwatch 2",
+                    thumbnail: "https://www.freetogame.com/g/540/thumbnail.jpg",
+                    genre: "Shooter",
+                },
+            },
+            {
+                _id: 2,
+                orderDate: new Date,
+                game: {
+                    id: 517,
+                    title: "Lost Ark",
+                    thumbnail: "https://www.freetogame.com/g/517/thumbnail.jpg",
+                    genre: "ARPG",
+                },
+            },
+        ]
     },
 ]
 

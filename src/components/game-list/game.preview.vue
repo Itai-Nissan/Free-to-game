@@ -38,7 +38,7 @@ export default {
   created() {
   },
   methods: {
-    onAddToCart(){
+    onAddToCart() {
       console.log('hi');
     },
   },
