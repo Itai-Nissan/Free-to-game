@@ -1,5 +1,6 @@
 import {createStore} from 'vuex';
 import gameModule from './modules/game.module';
+import {userModule} from './modules/user.module';
 
 const store = createStore({
   state: {
@@ -11,6 +12,7 @@ const store = createStore({
   actions: {},
   modules: {
     gameModule,
+    userModule,
   },
 });
 

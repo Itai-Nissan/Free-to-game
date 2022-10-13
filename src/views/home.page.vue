@@ -41,7 +41,6 @@ export default {
   },
   methods: {
     setFilter(filterBy) {
-      // this.filterBy = filterBy
       const copyFilter = JSON.parse(JSON.stringify(filterBy))
       this.$store.dispatch({
         type: "setFilterAct",

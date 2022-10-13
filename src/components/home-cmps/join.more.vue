@@ -1,7 +1,7 @@
 <template>
     <div class="join-more container">
         <div class="join-more-logo">
-            <img src="../assets/img/ftg.jpg" alt="">
+            <img src="../../assets/img/ftg.jpg" alt="">
         </div>
         <div class="join-more-info">
             <div class="join-more-text">

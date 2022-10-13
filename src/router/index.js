@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import homePage from '../views/home.page.vue'
 import gamePage from '../views/game.page.vue'
 import gameDetails from '../views/game.details.vue'
+import loginSignup from '../views/login-signup.vue'
+import userPage from '../views/user.page.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,6 +13,16 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: homePage
+    },
+    {
+      path: '/login',
+      name: 'loginSignup',
+      component: loginSignup
+    },
+    {
+      path: '/user/:_id',
+      name: 'userPage',
+      component: userPage
     },
     {
       path: '/game',

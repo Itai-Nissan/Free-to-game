@@ -17,6 +17,9 @@ export default {
     gameFilter,
     gameHero
   },
+  created() {
+
+  },
   mounted() {
     window.scrollTo(0, 0)
   },

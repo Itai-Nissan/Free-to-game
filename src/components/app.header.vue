@@ -10,6 +10,16 @@
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/game">Games</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <section class="loggedin-user">
+          <RouterLink class="login-btn" v-if="!loggedInUser" to="/login">Login</RouterLink>
+          <div v-else class="loggedin">
+            <router-link :to="`/user/${loggedInUser._id}`">
+              Hi {{ loggedInUser.username }}
+            </router-link>
+            <button @click="logout">Logout</button>
+            <!-- <span>{{ loggedInUser.score.toLocaleString() }}</span> -->
+          </div>
+        </section>
       </nav>
     </div>
   </section>
@@ -23,13 +33,22 @@ export default {
       isFixed: true,
     };
   },
-  created() { 
+  created() {
 
   },
   mounted() {
   },
-  methods: {},
-  computed: {},
+  methods: {
+    logout() {
+      this.$store.dispatch({ type: "logout", userId: this.userId })
+      this.$router.push('/login')
+    }
+  },
+  computed: {
+    loggedInUser() {
+      return this.$store.getters.loggedinUser
+    },
+  },
   unmounted() { },
 };
 </script>
