@@ -51,18 +51,6 @@ function filter(games, filterBy) {
         }
       })
   }
-
-  //BY LABLE
-  // if (filterBy.lable) {
-  //   if (filterBy.lable === 'All') return filteredGames
-  //   else {
-  //     filteredGames = filteredGames.filter(
-  //       (game) =>
-  //         game.genre.includes(filterBy.lable)
-  //     )
-  //   }
-  // }
-
   return filteredGames
 }
 
@@ -71,6 +59,7 @@ async function query(entityType, filterBy, pageIdx) {
 
   if (filterBy.lable) {
     if (filterBy.lable === 'All') games = await getGames(entityType)
+
     else {
       games = await gameByCategory(filterBy.lable)
     }
@@ -170,7 +159,6 @@ async function gameByCategory(category) {
 
   await axios.request(entities)
     .then(function (response) {
-      console.log(response.data);
       games = response.data
     }).catch(function (error) {
       console.error(error);

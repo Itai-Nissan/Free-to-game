@@ -31,20 +31,54 @@ export default {
          },
          labels: [
             'All',
-            'MMO',
-            'MMORPG',
-            'Shooter',
-            'Strategy',
-            'Moba',
-            'Battle Royale',
-            'Fantasy',
-            'Sci-Fi',
-            'Card Games',
-            'Racing',
-            'Fighting',
-            'Social',
-            'Sports'
+            'mmorpg',
+            'shooter',
+            'strategy',
+            'moba',
+            'racing',
+            'sports',
+            'social',
+            'sandbox',
+            'open- world',
+            'survival',
+            'pvp',
+            'pve',
+            'pixel',
+            'voxel',
+            'zombie',
+            'turn - based',
+            'first - person',
+            'third - Person',
+            'top - down',
+            'tank',
+            'space',
+            'sailing',
+            'side - scroller',
+            'superhero',
+            'permadeath',
+            'card',
+            'battle - royale',
+            'mmo',
+            'mmofps',
+            'mmotps',
+            '3d',
+            '2d',
+            'anime',
+            'fantasy',
+            'sci - fi',
+            'fighting',
+            'action - rpg',
+            'action',
+            'military',
+            'martial - arts',
+            'flight',
+            'low - spec',
+            'tower - defense',
+            'horror',
+            'mmorts'
+
          ],
+
       }
    },
    created() {
@@ -54,7 +88,7 @@ export default {
    mounted() {
       this.setFilter()
    },
-   unmounted(){
+   unmounted() {
 
    },
    methods: {
@@ -62,11 +96,11 @@ export default {
          this.$emit('set-filter', this.filterBy)
       },
       setSort() {
-        this.$emit('sorted', this.sortBy);
+         this.$emit('sorted', this.sortBy);
       },
    },
-   computed:{
-      sortedLabels(){
+   computed: {
+      sortedLabels() {
          return this.labels.sort()
       },
    },

@@ -87,13 +87,9 @@ export default {
           throw err;
         });
     },
-    setFilterAct({ commit, dispatch }, { filterBy }) {
-      commit({ type: 'setFilter', filterBy })
-      commit({ type: 'setPageToZero' })
-      dispatch({ type: 'loadGames' });
-    },
     setStateFilter({ commit, dispatch }, { filterBy }) {
       commit({ type: 'setFilter', filterBy })
+      commit({ type: 'setPageToZero' })
       dispatch({ type: 'loadGames' });
     },
   },
