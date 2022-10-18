@@ -17,6 +17,10 @@
         grid-template-columns: 30% 1fr;
         margin-block-start: 1em;
 
+        a{
+            height: 100%;
+        }
+
         button:first-child {
             margin-inline-end: 0.2em;
         }

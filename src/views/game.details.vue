@@ -1,5 +1,6 @@
 <template>
   <section v-if="game" class="game-details">
+    <!-- <p>{{game}}</p> -->
     <div v-if="game.screenshots[0].image" class="details-background">
       <img :src="game.screenshots[0].image" alt="">
     </div>

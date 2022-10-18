@@ -58,6 +58,25 @@
   color: $backColor
 }
 
+.btn-basic-4 {
+  min-width: 60px;
+  border: none;
+  background-color: $backColor2;
+  font-weight: bold;
+  color: #7a8288;
+  height: 32px;
+  padding: 8px 15px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-basic-4:hover {
+  transition: 0.2s;
+  color: $clr4
+}
+
 .login-btn {
   min-width: 60px;
   border: 1px solid $cta;
