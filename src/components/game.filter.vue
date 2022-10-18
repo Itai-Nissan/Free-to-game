@@ -5,7 +5,7 @@
       </label>
       <label>Genre/Tag:
          <select class="filter-select" v-model="filterBy.lable" @change="setFilter">
-            <option v-for="label in sortedLabels" :key="label" :label="label" :value="label"></option>
+            <option v-for="label in this.capLabels" :key="label" :label="label" :value="label"></option>
          </select>
       </label>
       <label>Sort By:
@@ -19,6 +19,7 @@
 </template>
  
 <script>
+import { capitalize, pushScopeId } from 'vue'
 
 export default {
    name: 'GameFilter',
@@ -78,20 +79,26 @@ export default {
             'mmorts'
 
          ],
-
+         capLabels: [],
       }
    },
    created() {
       this.filterBy.name = ''
-      this.filterBy.sortBy = ''
+
    },
    mounted() {
       this.setFilter()
-   },
-   unmounted() {
-
+      this.sortedLabels()
    },
    methods: {
+      sortedLabels() {
+         return this.labels.sort().forEach((label) => {
+            this.capLabels.push(
+               label =
+               label.charAt(0).toUpperCase() + label.slice(1)
+            )
+         })
+      },
       setFilter() {
          this.$emit('set-filter', this.filterBy)
       },
@@ -100,9 +107,6 @@ export default {
       },
    },
    computed: {
-      sortedLabels() {
-         return this.labels.sort()
-      },
    },
 }
 </script>
