@@ -29,12 +29,15 @@ export default {
   },
 
   created() {
-    this.user = userService.getLoggedinUser()
-    // this.$store.dispatch({ type: 'loadGames' })
+    // this.loggedUser()
+    // this.user = userService.getLoggedInUser()
   },
   mounted() {
   },
   methods: {
+    // async loggedUser() {
+    //   this.user = await userService.getLoggedInUser()
+    // }
   },
 }
 </script>

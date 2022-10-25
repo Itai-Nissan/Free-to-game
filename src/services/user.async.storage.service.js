@@ -1,3 +1,4 @@
+import users from '../../data/users.json'
 
 export const storageService = {
     query,
@@ -7,49 +8,10 @@ export const storageService = {
     remove,
 }
 
-let gUsers = [
-    {
-        _id: "gr2Y0",
-        fullname: "Administrator",
-        username: "admin",
-        password: "admin",
-        isAdmin: true
-    },
-    {
-        _id: "gr2Y1",
-        username: "uzi",
-        email: "uzi@gmail.com",
-        password: "nis",
-        isAdmin: false,
-        orders: [
-            {
-                _id: 1,
-                orderDate: new Date,
-                game: {
-                    id: 540,
-                    title: "Overwatch 2",
-                    thumbnail: "https://www.freetogame.com/g/540/thumbnail.jpg",
-                    genre: "Shooter",
-                },
-            },
-            {
-                _id: 2,
-                orderDate: new Date,
-                game: {
-                    id: 517,
-                    title: "Lost Ark",
-                    thumbnail: "https://www.freetogame.com/g/517/thumbnail.jpg",
-                    genre: "ARPG",
-                },
-            },
-        ]
-    },
-]
-
 function query(entityType) {
-    // var entities = []
-    var entities = gUsers || []
-    // var entities = JSON.parse(localStorage.getItem(entityType)) || []
+    console.log('query');
+    var entities = users || []
+    // const entities = JSON.parse(localStorage.getItem(entityType)) || users || []
     return Promise.resolve(entities)
 }
 
@@ -59,24 +21,20 @@ function get(entityType, entityId) {
 }
 function post(entityType, newEntity) {
     newEntity._id = _makeId()
-    console.log(newEntity);
     return query(entityType)
         .then(entities => {
             entities.unshift(newEntity)
             _save(entityType, entities)
-            console.log(entities);
             return newEntity
         })
 }
 
 function put(entityType, updatedEntity) {
-    console.log(updatedEntity);
     return query(entityType)
         .then(entities => {
             const idx = entities.findIndex(entity => entity._id === updatedEntity._id)
             entities.splice(idx, 1, updatedEntity)
-            console.log(entities);
-            _save(entityType, entities)
+            _save(entityType, updatedEntity)
             return updatedEntity
         })
 }

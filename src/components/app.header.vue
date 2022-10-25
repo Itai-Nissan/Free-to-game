@@ -6,6 +6,7 @@
           <img src="../assets/img/freetogame-logo.png" alt="">
         </RouterLink>
       </div>
+      <!-- <pre>{{loggedInUser}}</pre> -->
       <nav class="nav">
         <!-- <RouterLink to="/">Home</RouterLink> -->
         <RouterLink to="/game">Free Games</RouterLink>
@@ -26,9 +27,11 @@ export default {
   data() {
     return {
       isFixed: true,
+
     };
   },
   created() {
+    // this.$store.dispatch({ type: "loadAndWatchUser" })
 
   },
   mounted() {
@@ -41,7 +44,7 @@ export default {
   },
   computed: {
     loggedInUser() {
-      return this.$store.getters.loggedinUser
+      return this.$store.getters.loggedInUser
     },
   },
   unmounted() { },

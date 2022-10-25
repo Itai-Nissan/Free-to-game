@@ -14,16 +14,11 @@ export default {
   save,
 };
 
-// var gGames = _createGames();
-
-// const axios = require("axios");
-
 function query(filterBy, pageIdx) {
   return storageService.query(KEY, filterBy, pageIdx);
 }
 
 function getById(id) {
-  // return axios.get(_getUrl(id)).then((res) => res.data);
   return storageService.get(KEY, id);
 }
 

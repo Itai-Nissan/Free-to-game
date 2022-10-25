@@ -3,34 +3,65 @@ import { userService } from '../../services/user.service'
 
 export const userModule = {
     state: {
-        loggedinUser: userService.getLoggedinUser(),
-        users: [],
+        loggedInUser: userService.getLoggedInUser(),
+        user: null,
+        orders: [],
         watchedUser: null
     },
     getters: {
         users({ users }) { return users },
-        loggedinUser({ loggedinUser }) { return loggedinUser },
+        loggedInUser({ loggedInUser }) { return loggedInUser },
         watchedUser({ watchedUser }) { return watchedUser }
     },
     mutations: {
-        setLoggedinUser(state, { user }) {
-            state.loggedinUser = (user) ? { ...user } : null
+        addGameToList(state, { updatedOrders }) {
+            state.orders = updatedOrders
+        },
+        removeGameFromList(state, { updatedOrders }) {
+            state.orders = updatedOrders
+        },
+        setLoggedInUser(state, { user }) {
+            state.loggedInUser = (user) ? { ...user } : null
         },
         setWatchedUser(state, { user }) {
             state.watchedUser = user
         },
-        setUsers(state, { users }) {
-            state.users = users
+        setUser(state, { user }) {
+            state.user = user
         },
         removeUser(state, { userId }) {
             state.users = state.users.filter(user => user._id !== userId)
         },
     },
     actions: {
+        async addToList({ commit }, game) {
+            try {
+                const user = await userService.saveToList(game)
+                    .then((user) => {
+                        commit({ type: 'setLoggedInUser', user })
+                    })
+                return user
+            } catch (err) {
+                console.log('userStore: Error in login', err)
+                throw err
+            }
+        },
+        async removeFromList({ commit }, game) {
+            try {
+                const user = await userService.removeFromList(game)
+                    .then((user) => {
+                        commit({ type: 'setLoggedInUser', user })
+                    })
+                return user
+            } catch (err) {
+                console.log('userStore: Error in login', err)
+                throw err
+            }
+        },
         async login({ commit }, { userCred }) {
             try {
                 const user = await userService.login(userCred)
-                commit({ type: 'setLoggedinUser', user })
+                commit({ type: 'setLoggedInUser', user })
                 return user
             } catch (err) {
                 console.log('userStore: Error in login', err)
@@ -40,7 +71,7 @@ export const userModule = {
         async signup({ commit }, { userCred }) {
             try {
                 const user = await userService.signup(userCred)
-                commit({ type: 'setLoggedinUser', user })
+                commit({ type: 'setLoggedInUser', user })
                 return user
             } catch (err) {
                 console.log('userStore: Error in signup', err)
@@ -50,55 +81,27 @@ export const userModule = {
         async logout({ commit }) {
             try {
                 await userService.logout()
-                commit({ type: 'setLoggedinUser', user: null })
+                commit({ type: 'setLoggedInUser', user: null })
+                commit({ type: 'setWatchedUser', user: null })
+
             } catch (err) {
                 console.log('userStore: Error in logout', err)
-                throw err
-            }
-        },
-        async loadUsers({ commit }) {
-            // TODO: loading
-            try {
-                const users = await userService.getUsers()
-                commit({ type: 'setUsers', users })
-            } catch (err) {
-                console.log('userStore: Error in loadUsers', err)
                 throw err
             }
         },
         async loadAndWatchUser({ commit }, { userId }) {
             try {
                 const user = await userService.getById(userId)
-                console.log(user);
                 commit({ type: 'setWatchedUser', user })
+                commit({ type: 'setLoggedInUser', user })
                 // socketService.emit(SOCKET_EMIT_USER_WATCH, userId) 
                 // socketService.off(SOCKET_EVENT_USER_UPDATED)
                 // socketService.on(SOCKET_EVENT_USER_UPDATED, user => {
-                // commit({ type: 'setWatchedUser', user })
                 // })
             } catch (err) {
                 console.log('userStore: Error in loadAndWatchUser', err)
                 throw err
             }
-        },
-        async removeUser({ commit }, { userId }) {
-            try {
-                await userService.remove(userId)
-                commit({ type: 'removeUser', userId })
-            } catch (err) {
-                console.log('userStore: Error in removeUser', err)
-                throw err
-            }
-        },
-        async updateUser({ commit }, { user }) {
-            try {
-                user = await userService.update(user)
-                commit({ type: 'setUser', user })
-            } catch (err) {
-                console.log('userStore: Error in updateUser', err)
-                throw err
-            }
-
         },
     }
 }

@@ -64,6 +64,17 @@ export default {
           throw err;
         });
     },
+    getGameById(context, { gameId }) {
+      return gameService
+        .getById(gameId)
+        .then((game) => {
+          return game;
+        })
+        .catch((err) => {
+          console.log('Error: cannot get game', err);
+          throw err;
+        });
+    },
     changePage({ commit, dispatch }, pageNumber) {
       commit({ type: 'setPage', pageNumber })
       dispatch({ type: 'loadGames' })
@@ -76,17 +87,7 @@ export default {
       commit({ type: 'setPage', pageWay: pageDirection })
       dispatch({ type: 'loadGames' })
     },
-    getGameById(context, { gameId }) {
-      return gameService
-        .getById(gameId)
-        .then((game) => {
-          return game;
-        })
-        .catch((err) => {
-          console.log('Error: cannot get game', err);
-          throw err;
-        });
-    },
+
     setStateFilter({ commit, dispatch }, { filterBy }) {
       commit({ type: 'setFilter', filterBy })
       commit({ type: 'setPageToZero' })

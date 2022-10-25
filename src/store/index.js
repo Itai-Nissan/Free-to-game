@@ -1,6 +1,6 @@
-import {createStore} from 'vuex';
+import { createStore } from 'vuex';
 import gameModule from './modules/game.module';
-import {userModule} from './modules/user.module';
+import { userModule } from './modules/user.module';
 
 const store = createStore({
   state: {

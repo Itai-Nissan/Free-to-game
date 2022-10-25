@@ -8,7 +8,7 @@
       </div>
     </RouterLink>
     <div class="game-footer">
-      <button @click="onAddToCart">➕</button>
+      <button @click="onAddToList">➕</button>
       <h5 class="genre">{{game.genre}}</h5>
     </div>
   </section>
@@ -23,8 +23,6 @@ export default {
   props: {
     game: {
       type: Object,
-      required: true,
-      default: 12,
     },
   },
   components: {
@@ -38,8 +36,8 @@ export default {
   created() {
   },
   methods: {
-    onAddToCart() {
-      console.log('hi');
+    onAddToList() {
+      this.$store.dispatch('addToList', this.game)
     },
   },
   computed: {},

@@ -18,7 +18,7 @@
       </form>
       <div class="to-signup">
         <span>Not a member yet?</span>
-        <RouterLink class="to-signup-link" to="/signup">Log In ></RouterLink>
+        <RouterLink class="to-signup-link" to="/signup">Sign up ></RouterLink>
       </div>
     </div>
   </section>
@@ -38,12 +38,12 @@ export default {
     users() {
       return this.$store.getters.users
     },
-    loggedinUser() {
-      return this.$store.getters.loggedinUser
+    loggedInUser() {
+      return this.$store.getters.loggedInUser
     },
   },
   created() {
-    this.loadUsers()
+    // this.loadUsers()
   },
   mounted() {
     window.scrollTo(0, 0)
@@ -56,7 +56,7 @@ export default {
       }
       try {
         await this.$store.dispatch({ type: "login", userCred: this.loginCred })
-        this.$router.push(`/user/${this.loggedinUser._id}`)
+        this.$router.push(`/user/${this.loggedInUser._id}`)
       } catch (err) {
         console.log(err)
         this.msg = 'Failed to login'
@@ -74,9 +74,9 @@ export default {
       this.$router.push('/')
 
     },
-    loadUsers() {
-      this.$store.dispatch({ type: "loadUsers" })
-    },
+    // loadUsers() {
+    //   this.$store.dispatch({ type: "loadUsers" })
+    // },
     async removeUser(userId) {
       try {
         await this.$store.dispatch({ type: "removeUser", userId })

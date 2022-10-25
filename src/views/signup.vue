@@ -55,16 +55,16 @@ export default {
     }
   },
   computed: {
-    users() {
-      return this.$store.getters.users
-    },
+    // users() {
+    //   return this.$store.getters.users
+    // },
     loggedinUser() {
       return this.$store.getters.loggedinUser
     },
   },
-  created() {
-    this.loadUsers()
-  },
+  // created() {
+  //   this.loadUsers()
+  // },
   mounted() {
     window.scrollTo(0, 0)
   },
