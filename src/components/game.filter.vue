@@ -1,28 +1,55 @@
 <template>
    <section class="game-filter container">
+      <!-- <dropDown :labels="this.capLabels"/> -->
+      <el-select theme="dark" 
+      @change="setFilter(this.filterBy.sortBy)" 
+      v-model="filterBy.lable" 
+      placeholder="Select">
+         <el-option v-for="label in labels" :key="label" :label="label" :value="label">
+         </el-option>
+      </el-select>
       <label>
-         <input v-model="filterBy.name" placeholder="Search...." @input="setFilter" />
+         <el-input v-model="filterBy.name" placeholder="Search...." @input="setFilter" />
       </label>
-      <label>Genre/Tag:
-         <select class="filter-select" v-model="filterBy.lable" @change="setFilter">
-            <option v-for="label in this.capLabels" :key="label" :label="label" :value="label"></option>
-         </select>
+      <label>
+         <el-select class="filter-select" @change="setFilter" v-model="filterBy.sortBy" placeholder="Sort By">
+            <el-option value="nameDsc" label="a - z"></el-option>
+            <el-option value="nameAsc" label="z - a"></el-option>
+            <el-option value="release" label="Release date"></el-option>
+         </el-select>
       </label>
-      <label>Sort By:
-         <select class="filter-select" @change="setFilter" v-model="filterBy.sortBy" placeholder="Sort By">
-            <option value="nameDsc" label="a - z"></option>
-            <option value="nameAsc" label="z - a"></option>
-            <option value="release" label="Release date"></option>
-         </select>
-      </label>
+
+      <!-- <div class="inputs">
+         <label>
+            <input v-model="filterBy.name" placeholder="Search...." @input="setFilter" />
+         </label>
+         <label>Genre/Tag:
+            <select class="filter-select" v-model="filterBy.lable" @change="setFilter">
+               <option v-for="label in this.capLabels" :key="label" :label="label" :value="label"></option>
+            </select>
+         </label>
+         <label>Sort By:
+            <select class="filter-select" @change="setFilter" v-model="filterBy.sortBy" placeholder="Sort By">
+               <option value="nameDsc" label="a - z"></option>
+               <option value="nameAsc" label="z - a"></option>
+               <option value="release" label="Release date"></option>
+            </select>
+         </label>
+      </div> -->
    </section>
 </template>
  
 <script>
+import dropDown from './dropdwon.vue'
+import { ref } from 'vue';
 import { capitalize, pushScopeId } from 'vue'
 
 export default {
    name: 'GameFilter',
+   components: {
+      dropDown,
+   },
+
    data() {
       return {
          filterBy: {
@@ -99,7 +126,8 @@ export default {
             )
          })
       },
-      setFilter() {
+      setFilter(e) {
+         console.log('filter', this.filterBy);
          this.$emit('set-filter', this.filterBy)
       },
       setSort() {
@@ -110,5 +138,4 @@ export default {
    },
 }
 </script>
- 
  
