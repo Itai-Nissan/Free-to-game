@@ -5,13 +5,13 @@ import appHeader from './components/app.header.vue'
 import appFooter from './components/app.footer.vue'
 import { userService } from './services/user.service.js'
 // import loginSignupVue from './views/login-signup.vue'
-// import UserMsg from '@/components/UserMsg.vue';
+import UserMsg from './components/user.msg.vue';
 
 export default {
   components: {
     appHeader,
     appFooter,
-    // UserMsg,
+    UserMsg,
   },
   data() {
     return {

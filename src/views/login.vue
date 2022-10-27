@@ -1,6 +1,6 @@
 <template>
+  <!-- <p>{{ msg }}</p> -->
   <section class="login container">
-    <!-- <p>{{ msg }}</p> -->
     <div class="login-image">
       <img src="../assets/img/ftg-login.png" alt="">
     </div>
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import {socketService} from '../services/socket.service'
+
 export default {
   name: 'login-signup',
   data() {
@@ -49,6 +51,18 @@ export default {
     window.scrollTo(0, 0)
   },
   methods: {
+    sendMsg() {
+      console.log('Sending', this.msg)
+      // TODO: next line not needed after connecting to backend
+      // this.addMsg(this.msg)
+      // setTimeout(()=>this.addMsg({from: 'Dummy', txt: 'Yey'}), 2000)
+      const user = userService.getLoggedinUser()
+      const from = (user && user.fullname) || 'Guest'
+      this.msg.from = from
+      socketService.emit('chat newMsg', this.msg)
+      this.msg = {from, txt: ''}
+    },
+
     async doLogin() {
       if (!this.loginCred.username) {
         this.msg = 'Please enter username/password'
@@ -74,9 +88,6 @@ export default {
       this.$router.push('/')
 
     },
-    // loadUsers() {
-    //   this.$store.dispatch({ type: "loadUsers" })
-    // },
     async removeUser(userId) {
       try {
         await this.$store.dispatch({ type: "removeUser", userId })
