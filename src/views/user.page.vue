@@ -13,10 +13,8 @@
                 <div class="game-info">
                     <div class="info">
                         <h3>{{order.title}}</h3>
-                        <!-- <p>{{order.short_description}}</p> -->
                     </div>
-                    <!-- <li><img :src="order.thumbnail" alt=""></li> -->
-                    <button class="btn-basic-3" v-on:click="onRemoveFromList(order)">Remove from list</button>
+                    <button class="btn-basic-4" v-on:click="onRemoveFromList(order)">Remove from list</button>
                 </div>
             </section>
         </section>
@@ -55,7 +53,6 @@ export default {
                 const u = await this.$store.dispatch({ type: "removeFromList", order, })
                     .then((u) => {
 
-                        console.log(u);
                     })
             }
             // this.user = this.$store.getters.loggedinUser

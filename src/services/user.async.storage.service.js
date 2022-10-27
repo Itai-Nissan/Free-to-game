@@ -30,6 +30,7 @@ function post(entityType, newEntity) {
 }
 
 function put(entityType, updatedEntity) {
+    updatedEntity._id = _makeId()
     return query(entityType)
         .then(entities => {
             const idx = entities.findIndex(entity => entity._id === updatedEntity._id)

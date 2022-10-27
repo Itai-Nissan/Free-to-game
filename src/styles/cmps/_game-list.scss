@@ -40,26 +40,31 @@
     }
 
     ul {
-        padding-inline-start: 0;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(230px, 290px));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 260px));
         grid-template-rows: auto;
-        gap: 22px;
         justify-content: space-between;
-
-        :hover {
-            transform: scale(1.01);
-            transition: 0.5s;
-        }
     }
 }
+
+@media screen and (max-width: 1140px) {
+    .game-list {
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+
+}
+
 
 @media screen and (max-width: 767px) {
     .game-list {
 
         ul {
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 0px;
         }
     }
 }
@@ -70,7 +75,7 @@
         ul {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 2px;
         }
     }
 }

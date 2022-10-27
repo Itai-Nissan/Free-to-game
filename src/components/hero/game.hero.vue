@@ -11,7 +11,7 @@
         </div>
         <div v-if="currPage === 'game'" class="game-hero">
             <h1>Best Free Games for PC and Browser In 2022!</h1>
-            <h4>{{gamesCount}} free-to-play <span>games</span> found in our games list!</h4>
+            <p>{{gamesCount}} free-to-play <span>games</span> found in our games list!</p>
             <ul v-if="games" class="clean-list">
                 <li v-for="game in sliceGames" :key="game._id" class="game-hero-preview">
                     <game-hero-preview sign="$" :game="game" />
