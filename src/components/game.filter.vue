@@ -1,16 +1,12 @@
 <template>
    <section class="game-filter container">
-      <!-- <dropDown :labels="this.capLabels"/> -->
-      <el-select theme="dark" 
-      @change="setFilter(this.filterBy.sortBy)" 
-      v-model="filterBy.lable" 
-      placeholder="Select">
-         <el-option v-for="label in labels" :key="label" :label="label" :value="label">
-         </el-option>
-      </el-select>
       <label>
          <el-input v-model="filterBy.name" placeholder="Search...." @input="setFilter" />
       </label>
+      <el-select theme="dark" @change="setFilter(this.filterBy.sortBy)" v-model="filterBy.lable" placeholder="Select">
+         <el-option v-for="label in labels" :key="label" :label="label" :value="label">
+         </el-option>
+      </el-select>
       <label>
          <el-select class="filter-select" @change="setFilter" v-model="filterBy.sortBy" placeholder="Sort By">
             <el-option value="nameDsc" label="a - z"></el-option>
@@ -40,14 +36,11 @@
 </template>
  
 <script>
-import dropDown from './dropdwon.vue'
 import { ref } from 'vue';
-import { capitalize, pushScopeId } from 'vue'
 
 export default {
    name: 'GameFilter',
    components: {
-      dropDown,
    },
 
    data() {

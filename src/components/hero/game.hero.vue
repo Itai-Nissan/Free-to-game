@@ -2,8 +2,18 @@
     <section class="game-hero-list container">
         <div v-if="currPage === 'home'" class="home-hero">
             <h1>🤖 Personalized Recommendations</h1>
-            <a href="" style="color: lightblue">Log in to view your personalized recommendations!</a>
-            <ul v-if="games" class="clean-list">
+            <RouterLink class="" style="color: lightblue" v-if="!loggedInUser" to="/login">Log in to view your
+                personalized recommendations!
+            </RouterLink>
+
+            <section v-if="loggedInUser">
+                <p> Logged in as {{ loggedInUser.username }}</p>
+                <p>You have {{ loggedInUser.orders.length }} games on your list</p>
+                <RouterLink class="" style="color: lightblue" to="/user/:_id">
+                    Go to profile
+                </RouterLink>
+            </section>
+            <ul v-if="games" class="sliced-games clean-list">
                 <li v-for="game in sliceGames" :key="game._id" class="game-hero-preview">
                     <game-hero-preview sign="$" :game="game" />
                 </li>
@@ -11,7 +21,7 @@
         </div>
         <div v-if="currPage === 'game'" class="game-hero">
             <h1>Best Free Games for PC and Browser In 2022!</h1>
-            <p>{{gamesCount}} free-to-play <span>games</span> found in our games list!</p>
+            <p>{{ gamesCount }} free-to-play <span>games</span> found in our games list!</p>
             <ul v-if="games" class="clean-list">
                 <li v-for="game in sliceGames" :key="game._id" class="game-hero-preview">
                     <game-hero-preview sign="$" :game="game" />
@@ -43,6 +53,9 @@ export default {
     methods: {
     },
     computed: {
+        loggedInUser() {
+            return this.$store.getters.loggedInUser
+        },
         gamesCount() {
             return this.$store.getters.gamesLength
         },

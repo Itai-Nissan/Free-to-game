@@ -1,5 +1,4 @@
 <template>
-  <!-- <p>{{ msg }}</p> -->
   <section class="login container">
     <div class="login-image">
       <img src="../assets/img/ftg-login.png" alt="">
@@ -8,10 +7,6 @@
       <img src="../assets/img/logo-footer.png" alt="">
       <h2>Log in to FreeToGame</h2>
       <form class="login-form-display" @submit.prevent="doLogin">
-        <!-- <select v-model="loginCred.username">
-          <option value="">Select User</option>
-          <option v-for="user in users" :key="user._id" :value="user.username">{{ user.fullname }}</option>
-        </select> -->
         <input type="text" v-model="loginCred.username" placeholder="User name" />
         <input type="text" v-model="loginCred.password" placeholder="Password" />
         <button class="create-btn">Login</button>
@@ -25,7 +20,12 @@
 </template>
 
 <script>
-import {socketService} from '../services/socket.service'
+import { eventBus } from '../services/event-bus-service'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus-service.js'
+// import userMsg from '../components/user.msg.vue'
+
+
+// import {socketService} from '../services/socket.service'
 
 export default {
   name: 'login-signup',
@@ -33,8 +33,9 @@ export default {
     return {
       msg: '',
       loginCred: { username: '', password: '' },
-      // signupCred: { username: '', email: '', password: '', confirm: '' },
     }
+  },
+  components: {
   },
   computed: {
     users() {
@@ -51,43 +52,36 @@ export default {
     window.scrollTo(0, 0)
   },
   methods: {
-    sendMsg() {
-      console.log('Sending', this.msg)
-      // TODO: next line not needed after connecting to backend
-      // this.addMsg(this.msg)
-      // setTimeout(()=>this.addMsg({from: 'Dummy', txt: 'Yey'}), 2000)
-      const user = userService.getLoggedinUser()
-      const from = (user && user.fullname) || 'Guest'
-      this.msg.from = from
-      socketService.emit('chat newMsg', this.msg)
-      this.msg = {from, txt: ''}
-    },
-
     async doLogin() {
       if (!this.loginCred.username) {
+        showErrorMsg('Please enter username/password')
         this.msg = 'Please enter username/password'
         return
       }
       try {
         await this.$store.dispatch({ type: "login", userCred: this.loginCred })
-        this.$router.push(`/user/${this.loggedInUser._id}`)
-      } catch (err) {
+        this.$router.push('/')
+        // this.$router.push(`/user/${this.loggedInUser._id}`)
+        showSuccessMsg(`Logged in as ${this.loginCred.username}`)
+      }
+      catch (err) {
         console.log(err)
+        showErrorMsg('Failed to login')
         this.msg = 'Failed to login'
       }
     },
-    doLogout() {
-      this.$store.dispatch({ type: 'logout' })
-    },
-    async doSignup() {
-      if (!this.signupCred.fullname || !this.signupCred.password || !this.signupCred.username) {
-        this.msg = 'Please fill up the form'
-        return
-      }
-      await this.$store.dispatch({ type: 'signup', userCred: this.signupCred })
-      this.$router.push('/')
+    // doLogout() {
+    //   this.$store.dispatch({ type: 'logout' })
+    // },
+    // async doSignup() {
+    //   if (!this.signupCred.fullname || !this.signupCred.password || !this.signupCred.username) {
+    //     this.msg = 'Please fill up the form'
+    //     return
+    //   }
+    //   await this.$store.dispatch({ type: 'signup', userCred: this.signupCred })
+    //   this.$router.push('/')
 
-    },
+    // },
     async removeUser(userId) {
       try {
         await this.$store.dispatch({ type: "removeUser", userId })

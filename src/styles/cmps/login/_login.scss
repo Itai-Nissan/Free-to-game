@@ -17,6 +17,9 @@
         padding: 4em;
         background-color: $backColor2;
         align-items: center;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
 
         img {
             height: 70px;
@@ -52,6 +55,7 @@
         .login-form-display {
             display: flex;
             flex-direction: column;
+            width: 100%;
 
             ::placeholder {
                 color: $backColor3;

@@ -1,6 +1,6 @@
 .game-preview :hover {
     transform: scale(1.01);
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .game-preview {
@@ -38,6 +38,13 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        button{
+            border-radius: 3px;
+        }
+        button:hover{
+            background-color: $fontColor2;
+        }
 
         h3 {
             text-align: center;

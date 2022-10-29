@@ -9,7 +9,7 @@
     </RouterLink>
     <div class="game-footer">
       <button @click="onAddToList">➕</button>
-      <h5 class="genre">{{game.genre}}</h5>
+      <h5 class="genre">{{ game.genre }}</h5>
     </div>
   </section>
 </template>
@@ -17,6 +17,8 @@
 <script>
 import longText from '../long-text/long.text.vue'
 import longTextHeader from '../long-text/long.text.header.vue'
+import { showErrorMsg, showSuccessMsg } from '../../services/event-bus-service'
+
 
 export default {
   name: 'GamePreview',
@@ -31,16 +33,27 @@ export default {
   },
   data() {
     return {
-    };
+    }
   },
   created() {
   },
   methods: {
     onAddToList() {
-      this.$store.dispatch('addToList', this.game)
+      if (!this.user) {
+        showErrorMsg('Please log in')
+        return
+      }
+      else {
+        this.$store.dispatch('addToList', this.game)
+        showSuccessMsg(`${this.game.title} added to your list`)
+      }
     },
   },
-  computed: {},
+  computed: {
+    user() {
+      return this.$store.getters.loggedInUser
+    },
+  },
   unmounted() { },
 };
 </script>

@@ -3,7 +3,7 @@
         <h1>User page</h1>
         <h2>Welcome {{user.username}}</h2>
         <h3>Your game list</h3>
-        <!-- <h4>{{user.email}}</h4> -->
+        <h4>You have {{user.orders.length}} games on your list</h4>
         <section class="order-list">
             <h2 v-if="!user.orders || user.orders.length === 0">No games on list</h2>
             <section class="list-card" v-for="order, idx in user.orders">
@@ -23,6 +23,7 @@
   
 
 <script>
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus-service'
 
 export default {
     data() {
@@ -30,11 +31,8 @@ export default {
         }
     },
     async created() {
-        // const user = await userService.getById(this.userId)
-        // this.user = user
     },
     mounted() {
-        window.scrollTo(0, 0)
 
     },
     watch: {
@@ -52,18 +50,12 @@ export default {
             else {
                 const u = await this.$store.dispatch({ type: "removeFromList", order, })
                     .then((u) => {
-
+                        showSuccessMsg(`${order.title} removed from your list`)
                     })
             }
-            // this.user = this.$store.getters.loggedinUser
-            // this.$router.push(`/user/${this.userId}`)
-            // this.$store.dispatch({ type: "loadAndWatchUser", userId: this.userId })
         },
     },
     computed: {
-        // orders() {
-        //     return this.$store.getters.orders
-        // },
         user() {
             return this.$store.getters.loggedInUser
         },
@@ -73,8 +65,3 @@ export default {
     },
 }
 </script>
-
-<style>
-
-</style>
-  

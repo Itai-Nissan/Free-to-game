@@ -1,39 +1,46 @@
 .user-page {
     .order-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 12px;
+        justify-content: space-between;
+        max-width: 70%;
 
         .list-card {
+            display: flex;
+
+            z-index: 100;
+            background-color: #32383e;
+            border-radius: 7px;
+            max-height: 115px;
+
             background-color: $backColor2;
-            max-width: 250px;
-            margin: 0.5em;
 
             img {
-                width: 100%;
+                padding: 0.5em;
+                border-radius: 7px;
+                // max-height: 90px;
+                max-width: 200px;
             }
-
         }
 
         .game-info {
-
-
             text-align: center;
             padding: 0.5em;
             display: flex;
             flex-direction: column;
+            justify-content: flex-end;
 
             h3 {
                 font-size: 20px;
             }
 
             .info {
-                min-height: 50px;
+                // min-height: 50px;
                 // min-height: 100px;
             }
         }
-
-
     }
 
     li {

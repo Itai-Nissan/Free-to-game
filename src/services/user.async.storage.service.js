@@ -9,9 +9,7 @@ export const storageService = {
 }
 
 function query(entityType) {
-    console.log('query');
     var entities = users || []
-    // const entities = JSON.parse(localStorage.getItem(entityType)) || users || []
     return Promise.resolve(entities)
 }
 

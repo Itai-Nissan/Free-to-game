@@ -1,16 +1,27 @@
-
-
 .alert {
-    background-color: lightgray;
     position: absolute;
-    top: 0;
-    right: 0.5em;
-    padding: 1em;
+    top: 7.9%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+
+    background-color: $backColor;
+    color: $fontColor1;
+    padding: 0.7em;
+    height: 16px;
+    max-width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    border-radius: 5px;
+
     &.alert-success {
-        background-color: lightgreen;
+        background-color: $clr1;
+        transition: 1s;
     }
+
     &.alert-error {
-        background-color: lightcoral;
+        background-color: $backColor3;
+        transition: 1s;
     }
 }
-

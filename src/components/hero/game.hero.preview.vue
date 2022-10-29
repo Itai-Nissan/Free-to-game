@@ -1,5 +1,5 @@
 <template>
-    <section class="">
+    <section class="hero-preview-card">
         <RouterLink class="to-game-details" :to="`/game-details/${game.id}`">
                 <img v-bind:src="game.thumbnail" alt="">
                 <div class="game-hero-free">FREE</div>

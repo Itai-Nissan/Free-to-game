@@ -33,7 +33,7 @@ async function update(user) {
 
 async function login(userCred) {
     const users = await storageService.query(STORAGE_KEY_LOGGEDIN_USER)
-    const user = users.find(user => user.username === userCred.username)
+    const user = users.find(user => user.username === userCred.username && user.password === userCred.password)
     if (!user) return
     return storageService.put(STORAGE_KEY_LOGGEDIN_USER, user)
     // socketService.emit('set-user-socket', user._id)

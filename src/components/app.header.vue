@@ -1,5 +1,5 @@
 <template>
-  <section id="sticky" :class="{fixed: isFixed}" class="app-header">
+  <section id="sticky" :class="{ fixed: isFixed }" class="app-header">
     <div class="header-content container">
       <div class="logo">
         <RouterLink to="/">
@@ -21,7 +21,9 @@
   </section>
 </template>
 <script>
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus-service.js'
 export default {
+
   name: "app-header",
   components: {},
   data() {
@@ -40,6 +42,8 @@ export default {
     logout() {
       this.$store.dispatch({ type: "logout", userId: this.userId })
       this.$router.push('/login')
+      showSuccessMsg(`${this.loggedInUser.username} logged out`)
+
     }
   },
   computed: {
