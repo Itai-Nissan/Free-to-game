@@ -17,6 +17,8 @@
 import gameHero from '../components/hero/game.hero.vue'
 import homeGamePreview from '../components/home-cmps/home.game.preview.vue'
 import joinMore from '../components/home-cmps/join.more.vue'
+import { userService } from '../services/user.service'
+
 
 export default {
   name: 'home-page',
@@ -25,10 +27,19 @@ export default {
   data() {
     return {
       filterBy: {
+        lable: 'All',
         sortBy: 'release',
       },
     }
 
+  },
+  created() {
+    this.user = userService.getLoggedInUser()
+    if (this.user) {
+      userService.getLoggedInUser()
+      this.filterBy.lable = this.user.personal
+    }
+    else this.filterBy.lable = 'All'
   },
   mounted() {
     this.setFilter(this.filterBy)

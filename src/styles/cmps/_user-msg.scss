@@ -1,14 +1,14 @@
 .alert {
-    position: absolute;
-    top: 7.9%;
-    left: 75%;
+    position: fixed;
+    top: 9%;
+    left: 50%;
     transform: translate(-50%, -50%);
 
-    background-color: $backColor;
-    color: $fontColor1;
+    background-color: $fontColor1;
+    color: $footer-backColor;
     padding: 0.7em;
-    height: 16px;
-    max-width: 350px;
+    height: 20px;
+    max-width: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,12 +16,12 @@
     border-radius: 5px;
 
     &.alert-success {
-        background-color: $clr1;
+        background-color: $cta;
         transition: 1s;
     }
 
     &.alert-error {
-        background-color: $backColor3;
+        background-color: $clr2;
         transition: 1s;
     }
 }

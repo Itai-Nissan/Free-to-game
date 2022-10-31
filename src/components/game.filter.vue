@@ -47,7 +47,7 @@ export default {
       return {
          filterBy: {
             name: '',
-            lable: 'All',
+            lable: '',
             sortBy: '',
          },
          labels: [
@@ -120,7 +120,6 @@ export default {
          })
       },
       setFilter(e) {
-         console.log('filter', this.filterBy);
          this.$emit('set-filter', this.filterBy)
       },
       setSort() {

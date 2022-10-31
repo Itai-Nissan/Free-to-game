@@ -8,9 +8,11 @@
     "start": "nodemon --ignore \"./data\" server.js"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.0.10",
     "axios": "^0.27.2",
     "element-plus": "^2.2.19",
     "unplugin-auto-import": "^0.11.4",
+    "unplugin-element-plus": "^0.4.1",
     "vue": "^3.2.41",
     "vue-router": "^4.1.5",
     "vuex": "^4.0.2"

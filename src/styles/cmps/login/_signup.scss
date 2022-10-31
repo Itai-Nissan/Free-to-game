@@ -3,10 +3,12 @@
     -webkit-box-shadow: $box-shadow-web;
     border-radius: 5px;
     display: grid;
-    grid-template-columns: 40% 60%;
-    margin-block-end: 20em;
+    grid-template-columns: 1fr 1fr;
+    margin-block-end: 3em;
+    height: 500px;
 
     .signup-image {
+        height: 500px;
         img {
             width: 100%;
             height: 100%;

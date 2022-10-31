@@ -1,9 +1,8 @@
 .app-footer {
-    // position: absolute;
-    // bottom: 0;
     background-color: $footer-backColor;
     width: 100%;
     height: 250px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,9 +62,24 @@
                 }
             }
         }
+    }
+}
 
+@media screen and (max-width: 1140px) {}
 
+@media screen and (max-width: 990px) {}
 
+@media screen and (max-width: 767px) {}
+
+@media screen and (max-width: 575px) {
+    .app-footer {
+
+        height: 100%;
+
+        .footer-contain {
+
+            margin-block-end: 0em;
+        }
     }
 
 

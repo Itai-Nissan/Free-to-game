@@ -145,7 +145,6 @@ async function gameById(entityType, entityId) {
 }
 
 async function gameByCategory(category) {
-  console.log(category);
   let games = []
   const entities = {
     method: 'GET',

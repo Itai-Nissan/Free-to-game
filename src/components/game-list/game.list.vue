@@ -1,9 +1,9 @@
 <template>
-  <section class="game-list container">
+<section class="game-list container">
     <div class="navigate-btn">
       <button class="btn-basic-2" v-on:click="onPrevPage">previous</button>
       <nav class="page-number" v-for="page in numberOfPages">
-        <paging-numbers @onChangePage="changePage" :page="{page, currentPage}">
+        <paging-numbers @onChangePage="changePage" :page="{ page, currentPage }">
         </paging-numbers>
       </nav>
       <button class="btn-basic-2" v-on:click="onNextPage">Next</button>

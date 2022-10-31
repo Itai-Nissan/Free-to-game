@@ -89,6 +89,7 @@ export default {
     },
 
     setStateFilter({ commit, dispatch }, { filterBy }) {
+      console.log(filterBy);
       commit({ type: 'setFilter', filterBy })
       commit({ type: 'setPageToZero' })
       dispatch({ type: 'loadGames' });

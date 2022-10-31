@@ -1,10 +1,10 @@
 <template>
     <section v-if="game" class="game-details-info">
         <section class="game-info">
-            <h1>{{game.title}}</h1>
+            <h1>{{ game.title }}</h1>
         </section>
         <section class="game-about">
-            <h2>About {{game.title}}</h2>
+            <h2>About {{ game.title }}</h2>
             <hr>
             <details-long-text :text="game.description" />
         </section>
@@ -17,39 +17,39 @@
                 <div class="table-text">
                     <span class="">Title</span>
                     <br>
-                    <span class="">{{game.title}}</span>
+                    <span class="">{{ game.title }}</span>
                 </div>
                 <div class="table-text">
                     <span class="">Developer</span>
                     <br>
-                    <span class="">{{game.developer}}</span>
+                    <span class="">{{ game.developer }}</span>
                 </div>
                 <div class="table-text">
                     <span class="">Publisher</span>
                     <br>
-                    <span class="">{{game.publisher}}</span>
+                    <span class="">{{ game.publisher }}</span>
                 </div>
             </div>
             <div class="additional-table">
                 <div class="table-text">
                     <span class="">Release Date</span>
                     <br>
-                    <span class="">{{game.release_date}}</span>
+                    <span class="">{{ game.release_date }}</span>
                 </div>
                 <div class="table-text">
                     <span class="">Genre</span>
                     <br>
-                    <span class="">{{game.genre}}</span>
+                    <span class="">{{ game.genre }}</span>
                 </div>
                 <div class="table-text">
                     <span class="">Platform</span>
                     <br>
-                    <span class="">{{game.platform}}</span>
+                    <span class="">{{ game.platform }}</span>
                 </div>
             </div>
         </section>
         <section v-if="game.screenshots" class="screenshots">
-            <h2>{{game.title}} Screenshots</h2>
+            <h2>{{ game.title }} Screenshots</h2>
             <hr>
             <div class="images">
                 <a :href="game.screenshots[0].image">
@@ -70,9 +70,9 @@
                 <div v-for="(gameReq, idx) in game.minimum_system_requirements">
                     <div class="additional-table">
                         <div class="table-text">
-                            <span>{{idx}}</span>
+                            <span>{{ idx }}</span>
                             <br>
-                            <span>{{gameReq}}</span>
+                            <span>{{ gameReq }}</span>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 <template>
   <section class="game-preview">
-    <RouterLink class="preview-container" :to="`/game-details/${game.id}`">
+    <RouterLink title="Game details" class="preview-container" :to="`/game-details/${game.id}`">
       <img v-bind:src="game.thumbnail" alt="">
       <div class="game-info">
         <long-text-header :text="game.title"></long-text-header>
@@ -8,8 +8,16 @@
       </div>
     </RouterLink>
     <div class="game-footer">
-      <button @click="onAddToList">➕</button>
-      <h5 class="genre">{{ game.genre }}</h5>
+      <div class="footer-add">
+        <button title="Add game to list" @click="onAddToList">
+          <el-icon>
+            <CirclePlus />
+          </el-icon>
+        </button>
+      </div>
+      <div class="footer-genre">
+        <h5 class="genre">{{ game.genre }}</h5>
+      </div>
     </div>
   </section>
 </template>

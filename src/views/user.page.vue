@@ -1,36 +1,33 @@
 <template>
-    <div v-if="user" class="user-page container">
-        <h1>User page</h1>
-        <h2>Welcome {{user.username}}</h2>
-        <h3>Your game list</h3>
-        <h4>You have {{user.orders.length}} games on your list</h4>
-        <section class="order-list">
-            <h2 v-if="!user.orders || user.orders.length === 0">No games on list</h2>
-            <section class="list-card" v-for="order, idx in user.orders">
-                <RouterLink class="preview-container" :to="`/game-details/${order.id}`">
-                    <img v-bind:src="order.thumbnail" alt="">
-                </RouterLink>
-                <div class="game-info">
-                    <div class="info">
-                        <h3>{{order.title}}</h3>
-                    </div>
-                    <button class="btn-basic-4" v-on:click="onRemoveFromList(order)">Remove from list</button>
-                </div>
-            </section>
-        </section>
-    </div>
+    <section v-if="user" class="user-page container">
+        <div class="user-info">
+            <h2>Welcome {{ user.username }}</h2>
+            <h4>You have {{ user.orders.length }} games on your list</h4>
+        </div>
+        <div class="user-details">
+            <order-list :user="user" />
+            <user-personal :user="user"/>
+        </div>
+    </section>
 </template>
   
 
 <script>
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus-service'
+// import { showErrorMsg, showSuccessMsg } from '../services/event-bus-service'
+import orderList from '../components/user-page/order.list.vue'
+import userPersonal from '../components/user-page/user.personal.vue'
 
 export default {
+    name: 'user-page',
     data() {
         return {
         }
     },
-    async created() {
+    components: {
+        orderList,
+        userPersonal,
+    },
+    created() {
     },
     mounted() {
 
@@ -44,16 +41,16 @@ export default {
         },
     },
     methods: {
-        async onRemoveFromList(order) {
-            let shouldRemove = confirm('Remove game from list?')
-            if (!shouldRemove) return
-            else {
-                const u = await this.$store.dispatch({ type: "removeFromList", order, })
-                    .then((u) => {
-                        showSuccessMsg(`${order.title} removed from your list`)
-                    })
-            }
-        },
+        // async onRemoveFromList(order) {
+        //     let shouldRemove = confirm('Remove game from list?')
+        //     if (!shouldRemove) return
+        //     else {
+        //         const u = await this.$store.dispatch({ type: "removeFromList", order, })
+        //             .then((u) => {
+        //                 showSuccessMsg(`${order.title} removed from your list`)
+        //             })
+        //     }
+        // },
     },
     computed: {
         user() {

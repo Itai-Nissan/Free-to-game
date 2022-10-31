@@ -14,6 +14,7 @@ export const userService = {
     getById,
     saveToList,
     removeFromList,
+    update,
 }
 
 async function getById(userId) {
@@ -40,12 +41,12 @@ async function login(userCred) {
 }
 
 async function signup({username, email, password}) {
-    console.log(username);
+    console.log(username)
     const user = {
         username,
         email,
-        // password,
         orders: [],
+        personal: 'All',
     }
     // socketService.emit('set-user-socket', user._id)
     return storageService.put(STORAGE_KEY_LOGGEDIN_USER, user)

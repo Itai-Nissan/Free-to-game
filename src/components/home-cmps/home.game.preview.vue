@@ -7,6 +7,7 @@
         <h5>{{game.short_description}}</h5>
         <div class="game-footer">
           <h5 class="genre">{{game.genre}}</h5>
+          <!-- <h5 class="genre">{{game.release_date}}</h5> -->
         </div>
       </div>
     </section>

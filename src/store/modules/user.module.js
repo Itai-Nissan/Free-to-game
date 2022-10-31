@@ -89,6 +89,12 @@ export const userModule = {
                 throw err
             }
         },
+        async setUserPersonal({ commit }, { user }) {
+            await userService.update(user)
+            // commit({ type: 'setWatchedUser', user })
+            commit({ type: 'setLoggedInUser', user })
+
+        },
         async loadAndWatchUser({ commit }, { userId }) {
             try {
                 const user = await userService.getById(userId)

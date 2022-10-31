@@ -1,0 +1,40 @@
+// DROPDOWN MENU
+.el-dropdown-menu {
+    background-color: $footer-backColor;
+    border-radius: 0px;
+}
+
+.el-dropdown-menu__item:not(.is-disabled):focus {
+    color: $cta;
+    background: $backColor3;
+}
+
+.el-dropdown__popper.el-popper {
+    border: none;
+    box-shadow: none;
+}
+
+// SELECT
+.el-select-dropdown__wrap {
+    background-color: $footer-backColor;
+}
+
+.el-select-dropdown__item.hover,
+.el-select-dropdown__item:hover {
+    background: $backColor2;
+    color: $cta;
+}
+
+.el-select__popper.el-popper {
+    border: none;
+}
+
+// INPUT
+.el-input__inner{
+color: $fontColor1;
+}
+.el-input__wrapper {
+    margin-inline-end: 2em;
+    background-color: $backColor;
+    box-shadow: 0 0 0 1px $fontColor2;
+}

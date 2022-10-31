@@ -47,10 +47,7 @@
 
 .homepage-container {
   min-width: 500px;
-  // width: 347px;
-
   display: grid;
-  // display: flex;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   justify-content: space-evenly;
@@ -71,7 +68,6 @@
   min-width: 375px;
 
   display: grid;
-  // display: flex;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   justify-content: space-evenly;

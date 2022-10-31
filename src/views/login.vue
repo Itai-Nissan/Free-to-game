@@ -20,10 +20,7 @@
 </template>
 
 <script>
-import { eventBus } from '../services/event-bus-service'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus-service.js'
-// import userMsg from '../components/user.msg.vue'
-
 
 // import {socketService} from '../services/socket.service'
 
@@ -33,20 +30,23 @@ export default {
     return {
       msg: '',
       loginCred: { username: '', password: '' },
+      filterBy: {
+        lable: '',
+      },
+
     }
   },
   components: {
   },
   computed: {
-    users() {
-      return this.$store.getters.users
-    },
+    // users() {
+    // return this.$store.getters.users
+    // },
     loggedInUser() {
       return this.$store.getters.loggedInUser
     },
   },
   created() {
-    // this.loadUsers()
   },
   mounted() {
     window.scrollTo(0, 0)
@@ -60,6 +60,8 @@ export default {
       }
       try {
         await this.$store.dispatch({ type: "login", userCred: this.loginCred })
+        this.filterBy.lable = this.loggedInUser.personal
+        this.$store.dispatch({ type: "setStateFilter", filterBy: this.filterBy, })
         this.$router.push('/')
         // this.$router.push(`/user/${this.loggedInUser._id}`)
         showSuccessMsg(`Logged in as ${this.loginCred.username}`)
@@ -70,26 +72,6 @@ export default {
         this.msg = 'Failed to login'
       }
     },
-    // doLogout() {
-    //   this.$store.dispatch({ type: 'logout' })
-    // },
-    // async doSignup() {
-    //   if (!this.signupCred.fullname || !this.signupCred.password || !this.signupCred.username) {
-    //     this.msg = 'Please fill up the form'
-    //     return
-    //   }
-    //   await this.$store.dispatch({ type: 'signup', userCred: this.signupCred })
-    //   this.$router.push('/')
-
-    // },
-    async removeUser(userId) {
-      try {
-        await this.$store.dispatch({ type: "removeUser", userId })
-        this.msg = 'User removed'
-      } catch (err) {
-        this.msg = 'Failed to remove user'
-      }
-    }
   }
 }
 </script>
