@@ -8,7 +8,7 @@
       <h2>Log in to FreeToGame</h2>
       <form class="login-form-display" @submit.prevent="doLogin">
         <input type="text" v-model="loginCred.username" placeholder="User name" />
-        <input type="text" v-model="loginCred.password" placeholder="Password" />
+        <input type="password" id="pass" v-model="loginCred.password" placeholder="Password" />
         <button class="create-btn">Login</button>
       </form>
       <div class="to-signup">
@@ -39,9 +39,6 @@ export default {
   components: {
   },
   computed: {
-    // users() {
-    // return this.$store.getters.users
-    // },
     loggedInUser() {
       return this.$store.getters.loggedInUser
     },

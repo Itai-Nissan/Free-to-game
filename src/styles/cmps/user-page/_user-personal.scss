@@ -1,21 +1,76 @@
-.user-personal{
+.user-personal {
 
-    .person{
+    .personal-info {
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+
         position: sticky;
         top: 10vh;
+
+        h4 {
+            margin-block-end: 1em;
+        }
+    
+        h5 {
+            margin-block-end: 1em;
+        }
+    
+        span{
+            font-style: italic;
+            font-size: 20px;
+        }
+    }
+    .personal-select{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    h4{
-        margin-block-end: 1em;
-    }
-    h5{
-        margin-block-end: 1em;
-    }
-    .el-input__wrapper{
+
+    //ELEMENT
+    .el-input__wrapper {
         margin-inline-end: 0;
+    }
+
+    .el-scrollbar__view {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .infinite-list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        height: 300px;
+        width: 300px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .infinite-list .infinite-list-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 90%;
+        background: $footer-backColor;
+        margin: 5px;
+        color: $cta;
+    }
+
+    .infinite-list .infinite-list-item:hover {
+        background: $clr1;
+        color: $fontColor2;
+    }
+
+    .infinite-list .infinite-list-item+.list-item {
+        margin-top: 10px;
+    }
+
+    .el-scrollbar__wrap {
+        width: 100%;
     }
 }

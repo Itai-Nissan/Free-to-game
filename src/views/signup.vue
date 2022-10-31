@@ -1,12 +1,4 @@
 <template>
-  <!-- <p>{{ msg }}</p> -->
-  <!-- <div v-if="loggedinUser">
-      <h3>
-        Loggedin User:
-        {{ loggedinUser.username }}
-        <button @click="doLogout">Logout</button>
-      </h3>
-    </div> -->
   <section class="signup container">
     <div class="signup-image">
       <img src="../assets/img/ftg-signup2.png" alt="">
@@ -16,10 +8,10 @@
         <h2>Create My Account!</h2>
         <div class="signup-form-display">
           <input type="text" v-model="signupCred.username" placeholder="Username" />
-          <input type="text" v-model="signupCred.email" placeholder="Email Adress" />
+          <input type="email" id="email" v-model="signupCred.email" placeholder="Email Adress" />
           <div class="form-password">
-            <input type="text" v-model="signupCred.password" placeholder="Password" />
-            <input type="text" v-model="signupCred.confirm" placeholder="Confirm Password" />
+            <input type="password" id="pass" v-model="signupCred.password" placeholder="Password" />
+            <input type="password" id="pass" v-model="signupCred.confirm" placeholder="Confirm Password" />
           </div>
           <button class="create-btn">Create Account</button>
         </div>
@@ -31,17 +23,6 @@
       </form>
     </div>
   </section>
-  <!-- <details>
-      <summary>
-        Admin Section
-      </summary>
-      <ul>
-        <li v-for="user in users" :key="user._id">
-          <pre>{{ user }}</pre>
-          <button @click="removeUser(user._id)">x</button>
-        </li>
-      </ul>
-    </details> -->
 </template>
 
 <script>

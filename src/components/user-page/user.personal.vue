@@ -1,20 +1,23 @@
 <template>
     <section class="user-personal">
-        <div class="person">
+        <div class="personal-info">
             <h4>Personal recommendations</h4>
-            <h5>Current recommendations is set to <span style="font-style: italic">{{ this.user.personal }}</span></h5>
-            <el-select theme="dark" @change="onSetUserPersonal(this.user.personal)"
-                v-model="this.user.personal" placeholder="Select">
-                <el-option v-for="label in labels" :key="label" :label="label" :value="label">
-                </el-option>
-            </el-select>
+            <h5>Current recommendations is set to <span>{{ this.user.personal }}</span></h5>
         </div>
+        <div class="personal-select">
+            <el-scrollbar v-model="this.user.personal" class="infinite-list" height="400px">
+                <el-button @click="onSetUserPersonal(label)" v-for="label in labels" :key="label"
+                    class="infinite-list-item">{{ label }}</el-button>
+            </el-scrollbar>
+        </div>
+
     </section>
 </template>
   
 
 <script>
 import { showErrorMsg, showSuccessMsg } from '../../services/event-bus-service'
+import { ref } from 'vue'
 
 export default {
     name: 'order-list',
@@ -22,10 +25,9 @@ export default {
         return {
             filterBy: {
                 name: '',
-                lable: '',
+                label: '',
                 sortBy: '',
             },
-
             labels: [
                 'All',
                 'mmorpg',
@@ -82,10 +84,15 @@ export default {
     mounted() {
     },
     methods: {
-        onSetUserPersonal() {
+        onSetUserPersonal(updatedLabel) {
+            this.user.personal = updatedLabel
+
             this.$store.dispatch({ type: "setUserPersonal", user: this.user })
-            this.filterBy.lable = this.user.personal
+
+            this.filterBy.label = this.user.personal
+
             this.$store.dispatch({ type: "setStateFilter", filterBy: this.filterBy, })
+
             showSuccessMsg(`personal recomendations changed to ${this.user.personal}`)
         },
     },
@@ -99,3 +106,7 @@ export default {
     },
 }
 </script>
+
+<style>
+
+</style>

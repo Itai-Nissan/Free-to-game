@@ -90,6 +90,7 @@ export const userModule = {
             }
         },
         async setUserPersonal({ commit }, { user }) {
+            console.log(user.personal)
             await userService.update(user)
             // commit({ type: 'setWatchedUser', user })
             commit({ type: 'setLoggedInUser', user })
