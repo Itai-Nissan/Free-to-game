@@ -1,0 +1,52 @@
+.order-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 12px;
+    justify-content: space-between;
+    margin-block-end: 1em;
+
+    .list-card {
+        display: flex;
+        border-radius: 7px;
+        max-height: 115px;
+        background-color: $backColor2;
+
+        img {
+            padding: 0.5em;
+            border-radius: 7px;
+            max-width: 200px;
+            object-fit: contain;
+        }
+    }
+
+
+    .game-info {
+        width: 80%;
+        padding: 0.5em;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+
+        .info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .el-dropdown-link {
+            color: white;
+            cursor: pointer;
+
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-block-start: 1em;
+        }
+
+        p {
+            margin-block-end: 0;
+            font-size: 14px;
+        }
+    }
+}

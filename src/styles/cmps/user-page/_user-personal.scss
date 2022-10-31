@@ -1,0 +1,21 @@
+.user-personal{
+
+    .person{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        position: sticky;
+        top: 10vh;
+    }
+
+    h4{
+        margin-block-end: 1em;
+    }
+    h5{
+        margin-block-end: 1em;
+    }
+    .el-input__wrapper{
+        margin-inline-end: 0;
+    }
+}
