@@ -1,27 +1,29 @@
 .user-personal {
-
+    
     .personal-info {
         display: flex;
         flex-direction: column;
         align-items: center;
-
         position: sticky;
         top: 10vh;
-
+        
+        
         h4 {
             margin-block-end: 1em;
         }
-    
+        
         h5 {
             margin-block-end: 1em;
         }
-    
+        
         span{
             font-style: italic;
             font-size: 20px;
         }
     }
     .personal-select{
+        position: sticky;
+        top: 18vh;
         display: flex;
         flex-direction: column;
         align-items: center;

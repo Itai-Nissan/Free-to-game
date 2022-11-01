@@ -2,7 +2,8 @@
   <main class="homepage-container container">
     <game-hero :games="games" />
     <section class="home-list container">
-      <h2>Recently added</h2>
+      <h2 v-if="!this.user">Recently added games</h2>
+      <h2 v-if="this.user">Recently added {{ this.user.personal }} games</h2>
       <ul v-if="recentGames" class="clean-list">
         <li v-for="game in recentGames" :key="game._id">
           <home-game-preview sign="$" :game="game" />

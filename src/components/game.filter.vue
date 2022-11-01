@@ -14,24 +14,6 @@
             <el-option value="release" label="Release date"></el-option>
          </el-select>
       </label>
-
-      <!-- <div class="inputs">
-         <label>
-            <input v-model="filterBy.name" placeholder="Search...." @input="setFilter" />
-         </label>
-         <label>Genre/Tag:
-            <select class="filter-select" v-model="filterBy.lable" @change="setFilter">
-               <option v-for="label in this.capLabels" :key="label" :label="label" :value="label"></option>
-            </select>
-         </label>
-         <label>Sort By:
-            <select class="filter-select" @change="setFilter" v-model="filterBy.sortBy" placeholder="Sort By">
-               <option value="nameDsc" label="a - z"></option>
-               <option value="nameAsc" label="z - a"></option>
-               <option value="release" label="Release date"></option>
-            </select>
-         </label>
-      </div> -->
    </section>
 </template>
  
@@ -119,7 +101,7 @@ export default {
             )
          })
       },
-      setFilter(e) {
+      setFilter(filter) {
          this.$emit('set-filter', this.filterBy)
       },
       setSort() {

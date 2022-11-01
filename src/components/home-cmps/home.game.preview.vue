@@ -1,6 +1,6 @@
 <template>
   <RouterLink class="" :to="`/game-details/${game.id}`">
-    <section class="home-game-preview">
+    <section class="home-game-preview container">
       <img v-bind:src="game.thumbnail" alt="">
       <div class="game-info">
         <h3>{{game.title}}</h3>

@@ -1,81 +1,82 @@
 .homepage-container {
-    .home-list {
-        h2 {
-            font-size: 28px;
-            text-shadow: 0px 1px #6e6e6e;
-            color: #aaaaaa;
-            margin-block-end: 0.5em;
-        }
-
+  .home-list {
+    h2 {
+      font-size: 28px;
+      text-shadow: 0px 1px #6e6e6e;
+      color: #aaaaaa;
+      margin-block-end: 0.5em;
     }
+
+  }
 }
 
 /* Responsive Styles */
-@media screen and (max-width: 1290px) {
-    .homepage-container {
-    }
-:host {
-  font-size: 1.3rem;
+@media screen and (max-width: 1140px) {
+  .homepage-container {}
+
+  :host {
+    // font-size: 1.3rem;
+  }
+
+  .title {
+    // font-size: 5rem;
+  }
 }
 
-.title {
-  font-size: 5rem;
-}
-}
+@media screen and (max-width: 990px) {
+  .homepage-container {
+    min-width: 747px;
+    display: flex;
+    flex-direction: column;
+  }
 
-@media screen and (max-width: 878px) {
-.homepage-container {
-  min-width: 747px;
-  display: flex;
-  flex-direction: column;
-}
+  :host {
+    font-size: 1.25rem;
+  }
 
-:host {
-  font-size: 1.25rem;
-}
-
-.title {
-  font-size: 4rem;
-}
+  .title {
+    font-size: 4rem;
+  }
 }
 
 @media screen and (max-width: 767px) {
 
-:host {
-  display: block;
-}
+  :host {
+    display: block;
+  }
 
-.homepage-container {
-  min-width: 500px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  justify-content: space-evenly;
+  .homepage-container {
+    min-width: 500px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-content: space-evenly;
 
-}
+  }
 
-.title {
-  font-size: 3rem;
-}
+  .title {
+    font-size: 3rem;
+  }
 }
 
 @media screen and (max-width: 575px) {
-:host {
-  font-size: 1.15rem;
+  :host {
+    font-size: 1.15rem;
+  }
+
+  .homepage-container {
+    min-width: 345px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+
+    padding: 0;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
 }
 
-.homepage-container {
-  min-width: 375px;
-
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  justify-content: space-evenly;
-
-  padding: 0;
-}
-
-.title {
-  font-size: 1.25rem;
-}
-}

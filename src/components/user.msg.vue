@@ -10,11 +10,13 @@ import { eventBus, SHOW_MSG } from "../services/event-bus-service"
 
 export default {
   created() {
+    let myTimeout
     eventBus.on(SHOW_MSG, (msg) => {
+      clearTimeout(myTimeout);
       this.alive = true
       this.msg = msg
-      var delay = msg.delay || 3000
-      setTimeout(() => {
+      let delay = msg.delay || 3000
+      myTimeout = setTimeout(() => {
         this.alive = false
       }, delay)
     })

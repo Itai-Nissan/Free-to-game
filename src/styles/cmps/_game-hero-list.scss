@@ -30,6 +30,7 @@
             transform: scale(1.01);
             transition: 0.5s;
         }
+
         display: flex;
         justify-content: space-between;
 
@@ -78,16 +79,35 @@
 
 @media screen and (max-width: 575px) {
     .game-hero-list {
-        img {
-            // object-fit: contain;
-            width: 100%;
-            height: 200px;
+        display: flex;
+        flex-direction: column;
+        margin-block-end: 0em;
+
+        // justify-content: center;
+        .game-hero-preview:not(:last-child) {
+            margin-inline-end: 0em;
         }
 
-        ul {
-            margin-block-start: 0.5em;
-            flex-direction: column;
-            align-items: center;
+        .home-hero {
+            h1 {
+                font-size: 20px;
+            }
+
+            a {
+                font-size: 14px;
+            }
+
+            img {
+                // object-fit: contain;
+                width: 100%;
+                height: 200px;
+            }
+
+            ul {
+                margin-block-start: 0.5em;
+                flex-direction: column;
+                align-items: center;
+            }
         }
     }
 }

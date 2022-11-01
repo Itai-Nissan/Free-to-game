@@ -13,15 +13,19 @@
         <router-link v-if="loggedInUser" :to="`/user/${loggedInUser._id}`">{{ loggedInUser.username }}</router-link>
         <button v-if="loggedInUser" @click="logout">Logout</button>
       </nav>
+      <collapse-nav class="collapse-nav"></collapse-nav>
     </div>
   </section>
 </template>
 <script>
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus-service.js'
+import collapseNav from './home-cmps/collapse.nav.vue'
 export default {
 
   name: "app-header",
-  components: {},
+  components: {
+    collapseNav,
+  },
   data() {
     return {
       isFixed: true,

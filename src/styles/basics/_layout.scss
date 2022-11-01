@@ -1,7 +1,7 @@
 .game-app {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 100px 100% 100px;
+    grid-template-rows: 88px 100% 100px;
     justify-items: center;
 
 }
@@ -40,6 +40,7 @@
 @media screen and (max-width: 575px) {
     .container {
         width: 345px;
+        // background-color: red;
     }
 
 }
