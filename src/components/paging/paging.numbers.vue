@@ -1,6 +1,7 @@
 <template>
     <button :class="{ 'current-page': page.page === page.currentPage }"
-        v-on:click="$emit('onChangePage', formatedNumbers)">{{formatedNumbers}}</button>
+        v-on:click="$emit('onChangePage', formatedNumbers)">{{page.currentPage}}</button>
+        <!-- v-on:click="$emit('onChangePage', formatedNumbers)">{{formatedNumbers}}</button> -->
 </template>
 
 <script>

@@ -6,9 +6,13 @@
         display: flex;
         margin-block-end: 1em;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
+        text-align: center;
 
         .page-number {
+            margin-inline-start: 1em;
+            margin-inline-end: 1em;
+            
             button {
                 z-index: 0;
                 width: 20px;
@@ -71,6 +75,11 @@
 
 @media screen and (max-width: 575px) {
     .game-list {
+        .navigate-btn{
+            // max-width: 100%;
+            .page-number{
+            }
+        }
 
         ul {
             display: flex;

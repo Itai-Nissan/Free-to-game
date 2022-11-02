@@ -52,20 +52,8 @@
 }
 
 
-// @media screen and (max-width: 990px) {
-//     .game-hero-list {
-//         ul {
-//             margin-block-start: 1em;
-//             // display: flex;
-//             // flex-direction: column;
-//             // align-items: center;
-//         }
-
-//         .game-hero-preview{
-//             margin-block-end: 0.5em;
-//         }
-//     }
-// }
+@media screen and (max-width: 990px) {
+}
 
 
 @media screen and (max-width: 767px) {
@@ -82,8 +70,10 @@
         display: flex;
         flex-direction: column;
         margin-block-end: 0em;
+        .game-hero-preview {
+            margin-block-end: 0.5em;
+        }
 
-        // justify-content: center;
         .game-hero-preview:not(:last-child) {
             margin-inline-end: 0em;
         }
@@ -98,7 +88,6 @@
             }
 
             img {
-                // object-fit: contain;
                 width: 100%;
                 height: 200px;
             }

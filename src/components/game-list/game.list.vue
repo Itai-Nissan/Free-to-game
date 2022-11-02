@@ -1,12 +1,15 @@
 <template>
-<section class="game-list container">
+  <section class="game-list container">
     <div class="navigate-btn">
-      <button class="btn-basic-2" v-on:click="onPrevPage">previous</button>
-      <nav class="page-number" v-for="page in numberOfPages">
+      <button class="btn-basic-5" v-on:click="onPrevPage">previous</button>
+      <nav class="page-number">
+      <!-- <nav class="page-number" v-for="page in numberOfPages"> -->
         <!-- <paging-numbers @onChangePage="changePage" :page="{ page, currentPage }">
         </paging-numbers> -->
+        <h5>Total:{{numberOfPages}}</h5>
+        <h6>Current page {{currentPage}}</h6>
       </nav>
-      <button class="btn-basic-2" v-on:click="onNextPage">Next</button>
+      <button class="btn-basic-5" v-on:click="onNextPage">Next</button>
     </div>
     <ul v-if="sortedGames" class="clean-list">
       <li v-for="game in sortedGames" :key="game._id">

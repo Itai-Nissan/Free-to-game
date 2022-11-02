@@ -50,3 +50,51 @@
         }
     }
 }
+
+@media screen and (max-width: 1140px) {}
+
+@media screen and (max-width: 990px) {}
+
+@media screen and (max-width: 767px) {}
+
+@media screen and (max-width: 575px) {
+    .user-page {
+        .order-list {
+            gap: 6px;
+
+            .list-card {
+                max-height: 100%;
+
+                img {
+                    padding: 0em;
+                    border-radius: 7px;
+                    width: 150px;
+                    height: 150px;
+                    object-fit: cover;
+                }
+            }
+
+        }
+        .game-info {
+    
+            .info {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+    
+            .el-dropdown-link {
+    
+            }
+    
+            h3 {
+                font-size: 18px;
+                margin-block-start: 0em;
+            }
+    
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+}

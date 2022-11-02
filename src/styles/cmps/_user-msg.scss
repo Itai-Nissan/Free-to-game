@@ -8,7 +8,7 @@
     background-color: $fontColor1;
     color: $footer-backColor;
     padding: 0.7em;
-    height: 20px;
+    max-height: 20px;
     max-width: 450px;
     display: flex;
     justify-content: center;
@@ -24,5 +24,17 @@
     &.alert-error {
         background-color: $clr2;
         transition: 1s;
+    }
+}
+
+@media screen and (max-width: 1140px) {}
+
+@media screen and (max-width: 990px) {}
+
+@media screen and (max-width: 767px) {}
+
+@media screen and (max-width: 575px) {
+    .alert {
+        max-height: 155px;
     }
 }

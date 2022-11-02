@@ -3,7 +3,6 @@
         display: grid;
         grid-template-columns: 60% 40%;
         margin-block-start: 1em;
-
     }
 
     li {
@@ -19,31 +18,8 @@
 
 @media screen and (max-width: 575px) {
     .user-page {
-
-        .order-list {
-
-            // display: grid;
-            // grid-template-columns: 1fr;
-            // grid-template-rows: auto;
-            gap: 6px;
-            justify-content: space-between;
-            max-width: 100%;
-
-            .list-card {
-                display: flex;
-                flex-direction: column;
-                border-radius: 7px;
-                max-height: 100%;
-
-                img {
-                    padding: 0em;
-                    max-width: 100%;
-                }
-            }
-
-            .game-info {
-                width: 100%;
-            }
+        .user-details {
+            display: flex;
+            flex-direction: column;
         }
-    }
-}
+}}
