@@ -30,11 +30,27 @@
 }
 
 // INPUT
-.el-input__inner{
-color: $fontColor1;
+.el-input__inner {
+    color: $fontColor1;
 }
+
 .el-input__wrapper {
     margin-inline-end: 2em;
     background-color: $backColor;
     box-shadow: 0 0 0 1px $fontColor2;
+}
+
+@media screen and (max-width: 1140px) {}
+
+@media screen and (max-width: 990px) {}
+
+@media screen and (max-width: 767px) {}
+
+@media screen and (max-width: 575px) {
+.el-input{
+    margin-inline-end: 0em;
+}
+    .el-input__wrapper {
+        margin-inline-end: 0.5em;
+    }
 }

@@ -3,7 +3,7 @@
       <label>
          <el-input v-model="filterBy.name" placeholder="Search...." @input="setFilter" />
       </label>
-      <el-select theme="dark" @change="setFilter(this.filterBy.sortBy)" v-model="filterBy.lable" placeholder="Select">
+      <el-select theme="dark" @change="setFilter(this.filterBy.sortBy)" v-model="filterBy.lable" placeholder="All">
          <el-option v-for="label in labels" :key="label" :label="label" :value="label">
          </el-option>
       </el-select>

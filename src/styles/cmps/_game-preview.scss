@@ -47,18 +47,6 @@
             }
         }
 
-
-        button:hover{
-            // background-color: $fontColor2;
-        }
-
-        // h3 {
-        //     text-align: center;
-        //     font-size: 15px;
-        //     border-radius: 7px;
-        //     padding: 0.1em;
-        // }
-
         h5 {
             text-align: center;
             border-radius: 5px;
@@ -90,9 +78,6 @@
     .game-preview {
         max-width: 235px;
         max-height: 285px;
-        // box-shadow: $light-shadow;
-        // padding-block-end: 1em;
-
     }
 }
 
@@ -109,9 +94,16 @@
 @media screen and (max-width: 575px) {
     .game-preview {
         min-width: 100%;
-        min-height: 375px;
-        // box-shadow: $light-shadow;
+        min-height: 335px;
         padding-block-end: 1em;
+        
+        .game-info {
+            min-height: 100%;
+            p{
+                margin-block-start: 0.5em;
+                margin-block-end: 0.5em;
+            }
+        }
 
         img {
             height: 245px;
