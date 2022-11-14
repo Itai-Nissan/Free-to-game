@@ -43,7 +43,7 @@
         margin-inline-end: 1em;
     }
 
-    ul {
+    .sorted-games {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 260px));
         grid-template-rows: auto;

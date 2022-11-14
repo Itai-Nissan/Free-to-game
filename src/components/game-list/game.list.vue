@@ -1,17 +1,10 @@
 <template>
   <section class="game-list container">
     <div class="navigate-btn">
-      <button class="btn-basic-5" v-on:click="onPrevPage">previous</button>
-      <nav class="page-number">
-      <!-- <nav class="page-number" v-for="page in numberOfPages"> -->
-        <!-- <paging-numbers @onChangePage="changePage" :page="{ page, currentPage }">
-        </paging-numbers> -->
-        <h5>Total:{{numberOfPages}}</h5>
-        <h6>Current page {{currentPage}}</h6>
-      </nav>
-      <button class="btn-basic-5" v-on:click="onNextPage">Next</button>
+      <el-pagination layout="prev, pager, next" :total=numberOfPages :page-count=numberOfPages
+        @current-change="changePage" @prev-click="onPrevPage" @next-click="onNextPage" />
     </div>
-    <ul v-if="sortedGames" class="clean-list">
+    <ul v-if="sortedGames" class="sorted-games clean-list">
       <li v-for="game in sortedGames" :key="game._id">
         <game-preview sign="$" :game="game" />
       </li>
@@ -65,3 +58,13 @@ export default {
   unmounted() { },
 };
 </script>
+
+<style scoped>
+.example-pagination-block+.example-pagination-block {
+  margin-top: 10px;
+}
+
+.example-pagination-block .example-demonstration {
+  margin-bottom: 16px;
+}
+</style>

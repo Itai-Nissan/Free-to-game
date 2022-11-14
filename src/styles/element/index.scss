@@ -40,6 +40,41 @@
     box-shadow: 0 0 0 1px $fontColor2;
 }
 
+//PAGING
+.el-pagination button:enabled:hover{
+    background-color: $cta;
+}
+.el-pagination button:disabled {
+    border-radius: 3px;
+    background-color: $backColor2;
+    color: $fontColor1;
+}
+
+.el-pagination button:enabled {
+    border-radius: 3px;
+    background-color: $backColor3;
+    color: $fontColor1;
+}
+
+.el-pager {
+    li:hover{
+        
+        color: $cta2;
+    }
+    li.is-active {
+        color: $cta;
+    }
+
+    li {
+        color: $fontColor1;
+        background-color: $backColor;
+
+        svg {
+            color: $fontColor1;
+        }
+    }
+}
+
 @media screen and (max-width: 1140px) {}
 
 @media screen and (max-width: 990px) {}
@@ -47,9 +82,10 @@
 @media screen and (max-width: 767px) {}
 
 @media screen and (max-width: 575px) {
-.el-input{
-    margin-inline-end: 0em;
-}
+    .el-input {
+        margin-inline-end: 0em;
+    }
+
     .el-input__wrapper {
         margin-inline-end: 0.5em;
     }
