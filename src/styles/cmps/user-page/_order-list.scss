@@ -25,23 +25,23 @@
             display: flex;
             align-items: baseline;
             justify-content: space-between;
-    
+
             .info {
                 display: flex;
                 flex-direction: column;
             }
-    
+
             .el-dropdown-link {
                 color: white;
                 cursor: pointer;
-    
+
             }
-    
+
             h3 {
                 font-size: 20px;
                 margin-block-start: 1em;
             }
-    
+
             p {
                 margin-block-end: 0;
                 font-size: 14px;
@@ -69,27 +69,28 @@
                     padding: 0em;
                     border-radius: 7px;
                     object-fit: cover;
+                    width: 150px;
+
                 }
             }
 
         }
+
         .game-info {
-    
+
             .info {
                 display: grid;
                 grid-template-columns: 1fr;
                 grid-template-rows: 1fr 1fr;
             }
-    
-            .el-dropdown-link {
-    
-            }
-    
+
+            .el-dropdown-link {}
+
             h3 {
                 font-size: 18px;
                 margin-block-start: 0em;
             }
-    
+
             p {
                 font-size: 14px;
             }
