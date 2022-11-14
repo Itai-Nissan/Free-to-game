@@ -102,7 +102,6 @@ export default {
          })
       },
       setFilter(filter) {
-         this.filterBy.name = this.filterBy.name.toLocaleLowerCase()
          this.$emit('set-filter', this.filterBy)
       },
       setSort() {

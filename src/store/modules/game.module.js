@@ -87,8 +87,8 @@ export default {
       commit({ type: 'setPage', pageWay: pageDirection })
       dispatch({ type: 'loadGames' })
     },
-
     setStateFilter({ commit, dispatch }, { filterBy }) {
+      if (filterBy.name) filterBy.name = filterBy.name.toLocaleLowerCase()
       commit({ type: 'setFilter', filterBy })
       commit({ type: 'setPageToZero' })
       dispatch({ type: 'loadGames' });
