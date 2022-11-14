@@ -1,27 +1,28 @@
 .user-personal {
-    
+
     .personal-info {
+        position: sticky;
+        top: 10vh;
         display: flex;
         flex-direction: column;
         align-items: center;
-        position: sticky;
-        top: 10vh;
-        
-        
+
+
         h4 {
             margin-block-end: 1em;
         }
-        
+
         h5 {
             margin-block-end: 1em;
         }
-        
-        span{
+
+        span {
             font-style: italic;
             font-size: 20px;
         }
     }
-    .personal-select{
+
+    .personal-select {
         position: sticky;
         top: 18vh;
         display: flex;
@@ -45,7 +46,6 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        height: 300px;
         width: 300px;
         padding: 0;
         margin: 0;
@@ -74,5 +74,20 @@
 
     .el-scrollbar__wrap {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .user-personal {
+        
+        .personal-info {
+            position: relative;
+            top: 0vh;
+        }
+        
+        .personal-select {
+            position: relative;
+            top: 0vh;
+        }
     }
 }
