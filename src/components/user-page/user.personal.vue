@@ -75,7 +75,6 @@ export default {
                 'tower - defense',
                 'horror',
                 'mmorts'
-
             ],
         }
     },
@@ -86,13 +85,9 @@ export default {
     methods: {
         onSetUserPersonal(updatedLabel) {
             this.user.personal = updatedLabel
-
             this.$store.dispatch({ type: "setUserPersonal", user: this.user })
-
             this.filterBy.label = this.user.personal
-
             this.$store.dispatch({ type: "setStateFilter", filterBy: this.filterBy, })
-
             showSuccessMsg(`personal recomendations changed to ${this.user.personal}`)
         },
     },

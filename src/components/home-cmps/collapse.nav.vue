@@ -1,5 +1,8 @@
 <template>
-    <el-dropdown>
+    <el-dropdown 
+    trigger="click"
+    :hide-on-click="true"
+    >
         <span class="el-dropdown-link">
             <el-icon style="font-size:30px"><Menu /></el-icon>
         </span>
@@ -33,12 +36,7 @@
 </template>
   
 <script>
-import { ElMessage } from 'element-plus'
-import { ArrowDown } from '@element-plus/icons-vue'
-// import { showErrorMsg, showSuccessMsg } from '../services/event-bus-service.js'
-// import collapseNav from './home-cmps/collapse.nav.vue'
 export default {
-
     name: "app-header",
     components: {
         // collapseNav,
