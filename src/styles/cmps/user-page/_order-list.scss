@@ -1,6 +1,6 @@
 .order-list {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto;
     grid-template-rows: auto;
     gap: 12px;
     justify-content: space-between;
@@ -13,42 +13,42 @@
         background-color: $backColor2;
 
         img {
-            padding: 0.5em;
             border-radius: 7px;
-            max-width: 200px;
+            height: 100%;
             object-fit: contain;
+            margin-inline-end: 1em;
         }
-    }
 
-
-    .game-info {
-        width: 80%;
-        padding: 0.5em;
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-
-        .info {
+        .game-info {
+            width: 80%;
+            padding: 0.5em;
             display: flex;
-            flex-direction: column;
-        }
-
-        .el-dropdown-link {
-            color: white;
-            cursor: pointer;
-
-        }
-
-        h3 {
-            font-size: 20px;
-            margin-block-start: 1em;
-        }
-
-        p {
-            margin-block-end: 0;
-            font-size: 14px;
+            align-items: baseline;
+            justify-content: space-between;
+    
+            .info {
+                display: flex;
+                flex-direction: column;
+            }
+    
+            .el-dropdown-link {
+                color: white;
+                cursor: pointer;
+    
+            }
+    
+            h3 {
+                font-size: 20px;
+                margin-block-start: 1em;
+            }
+    
+            p {
+                margin-block-end: 0;
+                font-size: 14px;
+            }
         }
     }
+
 }
 
 @media screen and (max-width: 1140px) {}
@@ -68,8 +68,6 @@
                 img {
                     padding: 0em;
                     border-radius: 7px;
-                    width: 150px;
-                    height: 150px;
                     object-fit: cover;
                 }
             }

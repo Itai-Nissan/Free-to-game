@@ -4,11 +4,13 @@
       <el-pagination layout="prev, pager, next" :total=numberOfPages :page-count=numberOfPages
         @current-change="changePage" @prev-click="onPrevPage" @next-click="onNextPage" />
     </div>
-    <ul v-if="sortedGames" class="sorted-games clean-list">
-      <li v-for="game in sortedGames" :key="game._id">
-        <game-preview sign="$" :game="game" />
-      </li>
-    </ul>
+    <section class="sorted-games">
+      <ul v-if="sortedGames" class="clean-list">
+        <li v-for="game in sortedGames" :key="game._id">
+          <game-preview sign="$" :game="game" />
+        </li>
+      </ul>
+    </section>
   </section>
 </template>
 

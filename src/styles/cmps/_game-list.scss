@@ -12,7 +12,7 @@
         .page-number {
             margin-inline-start: 1em;
             margin-inline-end: 1em;
-            
+
             button {
                 z-index: 0;
                 width: 20px;
@@ -44,47 +44,55 @@
     }
 
     .sorted-games {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 260px));
-        grid-template-rows: auto;
-        justify-content: space-between;
+        ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 260px));
+            grid-template-rows: auto;
+            justify-content: space-between;
+        }
     }
 }
 
 @media screen and (max-width: 1140px) {
     .game-list {
-        ul {
-            display: flex;
-            flex-wrap: wrap;
+        .sorted-games {
+
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+            }
         }
     }
-
-
 }
 
 
 @media screen and (max-width: 767px) {
     .game-list {
+        .sorted-games {
 
-        ul {
-            grid-template-columns: 1fr 1fr;
-            gap: 0px;
+            ul {
+                grid-template-columns: 1fr 1fr;
+                gap: 0px;
+            }
         }
     }
 }
 
 @media screen and (max-width: 575px) {
     .game-list {
-        .navigate-btn{
+        .navigate-btn {
+
             // max-width: 100%;
-            .page-number{
-            }
+            .page-number {}
         }
 
-        ul {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
+        .sorted-games {
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+            }
         }
     }
 }

@@ -3,7 +3,7 @@
     top: 9%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 0;
+    z-index: 199;
 
     background-color: $fontColor1;
     color: $footer-backColor;
@@ -15,14 +15,18 @@
     align-items: center;
     transition: 1s;
     border-radius: 5px;
-
+    
     &.alert-success {
-        background-color: $cta;
+        background-color: $backColor3;
+        color: $cta;
+        border: 0.5px solid $cta;
         transition: 1s;
     }
-
+    
     &.alert-error {
-        background-color: $clr2;
+        background-color: $backColor2;
+        color: $clr2;
+        border: 0.5px solid $clr2;
         transition: 1s;
     }
 }

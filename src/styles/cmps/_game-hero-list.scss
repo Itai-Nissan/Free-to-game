@@ -1,6 +1,11 @@
 .game-hero-list {
     margin-block-end: 3em;
+    z-index: 1;
 
+    .game-hero{
+        
+    }
+    
     .game-hero-preview:not(:last-child) {
         margin-inline-end: 0.5em;
     }
