@@ -14,6 +14,13 @@
     box-shadow: none;
 }
 
+.el-icon--right{
+    color: $fontColor1;
+}
+.el-icon--right:hover{
+    color: $clr4;
+}
+
 // SELECT
 .el-select-dropdown__wrap {
     background-color: $footer-backColor;

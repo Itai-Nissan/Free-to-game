@@ -1,22 +1,30 @@
 .order-list {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
     grid-template-rows: auto;
     gap: 12px;
     justify-content: space-between;
     margin-block-end: 1em;
+
 
     .list-card {
         display: flex;
         border-radius: 7px;
         height: 115px;
         background-color: $backColor2;
-
+        overflow: hidden;
+        
+        
         img {
-            border-radius: 7px;
             height: 100%;
             object-fit: contain;
             margin-inline-end: 1em;
+            transition: 0.7s ease;
+        }
+        img:hover{
+            transform: scale(1.09);
+
+
         }
 
         .game-info {
@@ -25,7 +33,8 @@
             display: flex;
             align-items: baseline;
             justify-content: space-between;
-
+            
+            
             .info {
                 display: flex;
                 flex-direction: column;
@@ -67,7 +76,6 @@
 
                 img {
                     padding: 0em;
-                    border-radius: 7px;
                     object-fit: cover;
                     width: 150px;
 
@@ -83,8 +91,6 @@
                 grid-template-columns: 1fr;
                 grid-template-rows: 1fr 1fr;
             }
-
-            .el-dropdown-link {}
 
             h3 {
                 font-size: 18px;

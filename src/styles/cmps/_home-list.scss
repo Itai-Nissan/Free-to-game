@@ -1,6 +1,13 @@
 .home-list {
 
-    // padding-inline-end: 15px;
+    h2 {
+        font-size: 28px;
+        text-shadow: 1px 1px 1px $backColor;
+        color: #aaaaaa;
+        margin-block-end: 0.5em;
+    }
+
+
     ul {
         :hover {
             transform: scale(1.01);
@@ -27,17 +34,13 @@
     .game-preview {
         max-width: 295px;
         max-height: 285px;
-        // box-shadow: $light-shadow;
         padding-block-end: 1em;
-
     }
 }
 
 @media screen and (max-width: 575px) {
     .home-list {
         min-width: 100%;
-        // max-height: 285px;
-        // box-shadow: $light-shadow;
         padding-block-end: 0em;
 
         ul {
@@ -47,12 +50,7 @@
             }
 
             display: grid;
-            // grid-template-columns: 1fr;
-            // grid-template-columns: repeat(auto-fill, minmax(230px,290px));
-            // grid-template-rows: auto;
             gap: 6px;
-            // justify-content: space-between;
-
         }
 
     }

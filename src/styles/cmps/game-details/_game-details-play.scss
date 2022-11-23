@@ -48,5 +48,14 @@
 }
 
 @media screen and (max-width: 575px) {
-    
+    .game-details-play {
+        position: relative;
+        top: 0vh;
+        z-index: 1;
+
+        .play-now-btn {
+            margin-block-start: 0.5em;
+            margin-block-end: 0.5em;
+        }    
+    }    
 }
