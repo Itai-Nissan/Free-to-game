@@ -1,6 +1,14 @@
-Free to game contains a big verity of free games.
+# FreeToGame Clone
 
-By using Free to game, you can find, add to list, and play the games.
+This is a clone of [FreeToGame](https://www.freetogame.com/), a gaming platform which contains a large verity of free games. 
 
-App was build using Vue 3 in vite.
-App is only frontend using 'FreeToGame' API.
+With this app you can:
+- Find free games to play
+- Add your favorite games to a list
+- Actuallly play the games...
+
+The app was build using [Vue 3](https://vuejs.org/) and [vite](https://github.com/vitejs/vite). It is a frontend app utilizing the `FreeToGame` API.
+
+## Running
+
+Make sure to first `npm install` then simply `npm run dev`.
