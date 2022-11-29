@@ -2,13 +2,13 @@
     <section class="details-long-text">
         <p>{{formatedText}}<span v-if="!isMore && longText">...</span>
         </p>
-        <span :style="readStyle" v-if="longText" @click="isMore=!isMore">{{readText}} </span>
+        <span v-if="longText" :style="readStyle" @click="isMore=!isMore">{{readText}} </span>
     </section>
 </template>
 
 <script>
 export default {
-    name: 'details-long-text',
+    name: 'DetailsLongText',
     props: {
         text: String
     },
@@ -18,11 +18,6 @@ export default {
             longText: this.text.length > 500,
         }
     },
-    created() {
-    },
-    mounted() {
-    },
-    methods: {},
     computed: {
         formatedText() {
             return this.isMore ? this.text : this.text.slice(0, 500)
@@ -37,5 +32,10 @@ export default {
             }
         },
     },
+    created() {
+    },
+    mounted() {
+    },
+    methods: {},
 }
 </script>

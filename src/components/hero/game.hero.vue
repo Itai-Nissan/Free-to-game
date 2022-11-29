@@ -2,7 +2,7 @@
     <section class="game-hero-list container">
         <div v-if="currPage === 'home'" class="home-hero">
             <h1>🤖 Personalized Recommendations</h1>
-            <RouterLink class="" style="color: lightblue" v-if="!loggedInUser" to="/login">Log in to view your
+            <RouterLink v-if="!loggedInUser" class="" style="color: lightblue" to="/login">Log in to view your
                 personalized recommendations!
             </RouterLink>
 
@@ -35,22 +35,16 @@
 import gameHeroPreview from './game.hero.preview.vue';
 
 export default {
-    name: 'game-hero',
-    props: {
-        games: Array,
-    },
+    name: 'GameHero',
     components: {
         gameHeroPreview,
+    },
+    props: {
+        games: Array,
     },
     data() {
         return {
         };
-    },
-    created() {
-    },
-    mounted() {
-    },
-    methods: {
     },
     computed: {
         loggedInUser() {
@@ -66,7 +60,13 @@ export default {
             return this.$route.name
         },
     },
+    created() {
+    },
+    mounted() {
+    },
     unmounted() { },
+    methods: {
+    },
 };
 </script>
   

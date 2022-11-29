@@ -21,15 +21,15 @@
 
 <script>
 export default {
-    name: 'join-more',
+    name: 'JoinMore',
     data() {
         return {
         }
     },
+    computed: {
+    },
     created() {
     },
     methods: {},
-    computed: {
-    },
 }
 </script>

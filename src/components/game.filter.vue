@@ -3,12 +3,12 @@
       <label>
          <el-input v-model="filterBy.name" placeholder="Search...." @input="setFilter" />
       </label>
-      <el-select theme="dark" @change="setFilter(this.filterBy.sortBy)" v-model="filterBy.lable" placeholder="All">
+      <el-select v-model="filterBy.lable" theme="dark" placeholder="All" @change="setFilter(filterBy.sortBy)">
          <el-option v-for="label in labels" :key="label" :label="label" :value="label">
          </el-option>
       </el-select>
       <label>
-         <el-select class="filter-select" @change="setFilter" v-model="filterBy.sortBy" placeholder="Sort By">
+         <el-select v-model="filterBy.sortBy" class="filter-select" placeholder="Sort By" @change="setFilter">
             <el-option value="nameDsc" label="a - z"></el-option>
             <el-option value="nameAsc" label="z - a"></el-option>
             <el-option value="release" label="Release date"></el-option>
@@ -84,6 +84,8 @@ export default {
          capLabels: [],
       }
    },
+   computed: {
+   },
    created() {
       this.filterBy.name = ''
 
@@ -107,8 +109,6 @@ export default {
       setSort() {
          this.$emit('sorted', this.sortBy);
       },
-   },
-   computed: {
    },
 }
 </script>

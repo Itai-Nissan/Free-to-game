@@ -1,7 +1,8 @@
 <template>
   <section class="game-list container">
     <div class="navigate-btn">
-      <el-pagination layout="prev, pager, next" :total=numberOfPages :page-count=numberOfPages
+      <el-pagination
+layout="prev, pager, next" :total=numberOfPages :page-count=numberOfPages
         @current-change="changePage" @prev-click="onPrevPage" @next-click="onNextPage" />
     </div>
     <section class="sorted-games">
@@ -19,19 +20,31 @@ import gamePreview from './game.preview.vue';
 import pagingNumbers from '../paging/paging.numbers.vue';
 
 export default {
-  name: 'gameList',
-  props: {
-    games: Array,
-  },
+  name: 'GameList',
   components: {
     gamePreview,
     pagingNumbers,
+  },
+  props: {
+    games: Array,
   },
   data() {
     return {
     }
   },
+  computed: {
+    currentPage() {
+      return this.$store.getters.currentPage + 1
+    },
+    numberOfPages() {
+      return Math.ceil(this.$store.getters.gamesLength / 24)
+    },
+    sortedGames() {
+      return this.$store.getters.games.sort()
+    },
+  },
   created() { },
+  unmounted() { },
   methods: {
     changePage(e) {
       this.$store.dispatch('changePage', e)
@@ -46,18 +59,6 @@ export default {
       this.$emit('remove', id);
     },
   },
-  computed: {
-    currentPage() {
-      return this.$store.getters.currentPage + 1
-    },
-    numberOfPages() {
-      return Math.ceil(this.$store.getters.gamesLength / 24)
-    },
-    sortedGames() {
-      return this.$store.getters.games.sort()
-    },
-  },
-  unmounted() { },
 };
 </script>
 

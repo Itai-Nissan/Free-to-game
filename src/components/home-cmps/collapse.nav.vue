@@ -13,11 +13,11 @@
                     </RouterLink>
                 </el-dropdown-item>
 
-                <el-dropdown-item class="" v-if="!loggedInUser">
+                <el-dropdown-item v-if="!loggedInUser" class="">
                     <RouterLink to="/login">Login</RouterLink>
                 </el-dropdown-item>
 
-                <el-dropdown-item class="login-btn" v-if="!loggedInUser">
+                <el-dropdown-item v-if="!loggedInUser" class="login-btn">
                     <RouterLink to="/signup">Join Free</RouterLink>
                 </el-dropdown-item>
 
@@ -37,7 +37,7 @@
   
 <script>
 export default {
-    name: "app-header",
+    name: "AppHeader",
     components: {
         // collapseNav,
     },
@@ -50,10 +50,16 @@ export default {
             },
         }
     },
+    computed: {
+        loggedInUser() {
+            return this.$store.getters.loggedInUser
+        },
+    },
     created() {
     },
     mounted() {
     },
+    unmounted() { },
     methods: {
         logout() {
             this.$store.dispatch({ type: "logout", userId: this.userId })
@@ -62,12 +68,6 @@ export default {
             showSuccessMsg(`${this.loggedInUser.username} logged out`)
         }
     },
-    computed: {
-        loggedInUser() {
-            return this.$store.getters.loggedInUser
-        },
-    },
-    unmounted() { },
 };
 </script>
 <style scoped>

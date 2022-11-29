@@ -1,12 +1,13 @@
 <template>
-    <button :class="{ 'current-page': page.page === page.currentPage }"
-        v-on:click="$emit('onChangePage', formatedNumbers)">{{page.currentPage}}</button>
+    <button
+:class="{ 'current-page': page.page === page.currentPage }"
+        @click="$emit('onChangePage', formatedNumbers)">{{page.currentPage}}</button>
         <!-- v-on:click="$emit('onChangePage', formatedNumbers)">{{formatedNumbers}}</button> -->
 </template>
 
 <script>
 export default {
-    name: 'paging-numbers',
+    name: 'PagingNumbers',
     props: {
         page: Object
     },
@@ -14,14 +15,14 @@ export default {
         return {
         }
     },
-    created() {
-    },
-    methods: {
-    },
     computed: {
         formatedNumbers() {
             return this.page.page
         },
+    },
+    created() {
+    },
+    methods: {
     },
 }
 </script>

@@ -7,11 +7,11 @@
       <form @submit.prevent="doSignup">
         <h2>Create My Account!</h2>
         <div class="signup-form-display">
-          <input type="text" v-model="signupCred.username" placeholder="Username" />
-          <input type="email" id="email" v-model="signupCred.email" placeholder="Email Adress" />
+          <input v-model="signupCred.username" type="text" placeholder="Username" />
+          <input id="email" v-model="signupCred.email" type="email" placeholder="Email Adress" />
           <div class="form-password">
-            <input type="password" id="pass" v-model="signupCred.password" placeholder="Password" />
-            <input type="password" id="pass" v-model="signupCred.confirm" placeholder="Confirm Password" />
+            <input id="pass" v-model="signupCred.password" type="password" placeholder="Password" />
+            <input id="pass" v-model="signupCred.confirm" type="password" placeholder="Confirm Password" />
           </div>
           <button class="create-btn">Create Account</button>
         </div>
@@ -29,7 +29,7 @@
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus-service.js'
 
 export default {
-  name: 'signup',
+  name: 'Signup',
   data() {
     return {
       msg: '',

@@ -18,20 +18,23 @@ import orderList from '../components/user-page/order.list.vue'
 import userPersonal from '../components/user-page/user.personal.vue'
 
 export default {
-    name: 'user-page',
-    data() {
-        return {
-        }
-    },
+    name: 'UserPage',
     components: {
         orderList,
         userPersonal,
     },
-    created() {
+    data() {
+        return {
+        }
     },
-    mounted() {
-    window.scrollTo(0, 0)
-  },
+    computed: {
+        user() {
+            return this.$store.getters.loggedInUser
+        },
+        userId() {
+            return this.$route.params._id
+        },
+    },
     watch: {
         userId: {
             handler() {
@@ -40,6 +43,11 @@ export default {
             immediate: true,
         },
     },
+    created() {
+    },
+    mounted() {
+    window.scrollTo(0, 0)
+  },
     methods: {
         // async onRemoveFromList(order) {
         //     let shouldRemove = confirm('Remove game from list?')
@@ -51,14 +59,6 @@ export default {
         //             })
         //     }
         // },
-    },
-    computed: {
-        user() {
-            return this.$store.getters.loggedInUser
-        },
-        userId() {
-            return this.$route.params._id
-        },
     },
 }
 </script>

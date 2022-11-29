@@ -8,8 +8,8 @@
       </div>
       <nav class="nav">
         <RouterLink to="/game">Free Games</RouterLink>
-        <RouterLink class="" v-if="!loggedInUser" to="/login">Log In</RouterLink>
-        <RouterLink class="login-btn" v-if="!loggedInUser" to="/signup">Join Free</RouterLink>
+        <RouterLink v-if="!loggedInUser" class="" to="/login">Log In</RouterLink>
+        <RouterLink v-if="!loggedInUser" class="login-btn" to="/signup">Join Free</RouterLink>
         <router-link v-if="loggedInUser" :to="`/user/${loggedInUser._id}`">{{ loggedInUser.username }}</router-link>
         <button v-if="loggedInUser" @click="logout">Logout</button>
       </nav>
@@ -22,7 +22,7 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus-service.js'
 import collapseNav from './home-cmps/collapse.nav.vue'
 export default {
 
-  name: "app-header",
+  name: "AppHeader",
   components: {
     collapseNav,
   },
@@ -35,10 +35,16 @@ export default {
       },
     }
   },
+  computed: {
+    loggedInUser() {
+      return this.$store.getters.loggedInUser
+    },
+  },
   created() {
   },
   mounted() {
   },
+  unmounted() { },
   methods: {
     logout() {
       this.$store.dispatch({ type: "logout", userId: this.userId })
@@ -47,12 +53,6 @@ export default {
       showSuccessMsg(`${this.loggedInUser.username} logged out`)
     }
   },
-  computed: {
-    loggedInUser() {
-      return this.$store.getters.loggedInUser
-    },
-  },
-  unmounted() { },
 };
 </script>
   

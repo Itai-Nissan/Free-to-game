@@ -27,7 +27,7 @@
 </template>
 <script>
 export default {
-    name: "app-footer",
+    name: "AppFooter",
     components: {},
     data() {
         return {
@@ -44,14 +44,14 @@ export default {
             ]
         }
     },
+    computed: {},
     created() {
 
     },
     mounted() {
     },
-    methods: {},
-    computed: {},
     unmounted() { },
+    methods: {},
 };
 </script>
     

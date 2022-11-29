@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    name: 'long-text-header',
+    name: 'LongTextHeader',
     props: {
         text: String
     },
@@ -18,9 +18,6 @@ export default {
             longText: this.text.length > 16,
         }
     },
-    created() {
-    },
-    methods: {},
     computed: {
         formatedText() {
             return this.isMore ? this.text : this.text.slice(0, 16)
@@ -36,5 +33,8 @@ export default {
             }
         },
     },
+    created() {
+    },
+    methods: {},
 }
 </script>

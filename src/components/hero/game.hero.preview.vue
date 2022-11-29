@@ -1,7 +1,7 @@
 <template>
     <section class="hero-preview-card">
         <RouterLink class="to-game-details" :to="`/game-details/${game.id}`">
-                <img v-bind:src="game.thumbnail" alt="">
+                <img :src="game.thumbnail" alt="">
                 <div class="game-hero-free">FREE</div>
         </RouterLink>
     </section>
@@ -10,21 +10,21 @@
 <script>
 export default {
     name: 'GameHeroPreview',
+    components: {},
     props: {
         game: {
             type: Object,
             required: true,
         },
     },
-    components: {},
     data() {
         return {
         };
     },
+    computed: {},
     created() {
     },
-    methods: {},
-    computed: {},
     unmounted() { },
+    methods: {},
 };
 </script>

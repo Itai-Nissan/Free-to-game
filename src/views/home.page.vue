@@ -2,8 +2,8 @@
   <main class="homepage-container container">
     <game-hero :games="games" />
     <section class="home-list container">
-      <h2 v-if="!this.user">Recently added games</h2>
-      <h2 v-if="this.user">Recently added {{ this.user.personal }} games</h2>
+      <h2 v-if="!user">Recently added games</h2>
+      <h2 v-if="user">Recently added {{ user.personal }} games</h2>
       <ul v-if="recentGames" class="clean-list">
         <li v-for="game in recentGames" :key="game._id">
           <home-game-preview sign="$" :game="game" />
@@ -22,8 +22,13 @@ import { userService } from '../services/user.service'
 
 
 export default {
-  name: 'home-page',
+  name: 'HomePage',
   cerated() {
+  },
+  components: {
+    gameHero,
+    homeGamePreview,
+    joinMore,
   },
   data() {
     return {
@@ -32,6 +37,15 @@ export default {
         sortBy: 'release',
       },
     }
+
+  },
+  computed: {
+    games() {
+      return this.$store.getters.games
+    },
+    recentGames() {
+      return this.$store.getters.games.slice(0, 7)
+    },
 
   },
   created() {
@@ -45,11 +59,6 @@ export default {
   mounted() {
     this.setFilter(this.filterBy)
   },
-  components: {
-    gameHero,
-    homeGamePreview,
-    joinMore,
-  },
   methods: {
     setFilter(filterBy) {
       const copyFilter = JSON.parse(JSON.stringify(filterBy))
@@ -58,15 +67,6 @@ export default {
         filterBy: copyFilter,
       });
     },
-  },
-  computed: {
-    games() {
-      return this.$store.getters.games
-    },
-    recentGames() {
-      return this.$store.getters.games.slice(0, 7)
-    },
-
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <RouterLink class="" :to="`/game-details/${game.id}`">
     <section class="home-game-preview container">
-      <img v-bind:src="game.thumbnail" alt="">
+      <img :src="game.thumbnail" alt="">
       <div class="game-info">
         <h3>{{game.title}}</h3>
         <h5>{{game.short_description}}</h5>
@@ -20,6 +20,10 @@ import longTextHeader from '../long-text/long.text.header.vue'
 
 export default {
   name: 'GamePreview',
+  components: {
+    longText,
+    longTextHeader,
+  },
   props: {
     game: {
       type: Object,
@@ -27,18 +31,14 @@ export default {
       default: 12,
     },
   },
-  components: {
-    longText,
-    longTextHeader,
-  },
   data() {
     return {
     };
   },
+  computed: {},
   created() {
   },
-  methods: {},
-  computed: {},
   unmounted() { },
+  methods: {},
 };
 </script>

@@ -1,8 +1,8 @@
 <template>
     <section class="order-list">
-        <section class="list-card" v-for="order, idx in user.orders">
+        <section v-for="order, idx in user.orders" class="list-card">
             <RouterLink class="preview-container" :to="`/game-details/${order.id}`">
-                <img title="Game details" v-bind:src="order.thumbnail" alt="">
+                <img title="Game details" :src="order.thumbnail" alt="">
             </RouterLink>
             <div class="game-info">
                 <div class="info">
@@ -19,7 +19,7 @@
                         <el-dropdown-menu>
                             <el-dropdown-item> <a class="" :href="order.game_url">Play now</a>
                             </el-dropdown-item>
-                            <el-dropdown-item v-on:click="onRemoveFromList(order)">
+                            <el-dropdown-item @click="onRemoveFromList(order)">
                                 <el-icon class="el-icon--right">
                                     <Delete />
                                 </el-icon>
@@ -37,10 +37,18 @@
 import { showErrorMsg, showSuccessMsg } from '../../services/event-bus-service'
 
 export default {
-    name: 'order-list',
+    name: 'OrderList',
     data() {
         return {
         }
+    },
+    computed: {
+        user() {
+            return this.$store.getters.loggedInUser
+        },
+        userId() {
+            return this.$route.params._id
+        },
     },
     created() {
     },
@@ -56,14 +64,6 @@ export default {
                         showSuccessMsg(`${order.title} removed from your list`)
                     })
             }
-        },
-    },
-    computed: {
-        user() {
-            return this.$store.getters.loggedInUser
-        },
-        userId() {
-            return this.$route.params._id
         },
     },
 }

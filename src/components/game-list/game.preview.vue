@@ -1,7 +1,7 @@
 <template>
   <section class="game-preview">
     <RouterLink title="Game details" class="preview-container" :to="`/game-details/${game.id}`">
-      <img v-bind:src="game.thumbnail" alt="">
+      <img :src="game.thumbnail" alt="">
       <div class="game-info">
         <long-text-header :text="game.title"></long-text-header>
         <long-text :text="game.short_description"></long-text>
@@ -30,21 +30,27 @@ import { showErrorMsg, showSuccessMsg } from '../../services/event-bus-service'
 
 export default {
   name: 'GamePreview',
+  components: {
+    longText,
+    longTextHeader,
+  },
   props: {
     game: {
       type: Object,
     },
   },
-  components: {
-    longText,
-    longTextHeader,
-  },
   data() {
     return {
     }
   },
+  computed: {
+    user() {
+      return this.$store.getters.loggedInUser
+    },
+  },
   created() {
   },
+  unmounted() { },
   methods: {
     onAddToList() {
       if (!this.user) {
@@ -57,11 +63,5 @@ export default {
       }
     },
   },
-  computed: {
-    user() {
-      return this.$store.getters.loggedInUser
-    },
-  },
-  unmounted() { },
 };
 </script>

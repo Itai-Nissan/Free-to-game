@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: 'long-text',
+    name: 'LongText',
     props: {
         text: String
     },
@@ -16,9 +16,6 @@ export default {
             longText: this.text.length > 29,
         }
     },
-    created() {
-    },
-    methods: {},
     computed: {
         formatedText() {
             return this.isMore ? this.text : this.text.slice(0, 29)
@@ -34,5 +31,8 @@ export default {
             }
         },
     },
+    created() {
+    },
+    methods: {},
 }
 </script>

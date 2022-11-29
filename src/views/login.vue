@@ -7,8 +7,8 @@
       <img src="../assets/img/logo-footer.png" alt="">
       <h2>Log in to FreeToGame</h2>
       <form class="login-form-display" @submit.prevent="doLogin">
-        <input type="text" v-model="loginCred.username" placeholder="User name" />
-        <input type="password" id="pass" v-model="loginCred.password" placeholder="Password" />
+        <input v-model="loginCred.username" type="text" placeholder="User name" />
+        <input id="pass" v-model="loginCred.password" type="password" placeholder="Password" />
         <button class="create-btn">Login</button>
       </form>
       <div class="to-signup">
@@ -25,7 +25,9 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus-service.js'
 // import {socketService} from '../services/socket.service'
 
 export default {
-  name: 'login-signup',
+  name: 'LoginSignup',
+  components: {
+  },
   data() {
     return {
       msg: '',
@@ -35,8 +37,6 @@ export default {
       },
 
     }
-  },
-  components: {
   },
   computed: {
     loggedInUser() {

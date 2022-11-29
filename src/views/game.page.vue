@@ -11,11 +11,16 @@ import gameList from "../components/game-list/game.list.vue";
 import gameFilter from "../components/game.filter.vue";
 import gameHero from "../components/hero/game.hero.vue";
 export default {
-  name: 'game-page',
+  name: 'GamePage',
   components: {
     gameList,
     gameFilter,
     gameHero
+  },
+  computed: {
+    games() {
+      return this.$store.getters.games
+    },
   },
   created() {
 
@@ -31,11 +36,6 @@ export default {
         type: "setStateFilter",
         filterBy: copyFilter,
       });
-    },
-  },
-  computed: {
-    games() {
-      return this.$store.getters.games
     },
   }
 }

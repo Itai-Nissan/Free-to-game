@@ -53,13 +53,13 @@
             <hr>
             <div class="images">
                 <a :href="game.screenshots[0].image">
-                    <img v-bind:src="game.screenshots[0].image" alt="">
+                    <img :src="game.screenshots[0].image" alt="">
                 </a>
                 <a :href="game.screenshots[1].image">
-                    <img v-bind:src="game.screenshots[1].image" alt="">
+                    <img :src="game.screenshots[1].image" alt="">
                 </a>
                 <a :href="game.screenshots[2].image">
-                    <img v-bind:src="game.screenshots[2].image" alt="">
+                    <img :src="game.screenshots[2].image" alt="">
                 </a>
             </div>
         </section>
@@ -93,12 +93,12 @@
 import detailsLongText from './details.long.text.vue'
 
 export default {
-    name: 'game-details-info',
-    props: {
-        game: Object
-    },
+    name: 'GameDetailsInfo',
     components: {
         detailsLongText,
+    },
+    props: {
+        game: Object
     },
     data() {
         return {
