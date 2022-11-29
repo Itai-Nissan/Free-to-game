@@ -5,6 +5,7 @@ This is a clone of [FreeToGame](https://www.freetogame.com/), a gaming platform 
 With this app you can:
 - Find free games to play
 - Add your favorite games to a list
+- Personalize game offers
 - Actuallly play the games...
 
 The app was build using [Vue 3](https://vuejs.org/) and [vite](https://github.com/vitejs/vite). It is a frontend app utilizing the `FreeToGame` API.
