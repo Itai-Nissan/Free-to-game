@@ -17,13 +17,11 @@ layout="prev, pager, next" :total=numberOfPages :page-count=numberOfPages
 
 <script>
 import gamePreview from './game.preview.vue';
-import pagingNumbers from '../paging/paging.numbers.vue';
 
 export default {
   name: 'GameList',
   components: {
     gamePreview,
-    pagingNumbers,
   },
   props: {
     games: Array,

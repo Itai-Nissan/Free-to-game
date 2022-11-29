@@ -2,7 +2,7 @@
     <section class="app-footer">
         <div class="footer-contain container">
             <div class="footer-links">
-                <ul v-for="link in links" class="">
+                <ul v-for="link in links" :key=link class="">
                     <a href="footer-link">{{link}}</a>
                 </ul>
             </div>

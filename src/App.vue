@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import { RouterView } from 'vue-router'
 import appHeader from './components/app.header.vue'
 import appFooter from './components/app.footer.vue'
 import userMsg from './components/user.msg.vue';

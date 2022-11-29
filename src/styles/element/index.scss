@@ -1,7 +1,12 @@
+:root{
+    --el-text-color-regular: #f5f3f3;
+}
+
 // DROPDOWN MENU
 .el-dropdown-menu {
     background-color: $footer-backColor;
     border-radius: 0px;
+    
 }
 
 .el-dropdown-menu__item:not(.is-disabled):focus {
@@ -14,10 +19,11 @@
     box-shadow: none;
 }
 
-.el-icon--right{
+.el-icon--right {
     color: $fontColor1;
 }
-.el-icon--right:hover{
+
+.el-icon--right:hover {
     color: $clr4;
 }
 
@@ -48,9 +54,10 @@
 }
 
 //PAGING
-.el-pagination button:enabled:hover{
+.el-pagination button:enabled:hover {
     background-color: $cta;
 }
+
 .el-pagination button:disabled {
     border-radius: 3px;
     background-color: $backColor2;
@@ -64,10 +71,11 @@
 }
 
 .el-pager {
-    li:hover{
-        
+    li:hover {
+
         color: $cta2;
     }
+
     li.is-active {
         color: $cta;
     }

@@ -18,7 +18,7 @@
   </section>
 </template>
 <script>
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus-service.js'
+import { showSuccessMsg } from '../services/event-bus-service.js'
 import collapseNav from './home-cmps/collapse.nav.vue'
 export default {
 
