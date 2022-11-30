@@ -17,7 +17,7 @@
                     </span>
                     <template #dropdown>
                         <el-dropdown-menu>
-                            <el-dropdown-item> <a class="" :href="order.game_url">Play now</a>
+                            <el-dropdown-item> <a class="" :href="order.game_url" target="_blank">Play now</a>
                             </el-dropdown-item>
                             <el-dropdown-item @click="onRemoveFromList(order)">
                                 <el-icon class="el-icon--right">

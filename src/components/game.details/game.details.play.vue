@@ -3,15 +3,8 @@
     <img :src="game.thumbnail" alt="">
     <div class="play-now-btn">
       <button class="btn-basic-4" @click="onAddToList">Add to list</button>
-      <!-- <button class="btn-basic-4">FREE</button> -->
-      <a class="btn-basic" :href="game.game_url">PLAY NOW</a>
+      <a class="btn-basic" :href="game.game_url" target="_blank">PLAY NOW</a>
     </div>
-    <!-- <div class="play-rate">
-      <button></button>
-      <button></button>
-      <button></button>
-      <button></button>
-    </div> -->
   </section>
   <div v-else class="loading"></div>
 </template>
