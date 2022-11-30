@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as o,a}from"./index.1b12b7db.js";const s={name:"AboutPage"},_={class:"about container"},n=a("h1",null,"This is an about page",-1),c=[n];function r(i,p,u,d,l,f){return t(),o("div",_,c)}const b=e(s,[["render",r]]);export{b as default};
