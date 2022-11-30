@@ -1,0 +1,1 @@
+import{_ as e,o,c as n,a as s}from"./index.b52e35b1.js";const t={name:"LearnMore"},a={class:"learn-more container"},_=s("h1",null,"This is an about page",-1),r=[_];function c(i,l,d,p,m,u){return o(),n("div",a,r)}const h=e(t,[["render",c]]);export{h as default};
