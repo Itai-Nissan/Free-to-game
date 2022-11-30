@@ -7,7 +7,6 @@
         <h5>{{game.short_description}}</h5>
         <div class="game-footer">
           <h5 class="genre">{{game.genre}}</h5>
-          <!-- <h5 class="genre">{{game.release_date}}</h5> -->
         </div>
       </div>
     </section>
@@ -15,20 +14,15 @@
 </template>
 
 <script>
-import longText from '../long-text/long.text.vue'
-import longTextHeader from '../long-text/long.text.header.vue'
-
 export default {
   name: 'GamePreview',
   components: {
-    longText,
-    longTextHeader,
   },
   props: {
     game: {
       type: Object,
       required: true,
-      default: 12,
+      // default: 12,
     },
   },
   data() {

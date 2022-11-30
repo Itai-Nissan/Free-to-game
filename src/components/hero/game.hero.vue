@@ -40,11 +40,14 @@ export default {
         gameHeroPreview,
     },
     props: {
-        games: Array,
+        games: {
+            type: Array,
+            required: true
+        }
     },
     data() {
         return {
-        };
+        }
     },
     computed: {
         loggedInUser() {
@@ -54,7 +57,7 @@ export default {
             return this.$store.getters.gamesLength
         },
         sliceGames() {
-            return this.games.reverse().slice(0, 3)
+            return this.games.slice(this.games.length - 3, this.games.length).reverse()
         },
         currPage() {
             return this.$route.name

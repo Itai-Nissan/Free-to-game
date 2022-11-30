@@ -1,7 +1,7 @@
 <template>
    <section class="game-filter container">
       <label>
-         <el-input v-model="filterBy.name" placeholder="Search...." @input="setFilter" />
+         <el-input ref="input" v-model="filterBy.name" placeholder="Search...." @input="setFilter" />
       </label>
       <el-select v-model="filterBy.lable" theme="dark" placeholder="All" @change="setFilter(filterBy.sortBy)">
          <el-option v-for="label in labels" :key="label" :label="label" :value="label">
@@ -18,13 +18,10 @@
 </template>
  
 <script>
-import { ref } from 'vue';
-
 export default {
    name: 'GameFilter',
    components: {
    },
-
    data() {
       return {
          filterBy: {
@@ -88,12 +85,13 @@ export default {
    },
    created() {
       this.filterBy.name = ''
-
    },
    mounted() {
       this.setFilter()
       this.sortedLabels()
+      this.$refs.input.focus()
    },
+   emits: ['set-filter', 'sorted'],
    methods: {
       sortedLabels() {
          return this.labels.sort().forEach((label) => {
@@ -103,7 +101,7 @@ export default {
             )
          })
       },
-      setFilter(filter) {
+      setFilter() {
          this.$emit('set-filter', this.filterBy)
       },
       setSort() {

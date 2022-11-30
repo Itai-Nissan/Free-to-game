@@ -1,7 +1,8 @@
 <template>
   <section class="game-list container">
     <div class="navigate-btn">
-      <el-pagination layout="prev, pager, next" :total=numberOfPages :page-count=numberOfPages
+      <el-pagination
+layout="prev, pager, next" :total=numberOfPages :page-count=numberOfPages
         @current-change="changePage" @prev-click="onPrevPage" @next-click="onNextPage" />
     </div>
     <section class="sorted-games">

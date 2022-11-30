@@ -24,7 +24,6 @@
                 <el-dropdown-item v-if="loggedInUser">
                     <router-link :to="`/user/${loggedInUser._id}`">
                         <el-icon><Setting /></el-icon>
-                    <!-- <router-link :to="`/user/${loggedInUser._id}`">{{ loggedInUser.username }} -->
                     </router-link>
                 </el-dropdown-item>
 
@@ -36,10 +35,11 @@
 </template>
   
 <script>
+import { showSuccessMsg } from '../services/event-bus-service.js'
+
 export default {
     name: "AppHeader",
     components: {
-        // collapseNav,
     },
     data() {
         return {

@@ -24,7 +24,10 @@ export default {
   components: {
   },
   props: {
-    game: Object
+    game: {
+      type: Object,
+      required: true
+    }
   },
   data() {
     return {
