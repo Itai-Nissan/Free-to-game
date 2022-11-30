@@ -1,5 +1,5 @@
 <template>
-    <p>{{formatedText}}<span v-if="!isMore && longText">...</span>
+    <p>{{ formatedText }}<span v-if="!isMore && longText">...</span>
     </p>
 
 </template>
@@ -8,7 +8,10 @@
 export default {
     name: 'LongText',
     props: {
-        text: String
+        text: {
+            type: String,
+            required: true
+        }
     },
     data() {
         return {

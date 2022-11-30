@@ -37,6 +37,7 @@ export default {
   props: {
     game: {
       type: Object,
+      required:true
     },
   },
   data() {

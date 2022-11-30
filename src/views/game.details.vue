@@ -16,7 +16,7 @@ import gameDetailsInfo from '../components/game.details/game.details.info.vue';
 import gameDetailsPlay from '../components/game.details/game.details.play.vue';
 
 export default {
-  name: 'game-details',
+  name: 'GameDetails',
   components: {
     gameDetailsInfo,
     gameDetailsPlay,

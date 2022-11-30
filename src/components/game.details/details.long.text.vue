@@ -1,8 +1,8 @@
 <template>
     <section class="details-long-text">
-        <p>{{formatedText}}<span v-if="!isMore && longText">...</span>
+        <p>{{ formatedText }}<span v-if="!isMore && longText">...</span>
         </p>
-        <span v-if="longText" :style="readStyle" @click="isMore=!isMore">{{readText}} </span>
+        <span v-if="longText" :style="readStyle" @click="isMore = !isMore">{{ readText }} </span>
     </section>
 </template>
 
@@ -10,7 +10,10 @@
 export default {
     name: 'DetailsLongText',
     props: {
-        text: String
+        text: {
+            type: String,
+            required: true
+        }
     },
     data() {
         return {

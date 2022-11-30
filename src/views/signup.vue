@@ -29,7 +29,7 @@
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus-service.js'
 
 export default {
-  name: 'signup-page',
+  name: 'SignupPage',
   data() {
     return {
       msg: '',

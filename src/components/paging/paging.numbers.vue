@@ -1,16 +1,17 @@
 <template>
-    <button
-:class="{ 'current-page': page.page === page.currentPage }"
-        @click="$emit('onChangePage', formatedNumbers)">{{page.currentPage}}</button>
-        <!-- v-on:click="$emit('onChangePage', formatedNumbers)">{{formatedNumbers}}</button> -->
+    <button :class="{ 'current-page': page.page === page.currentPage }" @click="$emit('onChangePage', formatedNumbers)">{{ page.currentPage }}</button>
 </template>
 
 <script>
 export default {
     name: 'PagingNumbers',
     props: {
-        page: Object
+        page: {
+            type: Object,
+            required: true
+        }
     },
+    emits: ['onChangePage'],
     data() {
         return {
         }

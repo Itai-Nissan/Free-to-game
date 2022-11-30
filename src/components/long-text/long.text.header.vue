@@ -1,16 +1,16 @@
 <template>
-    <h2>{{formatedText}}<span v-if="!isMore && longText">...</span>
-
-        <!-- <span :style="readStyle" v-if="longText" @click="isMore=!isMore">{{readText}} </span> -->
+    <h2>{{ formatedText }}<span v-if="!isMore && longText">...</span>
     </h2>
-
 </template>
 
 <script>
 export default {
     name: 'LongTextHeader',
     props: {
-        text: String
+        text: {
+            type: String,
+            required: true
+        }
     },
     data() {
         return {

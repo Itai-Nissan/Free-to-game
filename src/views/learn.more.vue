@@ -6,7 +6,7 @@
 
 <script>
 export default{
-  name:'learn-more',
+  name:'LearnMore',
 }
 </script>
 

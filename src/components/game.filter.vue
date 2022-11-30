@@ -22,6 +22,7 @@ export default {
    name: 'GameFilter',
    components: {
    },
+   emits: ['set-filter', 'sorted'],
    data() {
       return {
          filterBy: {
@@ -91,7 +92,6 @@ export default {
       this.sortedLabels()
       this.$refs.input.focus()
    },
-   emits: ['set-filter', 'sorted'],
    methods: {
       sortedLabels() {
          return this.labels.sort().forEach((label) => {
