@@ -34,7 +34,7 @@
   
 
 <script>
-import { showErrorMsg, showSuccessMsg } from '../../services/event-bus-service'
+import { showSuccessMsg } from '../../services/event-bus-service'
 
 export default {
     name: 'OrderList',

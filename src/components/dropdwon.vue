@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <el-select v-model="value" class="m-2" placeholder="Select" size="large">
       <el-option
         v-for="item in options"
@@ -37,4 +37,4 @@
     },
   ]
   </script>
-  
+   -->

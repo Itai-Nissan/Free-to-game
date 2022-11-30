@@ -67,7 +67,7 @@
             <h1>System requirements</h1>
             <hr>
             <div class="system-req">
-                <div v-for="(gameReq, idx) in game.minimum_system_requirements">
+                <div v-for="(gameReq, idx) in game.minimum_system_requirements" :key="gameReq">
                     <div class="additional-table">
                         <div class="table-text">
                             <span>{{ idx }}</span>
@@ -98,7 +98,10 @@ export default {
         detailsLongText,
     },
     props: {
-        game: Object
+        game: {
+            type: Object,
+            required: true,
+        }
     },
     data() {
         return {
