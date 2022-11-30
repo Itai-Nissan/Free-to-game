@@ -17,8 +17,7 @@ v-for="label in labels" :key="label" class="infinite-list-item"
   
 
 <script>
-import { showErrorMsg, showSuccessMsg } from '../../services/event-bus-service'
-import { ref } from 'vue'
+import { showSuccessMsg } from '../../services/event-bus-service'
 
 export default {
     name: 'OrderList',

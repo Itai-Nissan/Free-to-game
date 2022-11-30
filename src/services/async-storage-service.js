@@ -160,17 +160,13 @@ async function gameByCategory(category) {
     .then(function (response) {
       games = response.data
     }).catch(function (error) {
-      console.error(error);
+      console.error(error)
     })
   return games
 }
 
 function get(entityType, entityId) {
-  entityId = entityId
   return gameById(entityType, entityId)
-  // return gameById(entityType, entityId).then((entities) =>
-  //   entities.find((entity) => entity.id === entityId)
-  // )
 }
 
 function post(entityType, newEntity) {

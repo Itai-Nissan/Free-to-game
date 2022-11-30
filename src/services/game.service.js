@@ -1,9 +1,4 @@
 import { storageService } from './async-storage-service.js';
-// import { storageService } from './storage-service.js'
-import axios from 'axios';
-
-
-import { utilService } from './util-service.js';
 
 const KEY = 'gamesDB';
 
@@ -12,7 +7,7 @@ export default {
   getById,
   remove,
   save,
-};
+}
 
 function query(filterBy, pageIdx) {
   return storageService.query(KEY, filterBy, pageIdx);
@@ -31,24 +26,4 @@ function save(game) {
     ? storageService.put(KEY, game)
     : storageService.post(KEY, game);
   return savedGame;
-}
-
-function _add(game) {
-  return storageService.post(KEY, game);
-}
-
-function _update(game) {
-  return storageService.put(KEY, game);
-}
-
-function _createGame(name, price, labels, reviews) {
-  return {
-    _id: utilService.makeId(),
-    name,
-    price,
-    labels,
-    inStock: true,
-    createdAt: new Date(Date.now()).toLocaleString(),
-    reviews: reviews,
-  };
 }

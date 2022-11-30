@@ -9,6 +9,7 @@
 import { eventBus, SHOW_MSG } from "../services/event-bus-service"
 
 export default {
+  name:'user-msg',
   data() {
     return {
       alive: false,

@@ -8,7 +8,7 @@ export const storageService = {
     remove,
 }
 
-function query(entityType) {
+function query() {
     var entities = users || []
     return Promise.resolve(entities)
 }

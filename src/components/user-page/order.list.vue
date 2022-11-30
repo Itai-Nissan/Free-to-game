@@ -1,6 +1,6 @@
 <template>
     <section class="order-list">
-        <section v-for="order, idx in user.orders" class="list-card">
+        <section v-for="order in user.orders" :key="order" class="list-card">
             <RouterLink class="preview-container" :to="`/game-details/${order.id}`">
                 <img title="Game details" :src="order.thumbnail" alt="">
             </RouterLink>
@@ -59,8 +59,8 @@ export default {
             let shouldRemove = confirm('Remove game from list?')
             if (!shouldRemove) return
             else {
-                const u = await this.$store.dispatch({ type: "removeFromList", order, })
-                    .then((u) => {
+                await this.$store.dispatch({ type: "removeFromList", order, })
+                    .then(() => {
                         showSuccessMsg(`${order.title} removed from your list`)
                     })
             }
