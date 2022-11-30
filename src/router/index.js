@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import homePage from '../views/home.page.vue'
 import gamePage from '../views/game.page.vue'
 import gameDetails from '../views/game.details.vue'
@@ -8,7 +8,7 @@ import userPage from '../views/user.page.vue'
 
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
