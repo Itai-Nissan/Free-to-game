@@ -16,6 +16,7 @@ import gameDetailsInfo from '../components/game.details/game.details.info.vue';
 import gameDetailsPlay from '../components/game.details/game.details.play.vue';
 
 export default {
+  name: 'game-details',
   components: {
     gameDetailsInfo,
     gameDetailsPlay,
@@ -35,7 +36,6 @@ export default {
       .then((game) => {
         this.game = game;
       })
-    // .catch(() => showMsg(`Cannot get game`, 'danger'));
   },
   mounted() {
     window.scrollTo(0, 0)
@@ -45,22 +45,14 @@ export default {
       this.$store
         .dispatch({
           type: 'getGameById',
-          gameId: +id,
+          gameId: + this.id,
         })
         .then((game) => {
           this.game = game;
         })
-
     },
-
   },
-  // watch: {
-  //   '$route.params.id'(id) {
-  //     console.log('Changed to', id);
-  //     this.loadgame();
-  //   },
-  // },
-};
+}
 </script>
   
   

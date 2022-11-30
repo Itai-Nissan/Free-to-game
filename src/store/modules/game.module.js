@@ -49,7 +49,7 @@ export default {
     },
   },
   actions: {
-    loadGames(context, state) {
+    loadGames(context) {
       let filterBy = { ...context.state.filterBy }
       let pageIdx = { ...context.state }
       let currPage = pageIdx.pageIdx

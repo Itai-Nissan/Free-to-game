@@ -1,8 +1,14 @@
 <template>
-  <div class="lear-more container">
+  <div class="learn-more container">
     <h1>This is an about page</h1>
   </div>
 </template>
+
+<script>
+export default{
+  name:'learn-more',
+}
+</script>
 
 <style>
 @media (min-width: 1024px) {

@@ -35,7 +35,7 @@
 </template>
   
 <script>
-import { showSuccessMsg } from '../services/event-bus-service.js'
+import { showSuccessMsg } from '../../services/event-bus-service.js'
 
 export default {
     name: "AppHeader",

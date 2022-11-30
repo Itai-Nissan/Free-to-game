@@ -41,7 +41,7 @@ export default {
       return Math.ceil(this.$store.getters.gamesLength / 24)
     },
     sortedGames() {
-      return this.$store.getters.games.sort()
+      return this.$store.getters.games.slice().sort()
     },
   },
   created() { },

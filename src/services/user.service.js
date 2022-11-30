@@ -1,10 +1,5 @@
 import { storageService } from './user.async.storage.service'
-// import { userServiceServer } from '../../services/user.service'
-// import { httpService } from './http.service'
-// import { socketService, SOCKET_EVENT_USER_UPDATED } from './socket.service'
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedInUser'
-var gWatchedUser = null
-import axios from 'axios'
 
 export const userService = {
     login,
@@ -17,18 +12,12 @@ export const userService = {
     update,
 }
 
-async function getById(userId) {
+async function getById() {
     return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) || 'null'
 }
 
-// function remove(userId) {
-//     return storageService.remove('user', userId)
-//     // return httpService.delete(`user/${userId}`)
-// }
-
 async function update(user) {
     await storageService.put(STORAGE_KEY_LOGGEDIN_USER, user)
-    // if (getLoggedInUser()._id === user._id) _saveLocalUser(user)
     return user
 }
 
@@ -37,10 +26,9 @@ async function login(userCred) {
     const user = users.find(user => user.username === userCred.username && user.password === userCred.password)
     if (!user) return
     return storageService.put(STORAGE_KEY_LOGGEDIN_USER, user)
-    // socketService.emit('set-user-socket', user._id)
 }
 
-async function signup({username, email, password}) {
+async function signup({username, email}) {
     console.log(username)
     const user = {
         username,
@@ -48,19 +36,11 @@ async function signup({username, email, password}) {
         orders: [],
         personal: 'All',
     }
-    // socketService.emit('set-user-socket', user._id)
     return storageService.put(STORAGE_KEY_LOGGEDIN_USER, user)
 }
 async function logout() {
     localStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
-    // socketService.emit('unset-user-socket')
     return
-}
-
-function _saveLocalUser(user) {
-    console.log(user);
-    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
-    return user
 }
 
 function getLoggedInUser() {
